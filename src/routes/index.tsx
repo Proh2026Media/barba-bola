@@ -30,6 +30,7 @@ const services = [
   { name: "Corte + Barba", time: "1h 15", price: "R$ 95" },
   { name: "Pigmentação", time: "1h", price: "R$ 120" },
   { name: "Combo Premium", time: "1h 30", price: "R$ 150" },
+  { name: "Barboterapia", time: "30 min", price: "R$ 45" },
 ];
 
 const matches = [
@@ -39,6 +40,7 @@ const matches = [
   { league: "Champions League", home: "PSG", away: "Bayern", scoreH: 0, scoreA: 0, status: "21:00", min: "Hoje", flag: "🏆" },
   { league: "NBA Finals", home: "Celtics", away: "Lakers", scoreH: 108, scoreA: 102, status: "ENC", min: "FT", flag: "🏀" },
   { league: "Copa Libertadores", home: "Palmeiras", away: "River Plate", scoreH: 1, scoreA: 0, status: "INT", min: "45'", flag: "🏆" },
+  { league: "Paulistão", home: "Santos", away: "Corinthians", scoreH: 0, scoreA: 0, status: "Hoje", min: "20:00", flag: "🇧🇷" },
 ];
 
 const editorialNews = [
@@ -335,7 +337,7 @@ function Index() {
               <div className="rounded-2xl border border-gold/50 bg-gold/5 p-8 text-center">
                 <h3 className="display text-3xl mb-4 text-gold">Painel do Barbeiro</h3>
                 <p className="text-muted-foreground mb-8">Gerencie sua fila e agendamentos em tempo real.</p>
-                <div className="grid gap-4 md:grid-cols-3">
+                <div className="grid gap-4 md:grid-cols-4">
                   <div className="bg-card p-4 rounded-xl border border-border">
                     <div className="text-2xl font-bold">12</div>
                     <div className="text-xs uppercase text-muted-foreground">Cortes Hoje</div>
@@ -348,24 +350,49 @@ function Index() {
                     <div className="text-2xl font-bold text-destructive">2</div>
                     <div className="text-xs uppercase text-muted-foreground">Cancelamentos</div>
                   </div>
+                  <div className="bg-card p-4 rounded-xl border border-border">
+                    <div className="text-2xl font-bold text-primary">8</div>
+                    <div className="text-xs uppercase text-muted-foreground">Novos Leads</div>
+                  </div>
                 </div>
               </div>
               
-              <div className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="display text-xl">Simulador de Eventos</h3>
-                  <Sparkles className="text-gold h-5 w-5" />
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="display text-xl">Simulador de Eventos</h3>
+                    <Sparkles className="text-gold h-5 w-5" />
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <button className="px-4 py-2 bg-destructive/20 text-destructive border border-destructive/30 rounded-lg text-xs font-bold hover:bg-destructive/30 transition" onClick={() => alert("GOOOL! Notificação enviada para clientes que torcem para o Flamengo.")}>
+                      ⚽ Simular Gol (Flamengo)
+                    </button>
+                    <button className="px-4 py-2 bg-white/5 text-foreground border border-border rounded-lg text-xs font-bold hover:bg-white/10 transition" onClick={() => alert("GOOOL! Notificação enviada para clientes que torcem para o Real Madrid.")}>
+                      ⚽ Simular Gol (Real Madrid)
+                    </button>
+                    <button className="px-4 py-2 bg-gold/20 text-gold border border-gold/30 rounded-lg text-xs font-bold hover:bg-gold/30 transition" onClick={() => alert("Lembrete de Agendamento enviado para Gabriel Rodrigues.")}>
+                      📅 Lembrete de Horário
+                    </button>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  <button className="px-4 py-2 bg-destructive/20 text-destructive border border-destructive/30 rounded-lg text-xs font-bold hover:bg-destructive/30 transition" onClick={() => alert("GOOOL! Notificação enviada para clientes que torcem para o Flamengo.")}>
-                    ⚽ Simular Gol (Flamengo)
-                  </button>
-                  <button className="px-4 py-2 bg-white/5 text-foreground border border-border rounded-lg text-xs font-bold hover:bg-white/10 transition" onClick={() => alert("GOOOL! Notificação enviada para clientes que torcem para o Real Madrid.")}>
-                    ⚽ Simular Gol (Real Madrid)
-                  </button>
-                  <button className="px-4 py-2 bg-gold/20 text-gold border border-gold/30 rounded-lg text-xs font-bold hover:bg-gold/30 transition" onClick={() => alert("Lembrete de Agendamento enviado para Gabriel Rodrigues.")}>
-                    📅 Lembrete de Horário
-                  </button>
+
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="display text-xl mb-4">Próximos na Fila</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Gabriel Rodrigues", time: "14:30", service: "Corte Clássico" },
+                      { name: "Matheus Silva", time: "15:15", service: "Combo Premium" },
+                      { name: "João Pedro", time: "16:00", service: "Barba & Navalha" }
+                    ].map((c, i) => (
+                      <div key={i} className="flex items-center justify-between border-b border-border pb-3 last:border-0">
+                        <div>
+                          <div className="text-sm font-bold">{c.name}</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">{c.service}</div>
+                        </div>
+                        <div className="text-xs font-bold text-gold">{c.time}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
