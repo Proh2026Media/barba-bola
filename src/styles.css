@@ -37,31 +37,30 @@
 
 :root {
   --radius: 0.5rem;
-  --background: #121110;
-  --foreground: #eae6e1;
-  --card: #161513;
-  --card-foreground: #eae6e1;
-  --popover: #161513;
-  --popover-foreground: #eae6e1;
-  --primary: #c5a880;
-  --primary-foreground: #121110;
-  --secondary: #1a1816;
-  --secondary-foreground: #8e8984;
-  --muted: #1a1816;
-  --muted-foreground: #8e8984;
-  --accent: #c5a880;
-  --accent-foreground: #121110;
+  --background: oklch(0.13 0.005 50);
+  --foreground: oklch(0.96 0.01 80);
+  --card: oklch(0.17 0.008 50);
+  --card-foreground: oklch(0.96 0.01 80);
+  --popover: oklch(0.17 0.008 50);
+  --popover-foreground: oklch(0.96 0.01 80);
+  --primary: oklch(0.78 0.13 80);
+  --primary-foreground: oklch(0.13 0.005 50);
+  --secondary: oklch(0.22 0.01 50);
+  --secondary-foreground: oklch(0.96 0.01 80);
+  --muted: oklch(0.22 0.01 50);
+  --muted-foreground: oklch(0.66 0.015 70);
+  --accent: oklch(0.78 0.13 80);
+  --accent-foreground: oklch(0.13 0.005 50);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: rgba(255, 255, 255, 0.05);
-  --input: #1a1816;
-  --ring: #c5a880;
-  --gold: #c5a880;
-  --gold-soft: rgba(197, 168, 128, 0.15);
-  --font-display: "Cormorant Garamond", serif;
+  --border: oklch(0.27 0.01 60 / 60%);
+  --input: oklch(0.25 0.01 60);
+  --ring: oklch(0.78 0.13 80);
+  --gold: oklch(0.82 0.15 82);
+  --gold-soft: oklch(0.88 0.09 85);
+  --font-display: "Bebas Neue", "Oswald", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
-
 
 @layer base {
   * { border-color: var(--color-border); }
@@ -85,30 +84,18 @@
   .bg-gold { background-color: var(--gold); }
   .border-gold { border-color: var(--gold); }
   .gradient-gold {
-    background: linear-gradient(135deg, var(--gold) 0%, #b0936e 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, oklch(0.7 0.14 70) 100%);
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, var(--gold) 0%, #eae6e1 60%, var(--gold) 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, oklch(0.92 0.08 85) 60%, var(--gold) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .glass {
-    background: rgba(18, 17, 16, 0.95);
+    background: oklch(0.17 0.008 50 / 0.7);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid oklch(0.78 0.13 80 / 0.12);
   }
-  .shadow-gold { box-shadow: 0 10px 40px -10px rgba(197, 168, 128, 0.2); }
-
-  /* Marquee clássico e suave */
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-marquee {
-    display: flex;
-    width: max-content;
-    animation: marquee 55s linear infinite;
-  }
+  .shadow-gold { box-shadow: 0 10px 40px -10px oklch(0.78 0.13 80 / 0.4); }
 }
-
