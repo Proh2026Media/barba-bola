@@ -3,18 +3,9 @@ import { useState } from "react";
 import {
   Scissors, Bell, Calendar, MapPin, Star, Clock,
   Trophy, Tv, ChevronRight, Flame, CheckCheck, Sparkles,
+  Compass, Feather, MessageSquare, Plus,
 } from "lucide-react";
 
-// Design Tokens - Estilo Arena Barber Club
-const theme = {
-  fontClassic: "'Cormorant Garamond', serif",
-  colors: {
-    background: "#121110",
-    gold: "#c5a880",
-    textMuted: "#8e8984",
-    border: "rgba(255, 255, 255, 0.07)",
-  }
-};
 
 
 export const Route = createFileRoute("/")({
