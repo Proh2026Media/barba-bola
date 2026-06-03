@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Scissors, Bell, Calendar, MapPin, Star, Clock,
   Trophy, Tv, ChevronRight, Flame, CheckCheck, Sparkles,
+  User, Settings, Heart, MessageSquare, Play,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +47,25 @@ const notifications = [
 ];
 
 function Index() {
-  const [tab, setTab] = useState<"agenda" | "esportes">("agenda");
+  const [tab, setTab] = useState<"agenda" | "esportes" | "clube" | "admin">("agenda");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [points, setPoints] = useState(120);
+  const [resenha, setResenha] = useState("");
+  const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
+    { role: 'ai', text: 'Fala craque! No que posso ajudar hoje? Quer saber sobre o jogo do Mengão ou dicas de estilo?' }
+  ]);
+
+  const handleResenha = () => {
+    if (!resenha) return;
+    const newHistory = [...chatHistory, { role: 'user' as const, text: resenha }];
+    setChatHistory(newHistory);
+    setResenha("");
+    // Simulando resposta da IA
+    setTimeout(() => {
+      setChatHistory(prev => [...prev, { role: 'ai', text: "Com certeza! Esse clássico vai ser histórico. A propósito, seu corte 'Fade' combinaria muito com o clima do estádio hoje!" }]);
+    }, 1000);
+  };
+
 
   return (
     <div className="min-h-screen text-foreground">
@@ -72,7 +92,20 @@ function Index() {
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[10px] font-bold text-primary-foreground">4</span>
           </button>
         </div>
+        
+        {/* SPORTS MARQUEE */}
+        <div className="bg-gold/10 border-y border-gold/20 py-1 overflow-hidden">
+          <div className="marquee flex gap-12 text-[10px] font-bold tracking-tighter text-gold/80 uppercase">
+            <span>⚽ FLAMENGO 2 x 1 PALMEIRAS (78')</span>
+            <span>🏀 CELTICS 112 x 105 LAKERS (FINAL)</span>
+            <span>🎾 BIA HADDAD VENCE NO ROLAND GARROS</span>
+            <span>🏆 CHAMPIONS: FINAL SERÁ EM LONDRES</span>
+            <span>💇 PROMO: CORTE + BARBA COM 10% DE DESCONTO HOJE</span>
+            <span>⚽ REAL MADRID 1 x 1 BARCELONA (63')</span>
+          </div>
+        </div>
       </header>
+
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-16 pb-12">
@@ -156,7 +189,133 @@ function Index() {
             >
               <Trophy className="mr-2 inline h-4 w-4" /> Esportes
             </button>
+            <button
+              onClick={() => setTab("clube")}
+              className={`rounded-full px-6 py-2 text-sm font-medium transition ${tab === "clube" ? "gradient-gold text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              <Heart className="mr-2 inline h-4 w-4" /> Clube & IA
+            </button>
+            <button
+              onClick={() => {
+                setIsAdmin(!isAdmin);
+                setTab(isAdmin ? "agenda" : "admin");
+              }}
+              className={`rounded-full px-6 py-2 text-sm font-medium transition ${isAdmin ? "bg-gold/20 text-gold" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              <Settings className="mr-2 inline h-4 w-4" /> {isAdmin ? "Modo Barbeiro" : "Admin"}
+            </button>
           </div>
+
+          {tab === "clube" && (
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-6">
+                {/* Fidelidade */}
+                <div className="rounded-2xl border border-gold/30 bg-card p-6 shadow-gold/10">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="display text-2xl text-gold">Clube de Fidelidade</h3>
+                    <div className="text-3xl font-bold">{points} PTS</div>
+                  </div>
+                  <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                    <div className="h-full bg-gold transition-all" style={{ width: `${(points / 200) * 100}%` }} />
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground text-center">Faltam 80 pts para sua <b>Barboterapia Grátis</b></p>
+                </div>
+
+                {/* Preferências */}
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="display text-xl mb-4">Assinatura de Estilo</h3>
+                  <div className="space-y-4 text-sm">
+                    <div className="flex justify-between border-b border-border pb-2">
+                      <span className="text-muted-foreground">Estilo Padrão</span>
+                      <span className="font-medium text-gold">Mid Fade + Barba</span>
+                    </div>
+                    <div className="flex justify-between border-b border-border pb-2">
+                      <span className="text-muted-foreground">Barbeiro Favorito</span>
+                      <span className="font-medium">Rafael Costa</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Times Favoritos</span>
+                      <span className="font-medium">Flamengo, Celtics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* IA Resenha */}
+              <div className="rounded-2xl border border-border bg-card flex flex-col h-[400px]">
+                <div className="p-4 border-b border-border flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full gradient-gold flex items-center justify-center">
+                    <Sparkles className="h-4 w-4 text-primary-foreground" />
+                  </div>
+                  <h3 className="display text-lg">Resenha de Cadeira IA</h3>
+                </div>
+                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                  {chatHistory.map((msg, i) => (
+                    <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === 'user' ? 'bg-gold text-primary-foreground' : 'bg-muted'}`}>
+                        {msg.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-4 border-t border-border flex gap-2">
+                  <input 
+                    type="text" 
+                    placeholder="Pergunte sobre esportes..." 
+                    className="flex-1 bg-secondary border border-border rounded-lg px-4 py-2 text-sm outline-none focus:border-gold"
+                    value={resenha}
+                    onChange={(e) => setResenha(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleResenha()}
+                  />
+                  <button onClick={handleResenha} className="bg-gold p-2 rounded-lg text-primary-foreground">
+                    <MessageSquare className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {tab === "admin" && (
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-gold/50 bg-gold/5 p-8 text-center">
+                <h3 className="display text-3xl mb-4 text-gold">Painel do Barbeiro</h3>
+                <p className="text-muted-foreground mb-8">Gerencie sua fila e agendamentos em tempo real.</p>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="bg-card p-4 rounded-xl border border-border">
+                    <div className="text-2xl font-bold">12</div>
+                    <div className="text-xs uppercase text-muted-foreground">Cortes Hoje</div>
+                  </div>
+                  <div className="bg-card p-4 rounded-xl border border-border">
+                    <div className="text-2xl font-bold text-gold">R$ 840</div>
+                    <div className="text-xs uppercase text-muted-foreground">Receita Estimada</div>
+                  </div>
+                  <div className="bg-card p-4 rounded-xl border border-border">
+                    <div className="text-2xl font-bold text-destructive">2</div>
+                    <div className="text-xs uppercase text-muted-foreground">Cancelamentos</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="display text-xl">Simulador de Eventos</h3>
+                  <Sparkles className="text-gold h-5 w-5" />
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button className="px-4 py-2 bg-destructive/20 text-destructive border border-destructive/30 rounded-lg text-xs font-bold" onClick={() => alert("GOOOL! Notificação enviada para todos os clientes.")}>
+                    Simular Gol (Real Time)
+                  </button>
+                  <button className="px-4 py-2 bg-gold/20 text-gold border border-gold/30 rounded-lg text-xs font-bold" onClick={() => alert("Lembrete de Agendamento enviado.")}>
+                    Lembrete de Horário
+                  </button>
+                  <button className="px-4 py-2 bg-secondary border border-border rounded-lg text-xs font-bold" onClick={() => alert("Notificação de Notícia de Última Hora enviada.")}>
+                    Breaking News Esportiva
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
 
           {tab === "agenda" ? (
             <div className="grid gap-4 md:grid-cols-3">
@@ -278,7 +437,46 @@ function Index() {
         </div>
       </section>
 
+      {/* FOOTER - BOLETIM EDITORIAL */}
+      <section className="px-6 py-16 border-t border-border bg-secondary/20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="h-1 w-12 bg-gold" />
+            <h2 className="display text-3xl">Boletim Lâmina & Gol</h2>
+          </div>
+          <div className="grid gap-12 md:grid-cols-3">
+            {[
+              { 
+                tag: "NBA", 
+                title: "O domínio dos Celtics: Por que a defesa é a chave do título",
+                excerpt: "Análise profunda sobre como a rotação defensiva de Boston está mudando o jogo..."
+              },
+              { 
+                tag: "CHAMPIONS", 
+                title: "Noites europeias: O que esperar da final em Wembley",
+                excerpt: "Tudo o que você precisa saber sobre o confronto que vai parar o mundo do futebol..."
+              },
+              { 
+                tag: "ESTILO", 
+                title: "A volta da navalha clássica nas barbearias de elite",
+                excerpt: "Como a tradição está se fundindo com a tecnologia para resultados impecáveis..."
+              }
+            ].map((art, i) => (
+              <article key={i} className="group cursor-pointer">
+                <div className="text-[10px] font-bold text-gold uppercase tracking-widest mb-2">{art.tag}</div>
+                <h3 className="display text-xl group-hover:text-gold transition-colors leading-tight mb-3">{art.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-3 font-serif italic">"{art.excerpt}"</p>
+                <div className="mt-4 flex items-center text-xs font-bold text-muted-foreground group-hover:text-gold transition-colors">
+                  LER CRÔNICA <ChevronRight className="h-3 w-3 ml-1" />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
+
       <footer className="border-t border-border px-6 py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-xs text-muted-foreground md:flex-row">
           <div>© 2026 Lâmina & Gol · Todos os direitos reservados</div>
