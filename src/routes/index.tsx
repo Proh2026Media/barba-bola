@@ -437,7 +437,46 @@ function Index() {
         </div>
       </section>
 
+      {/* FOOTER - BOLETIM EDITORIAL */}
+      <section className="px-6 py-16 border-t border-border bg-secondary/20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="h-1 w-12 bg-gold" />
+            <h2 className="display text-3xl">Boletim Lâmina & Gol</h2>
+          </div>
+          <div className="grid gap-12 md:grid-cols-3">
+            {[
+              { 
+                tag: "NBA", 
+                title: "O domínio dos Celtics: Por que a defesa é a chave do título",
+                excerpt: "Análise profunda sobre como a rotação defensiva de Boston está mudando o jogo..."
+              },
+              { 
+                tag: "CHAMPIONS", 
+                title: "Noites europeias: O que esperar da final em Wembley",
+                excerpt: "Tudo o que você precisa saber sobre o confronto que vai parar o mundo do futebol..."
+              },
+              { 
+                tag: "ESTILO", 
+                title: "A volta da navalha clássica nas barbearias de elite",
+                excerpt: "Como a tradição está se fundindo com a tecnologia para resultados impecáveis..."
+              }
+            ].map((art, i) => (
+              <article key={i} className="group cursor-pointer">
+                <div className="text-[10px] font-bold text-gold uppercase tracking-widest mb-2">{art.tag}</div>
+                <h3 className="display text-xl group-hover:text-gold transition-colors leading-tight mb-3">{art.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-3 font-serif italic">"{art.excerpt}"</p>
+                <div className="mt-4 flex items-center text-xs font-bold text-muted-foreground group-hover:text-gold transition-colors">
+                  LER CRÔNICA <ChevronRight className="h-3 w-3 ml-1" />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
+
       <footer className="border-t border-border px-6 py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-xs text-muted-foreground md:flex-row">
           <div>© 2026 Lâmina & Gol · Todos os direitos reservados</div>
