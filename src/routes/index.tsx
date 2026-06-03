@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Scissors, Bell, Calendar, MapPin, Star, Clock,
   Trophy, Tv, ChevronRight, Flame, CheckCheck, Sparkles,
+  User, Settings, Heart, MessageSquare, Play,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
