@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Barber &amp; Sports Club</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Cormorant Garamond (Clássica/Conservadora de Luxo) & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121110; /* Carbono quente e profundo */
+        }
+        .font-classic {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Custom scrollbar refinada em tom bronze */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121110;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2724;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c5a880;
+        }
+        /* Marquee clássico e suave */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 55s linear infinite;
+        }
+        /* Efeito de transição de herança clássica */
+        .transition-heritage {
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        /* Detalhe de borda estilo latão */
+        .border-brass {
+            border-color: rgba(197, 168, 128, 0.15);
+        }
+        .border-brass-focus:focus {
+            border-color: rgba(197, 168, 128, 0.6);
+            box-shadow: 0 0 0 1px rgba(197, 168, 128, 0.2);
+        }
+    </style>
+</head>
+<body class="text-[#eae6e1] min-h-screen flex flex-col selection:bg-[#c5a880]/30 selection:text-white">
+
+    <!-- Header Clássico e Minimalista -->
+    <header class="sticky top-0 z-40 bg-[#121110]/95 backdrop-blur-md border-b border-white/[0.05]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Identidade Clássica -->
+                <div class="flex items-center space-x-4">
+                    <div class="border border-[#c5a880]/30 text-[#c5a880] w-10 h-10 rounded-full flex items-center justify-center transition-heritage hover:border-[#c5a880]/60">
+                        <span class="font-classic font-semibold text-lg italic">A</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base font-classic font-bold tracking-[0.12em] text-white uppercase">
+                            Arena Barber <span class="text-xs text-[#c5a880] font-sans font-light italic tracking-normal">Club &amp; Lounge</span>
+                        </h1>
+                        <p class="text-[9px] text-[#8e8984] tracking-[0.15em] uppercase font-sans">Est. 2018 · Heritage &amp; Sports</p>
+                    </div>
+                </div>
+
+                <!-- Painéis Rápidos de Acesso Discreto -->
+                <div class="flex items-center space-x-6">
+                    <!-- Notificações Clássicas -->
+                    <div class="relative cursor-pointer py-2" onclick="openNotificationsTab()">
+                        <div class="text-[#8e8984] hover:text-white transition-heritage">
+                            <i class="fa-regular fa-bell text-base"></i>
+                            <span id="notif-badge" class="absolute top-1.5 right-0.5 bg-[#c5a880] w-1.5 h-1.5 rounded-full hidden"></span>
+                        </div>
+                    </div>
+
+                    <!-- Cartão de Fidelidade Vintage -->
+                    <div class="hidden md:flex flex-col items-end text-right border-l border-white/[0.07] pl-6">
+                        <span class="text-[9px] tracking-widest text-[#8e8984] uppercase font-sans">CLUBE FIDELIDADE</span>
+                        <span id="user-points" class="text-xs font-classic font-semibold text-[#c5a880] tracking-wider">120 PONTOS</span>
+                    </div>
+
+                    <!-- Seletor de Perfil Elegante -->
+                    <button onclick="toggleViewMode()" id="view-mode-btn" class="text-[9px] tracking-[0.18em] uppercase font-semibold text-[#c5a880] hover:text-white border border-[#c5a880]/30 hover:border-[#c5a880] px-4 py-2.5 rounded transition-heritage">
+                        <span id="view-mode-text">Painel Barbeiro</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Boletim Esportivo Editorial (Visual de jornal impresso tradicional) -->
+        <div class="bg-[#191715] text-[#8e8984] py-2 overflow-hidden border-t border-b border-white/[0.03] relative flex items-center">
+            <div class="absolute left-0 top-0 bottom-0 bg-[#191715] pr-4 pl-6 z-10 flex items-center font-classic italic text-[11px] font-semibold text-[#c5a880]">
+                <span class="w-1 h-1 rounded-full bg-[#c5a880] mr-2"></span> Últimas de Hoje:
+            </div>
+            <div class="pl-32 overflow-hidden relative w-full flex items-center h-4">
+                <div id="sports-marquee" class="animate-marquee whitespace-nowrap flex space-x-16 text-[11px] font-classic tracking-wide italic">
+                    <span>⚽ <strong>Campeonato Brasileiro:</strong> Flamengo <span class="text-white font-sans font-bold">2</span> x <span class="text-white font-sans font-bold">1</span> Palmeiras (82 min)</span>
+                    <span>🏀 <strong>NBA Finals:</strong> Celtics <span class="text-white font-sans font-bold">108</span> x <span class="text-white font-sans font-bold">102</span> Lakers (Finalizado)</span>
+                    <span>⚽ <strong>Champions League:</strong> Real Madrid <span class="text-white font-sans font-bold">3</span> x <span class="text-white font-sans font-bold">3</span> Man. City (Prorrogação)</span>
+                    <span>⚽ <strong>Copa Libertadores:</strong> Palmeiras <span class="text-white font-sans font-bold">1</span> x <span class="text-white font-sans font-bold">0</span> River Plate (Intervalo)</span>
+                    <!-- Repetição para efeito infinito -->
+                    <span>⚽ <strong>Campeonato Brasileiro:</strong> Flamengo <span class="text-white font-sans font-bold">2</span> x <span class="text-white font-sans font-bold">1</span> Palmeiras (82 min)</span>
+                    <span>🏀 <strong>NBA Finals:</strong> Celtics <span class="text-white font-sans font-bold">108</span> x <span class="text-white font-sans font-bold">102</span> Lakers (Finalizado)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+            
+            <!-- Painel Esquerdo de Navegação Clássico -->
+            <aside class="col-span-1 flex flex-col space-y-8">
+                
+                <!-- Menu Principal Minimalista -->
+                <nav class="space-y-1">
+                    <p class="text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] pl-3 mb-4 font-sans">Seções</p>
+                    
+                    <button onclick="switchTab('dashboard')" id="tab-btn-dashboard" class="w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#c5a880] bg-[#1a1816] border-l-2 border-[#c5a880]">
+                        <span class="flex items-center gap-3"><i class="fa-regular fa-compass text-sm"></i> Painel Geral</span>
+                        <i class="fa-solid fa-chevron-right text-[8px] opacity-30"></i>
+                    </button>
+                    
+                    <button onclick="switchTab('booking')" id="tab-btn-booking" class="w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#8e8984] hover:text-white hover:bg-white/[0.02]">
+                        <span class="flex items-center gap-3"><i class="fa-regular fa-calendar text-sm"></i> Agendar Atendimento</span>
+                        <i class="fa-solid fa-chevron-right text-[8px] opacity-20"></i>
+                    </button>
+                    
+                    <button onclick="switchTab('sports')" id="tab-btn-sports" class="w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#8e8984] hover:text-white hover:bg-white/[0.02]">
+                        <span class="flex items-center gap-3"><i class="fa-solid fa-feather text-sm"></i> Noticiário &amp; Placares</span>
+                        <span class="w-1 h-1 bg-[#c5a880] rounded-full"></span>
+                    </button>
+
+                    <button onclick="switchTab('barberchat')" id="tab-btn-barberchat" class="w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#8e8984] hover:text-white hover:bg-white/[0.02]">
+                        <span class="flex items-center gap-3"><i class="fa-regular fa-comment-dots text-sm"></i> Resenha de Cadeira IA</span>
+                        <span class="text-[8px] font-classic tracking-widest text-[#c5a880] uppercase">GEMINI</span>
+                    </button>
+                    
+                    <button onclick="switchTab('notifications')" id="tab-btn-notifications" class="w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#8e8984] hover:text-white hover:bg-white/[0.02]">
+                        <span class="flex items-center gap-3"><i class="fa-regular fa-bell text-sm"></i> Alertas Recebidos</span>
+                        <span id="notif-badge-sidebar" class="text-[9px] font-sans font-semibold text-[#c5a880] hidden">0</span>
+                    </button>
+                </nav>
+
+                <!-- Simulador de Eventos (Design clássico de notas fiscais ou clube de charuto) -->
+                <div class="border border-white/[0.05] p-5 rounded bg-[#161513]">
+                    <h3 class="text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-[#c5a880]"></i> Simulação de Eventos
+                    </h3>
+                    <p class="text-[11px] text-[#8e8984] leading-relaxed mb-4">
+                        Para fins de teste do clube, simule gols instantâneos e notificações clássicas de cadeira abaixo:
+                    </p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="triggerGoalNotification('Flamengo')" class="bg-white/[0.02] hover:bg-white/[0.06] text-white text-[10px] font-medium py-2 rounded border border-white/[0.04] transition-heritage">
+                            ⚽ Gol Fla
+                        </button>
+                        <button onclick="triggerGoalNotification('Real Madrid')" class="bg-white/[0.02] hover:bg-white/[0.06] text-white text-[10px] font-medium py-2 rounded border border-white/[0.04] transition-heritage">
+                            ⚽ Gol RMA
+                        </button>
+                        <button onclick="triggerBookingNotification()" class="col-span-2 bg-[#1c1a18] hover:bg-white/[0.04] text-[#c5a880] hover:text-white text-[10px] font-semibold py-2.5 rounded border border-[#c5a880]/20 transition-heritage text-center">
+                            📅 Lembrar Horário
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detalhe da Casa -->
+                <div class="border-t border-white/[0.05] pt-6 flex flex-col space-y-1.5">
+                    <span class="text-[9px] uppercase tracking-widest text-[#c5a880]">SOBRE A ARENA</span>
+                    <p class="text-xs text-[#8e8984] font-classic italic leading-relaxed">
+                        "Onde a tradição da navalha clássica encontra o requinte da crônica esportiva internacional."
+                    </p>
+                </div>
+            </aside>
+
+            <!-- Área de Conteúdo Central -->
+            <section class="col-span-1 lg:col-span-3 flex flex-col space-y-8">
+
+                <!-- TAB: DASHBOARD -->
+                <div id="tab-dashboard" class="tab-content space-y-8">
+                    
+                    <!-- Boas-vindas Clássica -->
+                    <div class="border-b border-white/[0.05] pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                        <div>
+                            <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">MEMBRO VIP RECONHECIDO</span>
+                            <h2 class="text-2xl font-classic font-bold text-white tracking-wide uppercase">Seja bem-vindo, <span class="italic text-[#c5a880]">Gabriel Rodrigues</span></h2>
+                            <p class="text-[#8e8984] text-xs mt-1.5 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha, jornais esportivos e bebidas do clube.</p>
+                        </div>
+                        <button onclick="switchTab('booking')" class="bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-3 px-6 rounded transition-heritage">
+                            Novo Agendamento
+                        </button>
+                    </div>
+
+                    <!-- Widgets Editoriais de Atividade -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <div class="border border-white/[0.04] p-5 rounded bg-[#161513] flex flex-col justify-between">
+                            <span class="text-[#8e8984] text-[9px] font-semibold uppercase tracking-widest">Afiliação &amp; Pontos</span>
+                            <h3 class="text-xl font-classic font-bold text-white mt-2"><span id="points-display">120</span> <span class="text-xs text-[#c5a880] font-sans font-light italic tracking-normal">PTS</span></h3>
+                            <p class="text-[10px] text-[#8e8984] mt-2 border-t border-white/[0.03] pt-2">Troque 200 PTS por uma Barboterapia.</p>
+                        </div>
+
+                        <div class="border border-white/[0.04] p-5 rounded bg-[#161513] flex flex-col justify-between">
+                            <span class="text-[#8e8984] text-[9px] font-semibold uppercase tracking-widest">Favoritos do Clube</span>
+                            <h3 class="text-sm font-classic font-bold text-[#c5a880] mt-3">Flamengo · Celtics</h3>
+                            <p class="text-[10px] text-[#8e8984] mt-2 border-t border-white/[0.03] pt-2">Notificações direcionadas ativas.</p>
+                        </div>
+
+                        <div class="border border-white/[0.04] p-5 rounded bg-[#161513] flex flex-col justify-between">
+                            <span class="text-[#8e8984] text-[9px] font-semibold uppercase tracking-widest">Assinatura de Estilo</span>
+                            <h3 class="text-sm font-classic font-bold text-white mt-3">Corte Degradê Razor</h3>
+                            <p class="text-[10px] text-[#8e8984] mt-2 border-t border-white/[0.03] pt-2">Preferência salva do barbeiro Carlão.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Coluna do Noticiário Simplificado (Sem visual de Bet) -->
+                        <div class="border border-white/[0.04] p-6 rounded bg-[#161513] flex flex-col space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/[0.05] pb-3">
+                                <h3 class="text-xs font-classic font-bold text-[#c5a880] uppercase tracking-widest">
+                                    <span class="w-1.5 h-1.5 inline-block bg-[#c5a880] rounded-full mr-1.5"></span> Sintonizador de Jogos
+                                </h3>
+                                <button onclick="switchTab('sports')" class="text-[#8e8984] hover:text-white text-[9px] uppercase tracking-wider font-semibold transition-heritage">
+                                    Abrir Edição Completa <i class="fa-solid fa-arrow-right text-[8px] ml-1"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-[#1c1a18] p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
+                                    <span class="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest">Série A · Ao Vivo</span>
+                                    <div class="flex items-center space-x-3 text-xs font-sans font-bold text-[#8e8984]">
+                                        <span class="font-classic text-white tracking-wide">FLA</span>
+                                        <span class="text-[#c5a880] px-2 py-0.5 rounded border border-white/[0.05]">2</span>
+                                        <span class="text-white/20 font-light">x</span>
+                                        <span class="text-white/40 px-2 py-0.5 rounded border border-white/[0.05]">1</span>
+                                        <span class="font-classic text-white/50 tracking-wide">PAL</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-[#1c1a18] p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
+                                    <span class="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest">Champions · Prorrogação</span>
+                                    <div class="flex items-center space-x-3 text-xs font-sans font-bold text-[#8e8984]">
+                                        <span class="font-classic text-white tracking-wide">RMA</span>
+                                        <span class="text-[#c5a880] px-2 py-0.5 rounded border border-white/[0.05]">3</span>
+                                        <span class="text-white/20 font-light">x</span>
+                                        <span class="text-[#c5a880] px-2 py-0.5 rounded border border-white/[0.05]">3</span>
+                                        <span class="font-classic text-white tracking-wide">MCI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Espaço de Compromisso Ativo -->
+                        <div class="border border-white/[0.04] p-6 rounded bg-[#161513] flex flex-col space-y-4">
+                            <h3 class="text-xs font-classic font-bold text-[#c5a880] uppercase tracking-widest">
+                                Próxima Visita Agendada
+                            </h3>
+                            <div id="no-appointments-msg" class="hidden text-center py-6">
+                                <p class="text-xs text-[#8e8984] font-classic italic">Não há reservas ativas em sua agenda.</p>
+                                <button onclick="switchTab('booking')" class="mt-3 text-[#c5a880] text-[10px] font-bold tracking-widest uppercase hover:underline">
+                                    Fazer Reserva Agora
+                                </button>
+                            </div>
+                            <div id="appointments-container" class="space-y-3">
+                                <!-- Processado por JavaScript -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TAB: BOOKING -->
+                <div id="tab-booking" class="tab-content hidden space-y-6">
+                    <div class="border border-white/[0.04] p-8 rounded bg-[#161513]">
+                        <div class="pb-5 mb-8 border-b border-white/[0.05] flex justify-between items-end">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">RITUAL DE ESTILO</span>
+                                <h3 class="text-xl font-classic font-bold text-white uppercase tracking-wide">Agendar Nova Visita</h3>
+                                <p class="text-[#8e8984] text-xs mt-1">Defina seus tratamentos e encontre o profissional adequado.</p>
+                            </div>
+                            <i class="fa-solid fa-scissors text-xl text-[#c5a880]/30"></i>
+                        </div>
+
+                        <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-8">
+                            
+                            <!-- Escolha dos Serviços com Design Conservador -->
+                            <div>
+                                <label class="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] mb-4">1. Seleção de Serviços</label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    
+                                    <label class="relative bg-[#1c1a18] p-5 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex flex-col justify-between transition-heritage select-none">
+                                        <input type="checkbox" name="services" value="corte" data-price="45" data-name="Corte Tradicional" class="absolute top-5 right-5 accent-[#c5a880]" checked>
+                                        <div class="pr-6">
+                                            <span class="text-xs font-classic font-bold text-white uppercase tracking-wider block">Corte Tradicional</span>
+                                            <p class="text-[11px] text-[#8e8984] mt-2 leading-relaxed">Modelagem clássica com tesoura e acabamento impecável.</p>
+                                        </div>
+                                        <p class="text-xs font-classic font-bold text-[#c5a880] mt-4">R$ 45,00</p>
+                                    </label>
+                                    
+                                    <label class="relative bg-[#1c1a18] p-5 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex flex-col justify-between transition-heritage select-none">
+                                        <input type="checkbox" name="services" value="barba" data-price="35" data-name="Barboterapia" class="absolute top-5 right-5 accent-[#c5a880]">
+                                        <div class="pr-6">
+                                            <span class="text-xs font-classic font-bold text-white uppercase tracking-wider block">Barboterapia</span>
+                                            <p class="text-[11px] text-[#8e8984] mt-2 leading-relaxed">Toalhas quentes, creme amaciante e massagem facial clássica.</p>
+                                        </div>
+                                        <p class="text-xs font-classic font-bold text-[#c5a880] mt-4">R$ 35,00</p>
+                                    </label>
+
+                                    <label class="relative bg-[#1c1a18] p-5 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex flex-col justify-between transition-heritage select-none">
+                                        <input type="checkbox" name="services" value="combo" data-price="75" data-name="Assinatura VIP" class="absolute top-5 right-5 accent-[#c5a880]">
+                                        <div class="pr-6">
+                                            <span class="text-xs font-classic font-bold text-white uppercase tracking-wider block">Combo de Assinatura</span>
+                                            <p class="text-[11px] text-[#8e8984] mt-2 leading-relaxed">Corte, barboterapia, tônico capilar e um chopp artesanal.</p>
+                                        </div>
+                                        <p class="text-xs font-classic font-bold text-[#c5a880] mt-4">R$ 75,00</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Profissionais com Design Limpo -->
+                            <div>
+                                <label class="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] mb-4">2. O Oficial de Barbearia</label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    
+                                    <label class="relative bg-[#1c1a18] p-4 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex items-center space-x-4 transition-heritage select-none">
+                                        <input type="radio" name="barber" value="Carlão" class="absolute top-4 right-4 accent-[#c5a880]" checked>
+                                        <div class="w-9 h-9 rounded-full bg-white/[0.02] border border-[#c5a880]/30 flex items-center justify-center font-classic font-bold text-[#c5a880] text-sm">C</div>
+                                        <div>
+                                            <span class="text-xs font-classic font-bold text-white uppercase block">Mestre Carlão</span>
+                                            <span class="text-[9px] text-[#8e8984] font-medium block mt-0.5">Sênior · 15 anos de cadeira</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="relative bg-[#1c1a18] p-4 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex items-center space-x-4 transition-heritage select-none">
+                                        <input type="radio" name="barber" value="Thiaguinho" class="absolute top-4 right-4 accent-[#c5a880]">
+                                        <div class="w-9 h-9 rounded-full bg-white/[0.02] border border-[#c5a880]/10 flex items-center justify-center font-classic font-bold text-[#8e8984] text-sm">T</div>
+                                        <div>
+                                            <span class="text-xs font-classic font-bold text-white uppercase block">Thiaguinho</span>
+                                            <span class="text-[9px] text-[#8e8984] font-medium block mt-0.5">Especialista em Degradê clássico</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="relative bg-[#1c1a18] p-4 rounded border border-white/[0.03] hover:border-[#c5a880]/30 cursor-pointer flex items-center space-x-4 transition-heritage select-none">
+                                        <input type="radio" name="barber" value="Felipe" class="absolute top-4 right-4 accent-[#c5a880]">
+                                        <div class="w-9 h-9 rounded-full bg-white/[0.02] border border-[#c5a880]/10 flex items-center justify-center font-classic font-bold text-[#8e8984] text-sm">F</div>
+                                        <div>
+                                            <span class="text-xs font-classic font-bold text-white uppercase block">Felipe Clássico</span>
+                                            <span class="text-[9px] text-[#8e8984] font-medium block mt-0.5">Foco em tesoura &amp; barba tradicional</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Data e Horário -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] mb-3">3. Agenda de Data</label>
+                                    <input type="date" id="booking-date" required class="w-full bg-[#1c1a18] border border-white/[0.05] rounded px-4 py-3 text-xs text-[#eae6e1] focus:outline-none focus:border-[#c5a880]/50 transition">
+                                </div>
+                                <div>
+                                    <label class="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-[0.25em] mb-3">4. Selecione o Horário</label>
+                                    <select id="booking-time" required class="w-full bg-[#1c1a18] border border-white/[0.05] rounded px-4 py-3 text-xs text-[#eae6e1] focus:outline-none focus:border-[#c5a880]/50 transition">
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="18:30" selected>18:30</option>
+                                        <option value="19:00">19:00</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Confirmação do Atendimento -->
+                            <div class="bg-[#1c1a18] p-5 rounded border border-white/[0.03] flex items-center justify-between">
+                                <div>
+                                    <span class="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest block">VALOR PREVISTO</span>
+                                    <p class="text-lg font-classic font-bold text-[#c5a880]" id="checkout-total">R$ 45,00</p>
+                                </div>
+                                <button type="submit" class="bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-3.5 px-8 rounded transition-heritage">
+                                    Concluir Reserva <i class="fa-solid fa-chevron-right text-[8px] ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TAB: SPORTS (Visual Editorial de Imprensa) -->
+                <div id="tab-sports" class="tab-content hidden space-y-8">
+                    <div class="border-b border-white/[0.05] pb-4 flex justify-between items-center">
+                        <div>
+                            <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">BOLETIM ARENA</span>
+                            <h2 class="text-xl font-classic font-bold text-white uppercase tracking-wide">Crônica Esportiva &amp; Resultados</h2>
+                            <p class="text-[#8e8984] text-xs mt-0.5">Notícias confiáveis e placares sintonizados diretamente com as agências internacionais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Filtros Elegantes Estilo Jornal -->
+                    <div class="flex space-x-2 border-b border-white/[0.04] pb-3">
+                        <button onclick="filterSports('all')" class="border border-[#c5a880] text-[#c5a880] text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition" id="sport-filter-all">Todos os Cadernos</button>
+                        <button onclick="filterSports('br')" class="border border-transparent text-[#8e8984] hover:text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition" id="sport-filter-br">⚽ Futebol Brasileiro</button>
+                        <button onclick="filterSports('intl')" class="border border-transparent text-[#8e8984] hover:text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition" id="sport-filter-intl">⚽ Futebol Internacional</button>
+                        <button onclick="filterSports('nba')" class="border border-transparent text-[#8e8984] hover:text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition" id="sport-filter-nba">🏀 Liga de Basquete</button>
+                    </div>
+
+                    <!-- Grid Editorial de Placar (Clean, sem vibe cassino) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="matches-grid">
+                        
+                        <!-- Jogo 1 -->
+                        <div class="border border-white/[0.05] bg-[#161513] p-5 rounded flex flex-col justify-between" data-sport-type="br">
+                            <div class="flex items-center justify-between border-b border-white/[0.04] pb-3 mb-4">
+                                <span class="text-[9px] text-[#8e8984] font-semibold tracking-widest uppercase">BRASILEIRÃO · AO VIVO (82')</span>
+                                <span class="text-[10px] text-[#c5a880] font-classic italic">Maracanã</span>
+                            </div>
+                            <div class="space-y-3 py-1 font-classic text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-white font-medium tracking-wide">Flamengo</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-[#c5a880] border border-white/[0.05]">2</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#8e8984] font-medium tracking-wide">Palmeiras</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-white/40 border border-white/[0.03]">1</span>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px]">
+                                <span class="text-[#8e8984] italic">Seguindo partida clássica</span>
+                                <button onclick="triggerGoalNotification('Flamengo')" class="text-[9px] border border-white/[0.08] hover:border-[#c5a880] px-3 py-1.5 rounded text-[#8e8984] hover:text-white uppercase tracking-wider transition">
+                                    Acompanhar Alertas
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Jogo 2 -->
+                        <div class="border border-white/[0.05] bg-[#161513] p-5 rounded flex flex-col justify-between" data-sport-type="intl">
+                            <div class="flex items-center justify-between border-b border-white/[0.04] pb-3 mb-4">
+                                <span class="text-[9px] text-[#8e8984] font-semibold tracking-widest uppercase">CHAMPIONS LEAGUE · PRORROGAÇÃO</span>
+                                <span class="text-[10px] text-[#c5a880] font-classic italic">Estádio Bernabéu</span>
+                            </div>
+                            <div class="space-y-3 py-1 font-classic text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-white font-medium tracking-wide">Real Madrid</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-[#c5a880] border border-white/[0.05]">3</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-white font-medium tracking-wide">Manchester City</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-[#c5a880] border border-white/[0.05]">3</span>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px]">
+                                <span class="text-[#8e8984] italic">Prorrogação ativa</span>
+                                <button onclick="triggerGoalNotification('Real Madrid')" class="text-[9px] border border-white/[0.08] hover:border-[#c5a880] px-3 py-1.5 rounded text-[#8e8984] hover:text-white uppercase tracking-wider transition">
+                                    Acompanhar Alertas
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Jogo 3 -->
+                        <div class="border border-white/[0.05] bg-[#161513] p-5 rounded flex flex-col justify-between" data-sport-type="nba">
+                            <div class="flex items-center justify-between border-b border-white/[0.04] pb-3 mb-4">
+                                <span class="text-[9px] text-[#8e8984] font-semibold tracking-widest uppercase">FINAIS DA NBA · FINALIZADO</span>
+                                <span class="text-[10px] text-[#c5a880] font-classic italic">L.A. Arena</span>
+                            </div>
+                            <div class="space-y-3 py-1 font-classic text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#8e8984] font-medium tracking-wide">Los Angeles Lakers</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-white/30 border border-white/[0.03]">102</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-white font-medium tracking-wide">Boston Celtics</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-[#c5a880] border border-white/[0.05]">108</span>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px]">
+                                <span class="text-[#c5a880] uppercase tracking-wider font-semibold font-classic">Celtics Campeão de Categoria</span>
+                                <span class="text-[#8e8984]">Encerramento</span>
+                            </div>
+                        </div>
+
+                        <!-- Jogo 4 -->
+                        <div class="border border-white/[0.05] bg-[#161513] p-5 rounded flex flex-col justify-between" data-sport-type="br">
+                            <div class="flex items-center justify-between border-b border-white/[0.04] pb-3 mb-4">
+                                <span class="text-[9px] text-[#8e8984] font-semibold tracking-widest uppercase">SÉRIE A · 15' DO 1º TEMPO</span>
+                                <span class="text-[10px] text-[#c5a880] font-classic italic">Morumbis</span>
+                            </div>
+                            <div class="space-y-3 py-1 font-classic text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#8e8984] font-medium tracking-wide">São Paulo</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-white/30 border border-white/[0.03]">0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#8e8984] font-medium tracking-wide">Corinthians</span>
+                                    <span class="font-sans font-bold bg-[#1c1a18] px-3 py-1 rounded text-white/30 border border-white/[0.03]">0</span>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px]">
+                                <span class="text-emerald-600 font-semibold font-classic italic">Clássico Majestoso</span>
+                                <button onclick="triggerGoalNotification('São Paulo')" class="text-[9px] border border-white/[0.08] hover:border-[#c5a880] px-3 py-1.5 rounded text-[#8e8984] hover:text-white uppercase tracking-wider transition">
+                                    Acompanhar Alertas
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TAB: BARBER CHAT (Clube de Conversa IA) -->
+                <div id="tab-barberchat" class="tab-content hidden space-y-6">
+                    <div class="border border-white/[0.04] p-8 rounded bg-[#161513]">
+                        <div class="pb-5 mb-6 border-b border-white/[0.05] flex justify-between items-end flex-wrap gap-4">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">MESA DE DEBATE DISCRETA</span>
+                                <h2 class="text-xl font-classic font-bold text-white uppercase tracking-wide">Resenha da Cadeira de Barbearia</h2>
+                                <p class="text-[#8e8984] text-xs mt-1">Consulte tópicos e polêmicas quentes de hoje via Google Search para dialogar com seu barbeiro.</p>
+                            </div>
+                            <span class="text-[10px] font-classic italic border border-white/[0.08] px-3 py-1 rounded text-[#c5a880]">
+                                Sintonizado por Gemini 3.1 Flash
+                            </span>
+                        </div>
+
+                        <!-- Opções de Pauta com Estilo Editorial -->
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <span class="text-[9px] font-semibold tracking-widest uppercase text-[#8e8984] block">Escolha uma pauta de conversação para extrair de jornais de hoje:</span>
+                                <div class="flex flex-wrap gap-2.5">
+                                    <button onclick="getBarberBanter('futebol brasileiro')" class="bg-[#1c1a18] hover:bg-white/[0.03] border border-white/[0.05] hover:border-[#c5a880]/30 text-white px-4 py-2.5 rounded text-xs font-medium transition-heritage">
+                                        ⚽ Futebol Nacional &amp; Bastidores
+                                    </button>
+                                    <button onclick="getBarberBanter('champions league e futebol europeu')" class="bg-[#1c1a18] hover:bg-white/[0.03] border border-white/[0.05] hover:border-[#c5a880]/30 text-white px-4 py-2.5 rounded text-xs font-medium transition-heritage">
+                                        🏆 Liga dos Campeões &amp; Polêmicas
+                                    </button>
+                                    <button onclick="getBarberBanter('NBA e basquete de hoje')" class="bg-[#1c1a18] hover:bg-white/[0.03] border border-white/[0.05] hover:border-[#c5a880]/30 text-white px-4 py-2.5 rounded text-xs font-medium transition-heritage">
+                                        🏀 Basquetebol Americano (NBA)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Layout de Leitura Estilo Lounge de Fumo -->
+                            <div class="bg-[#121110] border border-white/[0.04] rounded p-6 min-h-[240px] flex flex-col justify-between relative">
+                                
+                                <div id="gemini-content-area" class="space-y-4">
+                                    <div class="flex items-center space-x-3.5 text-[#8e8984]">
+                                        <div class="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse"></div>
+                                        <div>
+                                            <h4 class="text-xs font-classic font-bold text-white uppercase tracking-widest">Lounge Pronto para Diálogo</h4>
+                                            <p class="text-[10px] text-[#8e8984]">Clique em uma das pautas editoriais para que o Gemini realize uma busca em tempo real no Google.</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-[#8e8984] font-classic italic leading-relaxed max-w-xl">
+                                        "Nossa inteligência buscará resultados recentes e polêmicas saudáveis para garantir um diálogo estimulante e leve durante o seu corte com o mestre Carlão."
+                                    </p>
+                                </div>
+
+                                <!-- Carregador Estilo Clássico / Silencioso -->
+                                <div id="gemini-loading" class="hidden flex-col items-center justify-center py-12 space-y-4">
+                                    <div class="flex space-x-2 items-center justify-center h-4">
+                                        <div class="w-1 h-3 bg-[#c5a880]/40 rounded animate-bounce [animation-delay:-0.3s]"></div>
+                                        <div class="w-1 h-4.5 bg-[#c5a880] rounded animate-bounce [animation-delay:-0.15s]"></div>
+                                        <div class="w-1 h-2.5 bg-[#c5a880]/60 rounded animate-bounce"></div>
+                                    </div>
+                                    <p class="text-[9px] uppercase font-semibold tracking-[0.2em] text-[#8e8984] animate-pulse">Folheando jornais do dia via Google...</p>
+                                </div>
+
+                                <!-- Rodapé de Fontes Grounding -->
+                                <div id="gemini-grounding-footer" class="hidden border-t border-white/[0.04] pt-4 mt-6 flex flex-col gap-2.5">
+                                    <span class="text-[8px] font-semibold text-[#8e8984] uppercase tracking-wider">Fontes de Notícia Verificadas:</span>
+                                    <div id="sources-container" class="flex flex-wrap gap-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: NOTIFICATIONS -->
+                <div id="tab-notifications" class="tab-content hidden space-y-6">
+                    <div class="border border-white/[0.04] p-8 rounded bg-[#161513]">
+                        <div class="flex justify-between items-center pb-5 border-b border-white/[0.05]">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">REGISTRO DE COMUNICAÇÕES</span>
+                                <h2 class="text-xl font-classic font-bold text-white uppercase tracking-wide">Alertas da Barbearia</h2>
+                                <p class="text-[#8e8984] text-xs mt-0.5">Histórico completo de confirmações de mesa e notícias esportivas.</p>
+                            </div>
+                            <button onclick="clearAllNotifications()" class="text-xs text-[#8e8984] hover:text-white uppercase tracking-widest font-semibold transition-heritage">
+                                Limpar Registros
+                            </button>
+                        </div>
+
+                        <!-- Lista de Alertas Ativos -->
+                        <div id="notifications-list" class="mt-6 space-y-3">
+                            <!-- Preenchido pelo Javascript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: BARBER PANEL (Administrativo) -->
+                <div id="tab-barber-panel" class="tab-content hidden space-y-6">
+                    <div class="border border-white/[0.04] p-8 rounded bg-[#161513]">
+                        <div class="flex items-center justify-between pb-5 border-b border-white/[0.05] flex-wrap gap-3">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">VISÃO ADMINISTRATIVA</span>
+                                <h2 class="text-xl font-classic font-bold text-white uppercase tracking-wide">Relatório do Mestre Carlão</h2>
+                                <p class="text-[#8e8984] text-xs mt-0.5">Visão unificada de faturamento, andamento de clientes e conexões de placares esportivos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Métricas Editoriais -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                            <div class="bg-[#121110] p-5 rounded border border-white/[0.03]">
+                                <span class="text-[8px] font-semibold text-[#8e8984] uppercase tracking-wider block">Clientes Hoje</span>
+                                <h4 class="text-xl font-classic font-bold text-white mt-1.5">8 Agendamentos</h4>
+                                <p class="text-[9px] text-[#c5a880] font-medium mt-1 uppercase tracking-wider">Fila fluida sem atraso</p>
+                            </div>
+
+                            <div class="bg-[#121110] p-5 rounded border border-white/[0.03]">
+                                <span class="text-[8px] font-semibold text-[#8e8984] uppercase tracking-wider block">Faturamento Diário</span>
+                                <h4 class="text-xl font-classic font-bold text-[#c5a880] mt-1.5">R$ 380,00</h4>
+                                <p class="text-[9px] text-[#8e8984] font-medium mt-1">Serviços confirmados e prestados</p>
+                            </div>
+
+                            <div class="bg-[#121110] p-5 rounded border border-white/[0.03]">
+                                <span class="text-[8px] font-semibold text-[#8e8984] uppercase tracking-wider block">Gols Notificados no Dia</span>
+                                <h4 class="text-xl font-classic font-bold text-white mt-1.5" id="live-soccer-goals">2 Gols</h4>
+                                <p class="text-[9px] text-[#8e8984] font-medium mt-1">Sincronização esportiva saudável</p>
+                            </div>
+                        </div>
+
+                        <!-- Fila de Atendimento do Salão -->
+                        <div class="mt-8">
+                            <h3 class="text-xs font-classic font-bold text-[#c5a880] uppercase tracking-[0.2em] mb-4">Agenda Conectada do Período</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs text-[#8e8984]">
+                                    <thead class="bg-[#121110] text-[9px] font-semibold text-[#8e8984] uppercase tracking-widest border-b border-white/[0.04]">
+                                        <tr>
+                                            <th class="px-4 py-3.5 font-medium">Cliente Assinante</th>
+                                            <th class="px-4 py-3.5 font-medium">Serviços Requeridos</th>
+                                            <th class="px-4 py-3.5 font-medium">Horário da Reserva</th>
+                                            <th class="px-4 py-3.5 font-medium">Situação</th>
+                                            <th class="px-4 py-3.5 font-medium text-right">Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/[0.03]" id="admin-appointments-tbody">
+                                        <!-- Processado dinamicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Recipiente para Toasts Clássicos -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2 max-w-sm w-full px-4 md:px-0"></div>
+
+    <!-- Rodapé -->
+    <footer class="bg-[#100f0e] border-t border-white/[0.03] py-8 mt-12 text-center text-xs text-[#8e8984]">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="font-classic italic text-[#c5a880] text-sm mb-1">Arena Barber &amp; Sports Club</p>
+            <p>&copy; 2026. Feito com cuidado de alfaiataria esportiva tradicional.</p>
+        </div>
+    </footer>
+
+    <script>
+        let activeTab = 'dashboard';
+        let viewMode = 'client'; // 'client' ou 'barber'
+        let userPoints = 120;
+        
+        let appointments = [
+            {
+                id: 1,
+                name: "Gabriel Rodrigues",
+                services: ["Corte Tradicional"],
+                barber: "Carlão",
+                date: "2026-06-03",
+                time: "18:30",
+                price: 45,
+                status: "confirmado"
+            }
+        ];
+
+        let notifications = [
+            {
+                id: 1,
+                title: "Reserva de Atendimento",
+                text: "Seu horário com o mestre Carlão está devidamente agendado hoje às 18:30.",
+                time: "Há 10 min",
+                icon: "fa-circle-check",
+                color: "text-[#c5a880]"
+            }
+        ];
+
+        window.onload = function() {
+            loadFromStorage();
+            renderAppointments();
+            renderNotifications();
+            updatePointsDisplay();
+            
+            // Ciclo de atualização sutil de placares ao vivo
+            setInterval(tickLiveScores, 30000);
+        };
+
+        function saveToStorage() {
+            localStorage.setItem('arena_barber_appointments_classic', JSON.stringify(appointments));
+            localStorage.setItem('arena_barber_notifications_classic', JSON.stringify(notifications));
+        }
+
+        function loadFromStorage() {
+            const savedAppointments = localStorage.getItem('arena_barber_appointments_classic');
+            const savedNotifications = localStorage.getItem('arena_barber_notifications_classic');
+            if (savedAppointments) appointments = JSON.parse(savedAppointments);
+            if (savedNotifications) notifications = JSON.parse(savedNotifications);
+        }
+
+        function toggleViewMode() {
+            if (viewMode === 'client') {
+                viewMode = 'barber';
+                document.getElementById('view-mode-text').innerText = 'Painel Cliente';
+                switchTab('barber-panel');
+            } else {
+                viewMode = 'client';
+                document.getElementById('view-mode-text').innerText = 'Painel Barbeiro';
+                switchTab('dashboard');
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            const targetTab = document.getElementById(`tab-${tabId}`);
+            if (targetTab) targetTab.classList.remove('hidden');
+            
+            // Limpa as classes do menu esquerdo
+            document.querySelectorAll('aside nav button').forEach(btn => {
+                btn.className = "w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#8e8984] hover:text-white hover:bg-white/[0.02]";
+            });
+            
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "w-full flex items-center justify-between px-3.5 py-3 rounded text-xs font-medium transition-heritage text-[#c5a880] bg-[#1a1816] border-l-2 border-[#c5a880]";
+            }
+            
+            activeTab = tabId;
+        }
+
+        function openNotificationsTab() {
+            switchTab('notifications');
+            const badge = document.getElementById('notif-badge');
+            const badgeSidebar = document.getElementById('notif-badge-sidebar');
+            badge.classList.add('hidden');
+            badgeSidebar.classList.add('hidden');
+        }
+
+        // Atualização dinâmica do valor da reserva
+        document.querySelectorAll('input[name="services"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                let total = 0;
+                document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+                    total += parseFloat(cb.getAttribute('data-price'));
+                });
+                document.getElementById('checkout-total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            });
+        });
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const checkedServices = [];
+            let totalPrice = 0;
+            document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+                checkedServices.push(cb.getAttribute('data-name'));
+                totalPrice += parseFloat(cb.getAttribute('data-price'));
+            });
+
+            if (checkedServices.length === 0) {
+                showToast("Escolha de Serviço", "Por favor, selecione ao menos um tratamento clássico.", "fa-triangle-exclamation", "text-[#c5a880]");
+                return;
+            }
+
+            const barber = document.querySelector('input[name="barber"]:checked').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+
+            const newBooking = {
+                id: Date.now(),
+                name: "Gabriel Rodrigues",
+                services: checkedServices,
+                barber: barber,
+                date: date,
+                time: time,
+                price: totalPrice,
+                status: "confirmado"
+            };
+
+            appointments.unshift(newBooking);
+            
+            const newNotif = {
+                id: Date.now() + 1,
+                title: "Visita Registrada",
+                text: `${checkedServices.join(', ')} agendado com profissional ${barber} às ${time} em ${date}.`,
+                time: "Agora mesmo",
+                icon: "fa-calendar-check",
+                color: "text-[#c5a880]"
+            };
+            notifications.unshift(newNotif);
+
+            userPoints += 15;
+
+            saveToStorage();
+            renderAppointments();
+            renderNotifications();
+            updatePointsDisplay();
+
+            showToast("Visita Registrada", "Seu horário foi agendado de forma privada.", "fa-check", "text-emerald-500");
+            switchTab('dashboard');
+        }
+
+        function cancelAppointment() {
+            appointments = [];
+            saveToStorage();
+            renderAppointments();
+            showToast("Cancelamento Efetuado", "Sua visita agendada foi removida do sistema.", "fa-circle-xmark", "text-[#8e8984]");
+        }
+
+        function completeAppointmentMock() {
+            userPoints += 30;
+            cancelAppointment();
+            updatePointsDisplay();
+            showToast("Serviço Finalizado", "Tratamento de estilo concluído. +30 PTS adicionados.", "fa-certificate", "text-[#c5a880]");
+        }
+
+        // Renderização de Agendamento Ativo (Foco minimalista, estilo vintage)
+        function renderAppointments() {
+            const container = document.getElementById('appointments-container');
+            const noMsg = document.getElementById('no-appointments-msg');
+            const adminTbody = document.getElementById('admin-appointments-tbody');
+
+            if (appointments.length === 0) {
+                container.innerHTML = "";
+                noMsg.classList.remove('hidden');
+                const badgeStatus = document.getElementById('dashboard-active-booking-status');
+                if (badgeStatus) badgeStatus.classList.add('hidden');
+            } else {
+                noMsg.classList.add('hidden');
+                
+                const app = appointments[0];
+                
+                container.innerHTML = `
+                    <div class="bg-[#1c1a18] p-5 rounded border border-white/[0.03] relative">
+                        <span class="absolute top-4 right-4 text-[8px] font-semibold border border-white/[0.08] text-[#c5a880] px-2.5 py-1 rounded uppercase tracking-wider">Confirmado</span>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-[#c5a880]">
+                                <i class="fa-solid fa-chair text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-classic font-bold text-white uppercase tracking-wider">${app.services.join(' + ')}</h4>
+                                <p class="text-[11px] text-[#8e8984] mt-1">Barbeiro Designado: <strong class="text-white">${app.barber}</strong></p>
+                                <p class="text-[11px] text-[#c5a880] font-semibold mt-1 flex items-center gap-1.5 font-classic">
+                                    <i class="fa-regular fa-clock text-[10px]"></i> ${app.date} às ${app.time}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-white/[0.03] flex items-center justify-between text-[11px]">
+                            <span class="text-[#8e8984]">Cobrança: <strong class="text-white font-sans">R$ ${app.price.toFixed(2).replace('.', ',')}</strong></span>
+                            <button onclick="cancelAppointment()" class="text-[#8e8984] hover:text-white uppercase text-[9px] font-bold transition-heritage tracking-widest">
+                                Cancelar Reserva
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            adminTbody.innerHTML = `
+                <tr>
+                    <td class="px-4 py-4 font-classic font-bold text-white uppercase tracking-wider">Mateus Silva</td>
+                    <td class="px-4 py-4 text-[#8e8984]">Corte Clássico</td>
+                    <td class="px-4 py-4 text-[#8e8984]">15:00</td>
+                    <td class="px-4 py-4"><span class="bg-white/[0.02] text-[#8e8984] px-2.5 py-1 rounded text-[9px] font-semibold uppercase tracking-wider">Concluído</span></td>
+                    <td class="px-4 py-4 text-right text-zinc-600">-</td>
+                </tr>
+            `;
+
+            if (appointments.length > 0) {
+                const app = appointments[0];
+                adminTbody.innerHTML += `
+                    <tr>
+                        <td class="px-4 py-4 font-classic font-bold text-white uppercase tracking-wider">${app.name}</td>
+                        <td class="px-4 py-4 text-white">${app.services.join(' + ')}</td>
+                        <td class="px-4 py-4 text-white">${app.time} (Hoje)</td>
+                        <td class="px-4 py-4">
+                            <span class="text-[#c5a880] text-[9px] font-bold uppercase tracking-wider">Ativo</span>
+                        </td>
+                        <td class="px-4 py-4 text-right">
+                            <button onclick="completeAppointmentMock()" class="bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold px-3 py-1.5 rounded text-[9px] uppercase tracking-widest transition-heritage">
+                                Finalizar
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Histórico de Alertas Editorial
+        function renderNotifications() {
+            const list = document.getElementById('notifications-list');
+            if (!list) return;
+
+            if (notifications.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-10 text-xs text-[#8e8984] font-classic italic">
+                        Nenhum registro histórico de notificações encontrado.
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = notifications.map(notif => `
+                <div class="border border-white/[0.04] bg-[#1c1a18] p-4 rounded flex items-start justify-between">
+                    <div class="flex space-x-4">
+                        <div class="text-[#c5a880] mt-0.5">
+                            <i class="fa-solid ${notif.icon}"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-classic font-bold text-white uppercase tracking-wider">${notif.title}</h4>
+                            <p class="text-[11px] text-[#8e8984] mt-1 leading-relaxed">${notif.text}</p>
+                            <span class="text-[8px] text-[#8e8984] font-semibold block mt-2 uppercase tracking-widest">${notif.time}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function clearAllNotifications() {
+            notifications = [];
+            saveToStorage();
+            renderNotifications();
+            showToast("Registros Limpos", "Seu histórico de comunicações foi totalmente esvaziado.", "fa-trash-can", "text-[#8e8984]");
+        }
+
+        function updatePointsDisplay() {
+            const pointsEl = document.getElementById('user-points');
+            const displayEl = document.getElementById('points-display');
+            if (pointsEl) pointsEl.innerText = `${userPoints} PONTOS`;
+            if (displayEl) displayEl.innerText = userPoints;
+        }
+
+        function filterSports(category) {
+            const filters = ['all', 'br', 'intl', 'nba'];
+            filters.forEach(f => {
+                const el = document.getElementById(`sport-filter-${f}`);
+                if (el) {
+                    if (f === category) {
+                        el.className = "border border-[#c5a880] text-[#c5a880] text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition";
+                    } else {
+                        el.className = "border border-transparent text-[#8e8984] hover:text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-2 rounded transition";
+                    }
+                }
+            });
+
+            const matches = document.querySelectorAll('#matches-grid > div');
+            matches.forEach(m => {
+                const sportType = m.getAttribute('data-sport-type');
+                if (category === 'all' || sportType === category) {
+                    m.classList.remove('hidden');
+                } else {
+                    m.classList.add('hidden');
+                }
+            });
+        }
+
+        function tickLiveScores() {
+            const rand = Math.random();
+            if (rand < 0.35) {
+                const goalFor = Math.random() > 0.5 ? 'Flamengo' : 'Palmeiras';
+                triggerGoalNotification(goalFor);
+            } else if (rand < 0.6) {
+                triggerGoalNotification('Real Madrid');
+            }
+        }
+
+        // Resenha com IA: Consome o Gemini 3.1 Flash com Google Search Grounding
+        async function getBarberBanter(theme) {
+            const contentArea = document.getElementById('gemini-content-area');
+            const loading = document.getElementById('gemini-loading');
+            const groundingFooter = document.getElementById('gemini-grounding-footer');
+            const sourcesContainer = document.getElementById('sources-container');
+
+            contentArea.classList.add('hidden');
+            groundingFooter.classList.add('hidden');
+            loading.classList.remove('hidden');
+
+            const systemPrompt = `Aja como Carlão, um conceituado e sofisticado mestre barbeiro tradicional apaixonado por história dos esportes e crônica clássica. 
+            Escreva no formato de crônicas descontraídas com subtítulos elegantes em Markdown do tipo "👉 SACADA DO CARLÃO" ou "💡 PROVOCAÇÃO DE CADEIRA".
+            Faça com que as observações se apoiem em notícias verdadeiras recentes do tema. Evite linguagem excessivamente jovem ou informal do tipo 'gíria de apostador'. Preze pelo linguajar de um experiente barman ou alfaiate que entende muito de esporte tradicional.`;
+
+            const userQuery = `Quais as principais novidades esportivas de hoje ou polêmicas saudáveis sobre o tema: ${theme}? Apresente notícias reais e proponha piadas/provocações para o cliente falar na barbearia.`;
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const textOutput = candidate.content.parts[0].text;
+                    const formattedHtml = parseMarkdownToHtml(textOutput);
+                    
+                    contentArea.innerHTML = `
+                        <div class="flex items-center space-x-3 text-[#c5a880] mb-4 border-b border-white/[0.04] pb-4">
+                            <i class="fa-solid fa-microphone-lines text-sm"></i>
+                            <div>
+                                <h4 class="text-xs font-classic font-bold text-white uppercase tracking-widest">Pauta do Clube de Conversa</h4>
+                                <p class="text-[10px] text-[#8e8984]">Utilize as provocações esportivas abaixo na cadeira com Carlão:</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-[#8e8984] leading-relaxed space-y-4 prose max-w-none">
+                            ${formattedHtml}
+                        </div>
+                    `;
+
+                    let sources = [];
+                    const groundingMetadata = candidate.groundingMetadata;
+                    if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                        sources = groundingMetadata.groundingAttributions
+                            .map(attribution => ({
+                                uri: attribution.web?.uri,
+                                title: attribution.web?.title,
+                            }))
+                            .filter(source => source.uri && source.title);
+                    }
+
+                    if (sources.length > 0) {
+                        sourcesContainer.innerHTML = sources.slice(0, 4).map(s => `
+                            <a href="${s.uri}" target="_blank" rel="noopener noreferrer" class="bg-[#1c1a18] hover:bg-white/[0.03] border border-white/[0.05] text-[10px] text-[#c5a880] font-classic italic px-3 py-1.5 rounded transition flex items-center gap-2 max-w-[200px] truncate">
+                                <i class="fa-solid fa-newspaper text-[8px] text-[#8e8984]"></i> ${s.title}
+                            </a>
+                        `).join('');
+                        groundingFooter.classList.remove('hidden');
+                    }
+                } else {
+                    throw new Error("Formato inválido retornado pela inteligência.");
+                }
+
+            } catch (err) {
+                console.error("Erro na busca de resenha esportiva clássica:", err);
+                contentArea.innerHTML = `
+                    <div class="text-[#8e8984] p-5 border border-white/[0.05] rounded bg-[#1c1a18] flex flex-col space-y-2">
+                        <span class="font-classic font-bold text-sm text-[#c5a880] uppercase tracking-wider"><i class="fa-solid fa-circle-exclamation text-[#8e8984] mr-2"></i> Crônica Offline</span>
+                        <p class="text-xs leading-relaxed">Não foi possível sintonizar nossa central de correspondentes no momento. Desfrute de nossos periódicos impressos na barbearia enquanto seu corte é realizado.</p>
+                    </div>
+                `;
+            } finally {
+                loading.classList.add('hidden');
+                contentArea.classList.remove('hidden');
+            }
+        }
+
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    if (response.status === 429 && retries > 0) {
+                        await new Promise(res => setTimeout(res, delay));
+                        return fetchWithRetry(url, options, retries - 1, delay * 2);
+                    }
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                return response;
+            } catch (err) {
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                throw err;
+            }
+        }
+
+        function parseMarkdownToHtml(markdownText) {
+            let html = markdownText;
+            html = html.replace(/### (.*?)\n/g, '<h4 class="font-classic font-bold text-white text-[12px] mt-4 uppercase tracking-widest">$1</h4>');
+            html = html.replace(/## (.*?)\n/g, '<h3 class="font-classic font-bold text-white text-sm mt-5 tracking-wide">$1</h3>');
+            html = html.replace(/# (.*?)\n/g, '<h2 class="font-classic font-bold text-white text-base mt-6 tracking-wide">$1</h2>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#c5a880] font-semibold">$1</strong>');
+            html = html.replace(/^\s*[\-\*]\s+(.*?)$/gm, '<li class="ml-4 list-disc text-[#8e8984] text-xs my-2 leading-relaxed">$1</li>');
+            html = html.replace(/\n/g, '<br>');
+            return html;
+        }
+
+        function triggerGoalNotification(team) {
+            const randomPlayer = getRandomFootballPlayer(team);
+            const title = "⚽ Boletim Esportivo";
+            const text = `GOL REGISTRADO: O clube informa que o atleta <strong>${randomPlayer}</strong> marcou pelo <strong>${team}</strong>!`;
+            
+            notifications.unshift({
+                id: Date.now(),
+                title: `Gol! ${team}`,
+                text: `Alteração no placar: ${randomPlayer} balança a rede adversária.`,
+                time: "Agora mesmo",
+                icon: "fa-futbol",
+                color: "text-[#c5a880]"
+            });
+            saveToStorage();
+            renderNotifications();
+
+            const badge = document.getElementById('notif-badge');
+            const badgeSidebar = document.getElementById('notif-badge-sidebar');
+            if (badge) badge.classList.remove('hidden');
+            if (badgeSidebar) {
+                badgeSidebar.innerText = parseInt(badgeSidebar.innerText || "0") + 1;
+                badgeSidebar.classList.remove('hidden');
+            }
+
+            showToast(title, text, "fa-futbol", "text-[#c5a880]");
+        }
+
+        function triggerBookingNotification() {
+            const title = "📅 Lembrete de Agenda";
+            const text = "Seu corte reservado para as 18:30 está próximo. A toalha quente e sua bebida clássica de recepção já estão prontas.";
+            
+            showToast(title, text, "fa-scissors", "text-[#c5a880]");
+        }
+
+        function getRandomFootballPlayer(team) {
+            const playerMap = {
+                'Flamengo': ['Pedro', 'Arrascaeta', 'Gerson', 'Bruno Henrique'],
+                'Palmeiras': ['Raphael Veiga', 'Estêvão', 'Felipe Anderson'],
+                'Real Madrid': ['Vinícius Jr.', 'Mbappé', 'Bellingham', 'Rodrygo'],
+                'São Paulo': ['Calleri', 'Lucas Moura', 'Luciano']
+            };
+            const defaultPlayers = ['Meio-campista', 'Atacante'];
+            const players = playerMap[team] || defaultPlayers;
+            return players[Math.floor(Math.random() * players.length)];
+        }
+
+        // Toasts Clássicos Estilo Bilhetes/Notas Fiscais de Barbearia de Luxo
+        function showToast(title, text, iconClass, iconColorClass) {
+            const container = document.getElementById('toast-container');
+            const toastId = `toast-${Date.now()}`;
+            
+            const toastHtml = `
+                <div id="${toastId}" class="bg-[#1c1a18] border border-white/[0.08] text-[#eae6e1] p-5 rounded shadow-2xl flex items-start space-x-3.5 transform translate-y-2 opacity-0 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#c5a880]"></div>
+                    <div class="${iconColorClass} mt-0.5">
+                        <i class="fa-solid ${iconClass} text-xs"></i>
+                    </div>
+                    <div class="flex-1 pr-3">
+                        <h5 class="text-xs font-classic font-bold text-white uppercase tracking-wider">${title}</h5>
+                        <p class="text-[11px] text-[#8e8984] mt-1 leading-relaxed">${text}</p>
+                    </div>
+                    <button onclick="removeToast('${toastId}')" class="text-[#8e8984] hover:text-white text-xs self-start transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            `;
+            
+            container.insertAdjacentHTML('beforeend', toastHtml);
+            
+            setTimeout(() => {
+                const toast = document.getElementById(toastId);
+                if (toast) {
+                    toast.classList.remove('translate-y-2', 'opacity-0');
+                }
+            }, 50);
+
+            setTimeout(() => {
+                removeToast(toastId);
+            }, 8000);
+        }
+
+        function removeToast(toastId) {
+            const toast = document.getElementById(toastId);
+            if (toast) {
+                toast.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
