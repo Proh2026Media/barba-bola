@@ -98,4 +98,14 @@
     border: 1px solid oklch(0.78 0.13 80 / 0.12);
   }
   .shadow-gold { box-shadow: 0 10px 40px -10px oklch(0.78 0.13 80 / 0.4); }
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
 }
