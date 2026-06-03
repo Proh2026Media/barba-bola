@@ -92,7 +92,20 @@ function Index() {
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[10px] font-bold text-primary-foreground">4</span>
           </button>
         </div>
+        
+        {/* SPORTS MARQUEE */}
+        <div className="bg-gold/10 border-y border-gold/20 py-1 overflow-hidden">
+          <div className="marquee flex gap-12 text-[10px] font-bold tracking-tighter text-gold/80 uppercase">
+            <span>⚽ FLAMENGO 2 x 1 PALMEIRAS (78')</span>
+            <span>🏀 CELTICS 112 x 105 LAKERS (FINAL)</span>
+            <span>🎾 BIA HADDAD VENCE NO ROLAND GARROS</span>
+            <span>🏆 CHAMPIONS: FINAL SERÁ EM LONDRES</span>
+            <span>💇 PROMO: CORTE + BARBA COM 10% DE DESCONTO HOJE</span>
+            <span>⚽ REAL MADRID 1 x 1 BARCELONA (63')</span>
+          </div>
+        </div>
       </header>
+
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-16 pb-12">
