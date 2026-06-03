@@ -3,7 +3,10 @@ import { useState } from "react";
 import {
   Scissors, Bell, Calendar, MapPin, Star, Clock,
   Trophy, Tv, ChevronRight, Flame, CheckCheck, Sparkles,
+  Compass, Feather, MessageSquare, Plus,
 } from "lucide-react";
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
