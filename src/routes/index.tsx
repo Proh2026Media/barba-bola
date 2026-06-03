@@ -372,7 +372,7 @@ function Index() {
           )}
 
 
-          {tab === "agenda" ? (
+          {tab === "agenda" && (
             <div className="grid gap-4 md:grid-cols-3">
               {barbers.map((b) => (
                 <div key={b.name} className="group rounded-2xl border border-border bg-card p-6 transition hover:border-gold/50">
@@ -399,35 +399,84 @@ function Index() {
                 </div>
               ))}
             </div>
-          ) : (
-            <div id="esportes" className="grid gap-3">
-              {matches.map((m, i) => (
-                <div key={i} className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition hover:border-gold/40">
-                  <div className="hidden w-40 shrink-0 sm:block">
-                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{m.flag} {m.league}</div>
-                  </div>
-                  <div className="grid flex-1 grid-cols-[1fr_auto_1fr] items-center gap-4">
-                    <div className="text-right text-sm font-medium md:text-base">{m.home}</div>
-                    <div className="display flex items-center gap-3 text-2xl">
-                      <span className={m.scoreH > m.scoreA ? "text-gold" : ""}>{m.scoreH}</span>
-                      <span className="text-muted-foreground">:</span>
-                      <span className={m.scoreA > m.scoreH ? "text-gold" : ""}>{m.scoreA}</span>
+          )}
+
+          {tab === "esportes" && (
+            <div id="esportes" className="grid gap-8 lg:grid-cols-3">
+              <div className="lg:col-span-2 grid gap-3">
+                {matches.map((m, i) => (
+                  <div key={i} className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition hover:border-gold/40">
+                    <div className="hidden w-40 shrink-0 sm:block">
+                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{m.flag} {m.league}</div>
                     </div>
-                    <div className="text-left text-sm font-medium md:text-base">{m.away}</div>
-                  </div>
-                  <div className="w-20 shrink-0 text-right">
-                    <div className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${
-                      m.status === "AO VIVO" ? "bg-destructive/20 text-destructive" :
-                      m.status === "ENC" ? "bg-muted text-muted-foreground" :
-                      "bg-gold/15 text-gold"
-                    }`}>
-                      {m.status === "AO VIVO" && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-destructive" />}
-                      {m.status}
+                    <div className="grid flex-1 grid-cols-[1fr_auto_1fr] items-center gap-4">
+                      <div className="text-right text-sm font-medium md:text-base">{m.home}</div>
+                      <div className="display flex items-center gap-3 text-2xl">
+                        <span className={m.scoreH > m.scoreA ? "text-gold" : ""}>{m.scoreH}</span>
+                        <span className="text-muted-foreground">:</span>
+                        <span className={m.scoreA > m.scoreH ? "text-gold" : ""}>{m.scoreA}</span>
+                      </div>
+                      <div className="text-left text-sm font-medium md:text-base">{m.away}</div>
                     </div>
-                    <div className="mt-1 text-xs text-muted-foreground">{m.min}</div>
+                    <div className="w-20 shrink-0 text-right">
+                      <div className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${
+                        m.status === "AO VIVO" ? "bg-destructive/20 text-destructive" :
+                        m.status === "ENC" ? "bg-muted text-muted-foreground" :
+                        "bg-gold/15 text-gold"
+                      }`}>
+                        {m.status === "AO VIVO" && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-destructive" />}
+                        {m.status}
+                      </div>
+                      <div className="mt-1 text-xs text-muted-foreground">{m.min}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Coluna de "Favoritos" no Esportes */}
+              <div className="space-y-6">
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="display text-xl mb-4 text-gold flex items-center gap-2">
+                    <Star className="h-5 w-5" /> Seus Favoritos
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between border-b border-border pb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg">⚽</span>
+                        <div>
+                          <div className="text-xs font-bold">FLAMENGO</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">Série A · Líder</div>
+                        </div>
+                      </div>
+                      <Bell className="h-4 w-4 text-gold" />
+                    </div>
+                    <div className="flex items-center justify-between border-b border-border pb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg">🏀</span>
+                        <div>
+                          <div className="text-xs font-bold">CELTICS</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">NBA · Final</div>
+                        </div>
+                      </div>
+                      <Bell className="h-4 w-4 text-gold" />
+                    </div>
+                  </div>
+                  <button className="mt-6 w-full py-2.5 rounded-lg border border-border text-[10px] font-bold uppercase tracking-widest hover:border-gold/50 transition">
+                    Personalizar Alertas
+                  </button>
+                </div>
+
+                {/* Destaque Editorial Rápido */}
+                <div className="rounded-2xl border border-gold/30 bg-gold/5 p-6 italic">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    "Onde a tradição da navalha clássica encontra o requinte da crônica esportiva internacional."
+                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <div className="h-px flex-1 bg-gold/30" />
+                    <span className="text-[9px] font-bold text-gold uppercase tracking-widest">Arena Barber Club</span>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           )}
         </div>
