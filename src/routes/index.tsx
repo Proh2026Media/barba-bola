@@ -47,7 +47,25 @@ const notifications = [
 ];
 
 function Index() {
-  const [tab, setTab] = useState<"agenda" | "esportes">("agenda");
+  const [tab, setTab] = useState<"agenda" | "esportes" | "clube" | "admin">("agenda");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [points, setPoints] = useState(120);
+  const [resenha, setResenha] = useState("");
+  const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
+    { role: 'ai', text: 'Fala craque! No que posso ajudar hoje? Quer saber sobre o jogo do Mengão ou dicas de estilo?' }
+  ]);
+
+  const handleResenha = () => {
+    if (!resenha) return;
+    const newHistory = [...chatHistory, { role: 'user' as const, text: resenha }];
+    setChatHistory(newHistory);
+    setResenha("");
+    // Simulando resposta da IA
+    setTimeout(() => {
+      setChatHistory(prev => [...prev, { role: 'ai', text: "Com certeza! Esse clássico vai ser histórico. A propósito, seu corte 'Fade' combinaria muito com o clima do estádio hoje!" }]);
+    }, 1000);
+  };
+
 
   return (
     <div className="min-h-screen text-foreground">
