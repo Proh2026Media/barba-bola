@@ -37,27 +37,27 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.13 0.005 50);
-  --foreground: oklch(0.96 0.01 80);
-  --card: oklch(0.17 0.008 50);
-  --card-foreground: oklch(0.96 0.01 80);
-  --popover: oklch(0.17 0.008 50);
-  --popover-foreground: oklch(0.96 0.01 80);
-  --primary: oklch(0.78 0.13 80);
-  --primary-foreground: oklch(0.13 0.005 50);
-  --secondary: oklch(0.22 0.01 50);
-  --secondary-foreground: oklch(0.96 0.01 80);
-  --muted: oklch(0.22 0.01 50);
-  --muted-foreground: oklch(0.66 0.015 70);
-  --accent: oklch(0.78 0.13 80);
-  --accent-foreground: oklch(0.13 0.005 50);
+  --background: #121110;
+  --foreground: #eae6e1;
+  --card: #161513;
+  --card-foreground: #eae6e1;
+  --popover: #161513;
+  --popover-foreground: #eae6e1;
+  --primary: #c5a880;
+  --primary-foreground: #121110;
+  --secondary: #1a1816;
+  --secondary-foreground: #8e8984;
+  --muted: #1a1816;
+  --muted-foreground: #8e8984;
+  --accent: #c5a880;
+  --accent-foreground: #121110;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.27 0.01 60 / 60%);
-  --input: oklch(0.25 0.01 60);
-  --ring: oklch(0.78 0.13 80);
-  --gold: oklch(0.82 0.15 82);
-  --gold-soft: oklch(0.88 0.09 85);
+  --border: rgba(255, 255, 255, 0.05);
+  --input: #1a1816;
+  --ring: #c5a880;
+  --gold: #c5a880;
+  --gold-soft: rgba(197, 168, 128, 0.15);
   --font-display: "Cormorant Garamond", serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
