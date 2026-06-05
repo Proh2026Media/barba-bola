@@ -259,7 +259,7 @@ function UnifiedArenaApp() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border p-2 flex justify-around z-40 overflow-x-auto">
+      <nav className="fixed bottom-4 left-4 right-4 bg-background/80 backdrop-blur-2xl border border-border/50 p-2 flex justify-around z-40 rounded-3xl shadow-2xl overflow-x-auto no-scrollbar">
         <NavItem id="dashboard" icon={Compass} label="Início" />
         <NavItem id="agenda" icon={Calendar} label="Agenda" />
         <NavItem id="esportes" icon={Feather} label="Esportes" />
