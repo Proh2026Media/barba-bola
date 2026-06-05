@@ -3,7 +3,7 @@ import { useState } from "react";
 import { 
   Scissors, Bell, Calendar, MapPin, Star, Clock, Trophy, 
   ChevronRight, Sparkles, User, Settings, Heart, MessageSquare, 
-  Compass, Feather, Info, ChevronLeft 
+  Compass, Feather, Info, ChevronLeft, Menu
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -38,22 +38,34 @@ function Index() {
     }, 1000);
   };
 
-  const NavItem = ({ id, icon: Icon, label, sub }: any) => (
+  const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
       onClick={() => setTab(id)}
-      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all ${tab === id ? "bg-gold/10 text-gold border border-gold/20" : "text-muted-foreground hover:text-white hover:bg-white/5"}`}
+      className={`flex flex-col md:flex-row items-center justify-center md:justify-between px-2 md:px-4 py-2 md:py-3 rounded-xl transition-all flex-1 md:flex-none ${tab === id ? "bg-gold/15 text-gold border border-gold/20" : "text-muted-foreground hover:text-white"}`}
     >
-      <span className="flex items-center gap-3 font-medium text-sm"><Icon className="h-4 w-4" /> {label}</span>
-      {sub && <span className="text-[10px] font-classic tracking-widest uppercase">{sub}</span>}
-      {tab === id && <ChevronRight className="h-3 w-3" />}
+      <Icon className="h-5 w-5 md:h-4 md:w-4 mb-1 md:mb-0 md:mr-3" />
+      <span className="font-medium text-[10px] md:text-sm">{label}</span>
+      {tab === id && <ChevronRight className="hidden md:block h-3 w-3 ml-2" />}
     </button>
   );
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex">
-      {/* Sidebar Nav */}
-      <aside className="w-72 border-r border-white/5 bg-secondary/10 flex flex-col p-6 hidden md:flex">
-        <div className="flex items-center gap-3 mb-10">
+    <div className="min-h-screen bg-background text-foreground flex flex-col md:flex-row pb-20 md:pb-0">
+      {/* Mobile Header */}
+      <header className="md:hidden flex items-center justify-between p-4 border-b border-white/5 glass sticky top-0 z-30">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full gradient-gold flex items-center justify-center font-classic text-sm italic text-primary-foreground font-bold">A</div>
+          <h1 className="font-classic text-sm font-bold uppercase">Arena Barber</h1>
+        </div>
+        <div className="flex items-center gap-3">
+          <Bell className="h-5 w-5 text-gold" />
+          <User className="h-5 w-5 text-muted-foreground" />
+        </div>
+      </header>
+
+      {/* Desktop/Sidebar Nav - Becomes Bottom Bar on Mobile */}
+      <aside className="fixed bottom-0 left-0 right-0 md:relative md:w-72 border-t md:border-t-0 md:border-r border-white/5 bg-secondary/10 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none flex flex-col p-2 md:p-6 z-40">
+        <div className="hidden md:flex items-center gap-3 mb-10">
           <div className="h-10 w-10 rounded-full gradient-gold flex items-center justify-center font-classic text-xl italic text-primary-foreground font-bold">A</div>
           <div>
             <h1 className="font-classic text-lg font-bold uppercase tracking-tight">Arena Barber</h1>
@@ -61,30 +73,23 @@ function Index() {
           </div>
         </div>
         
-        <nav className="space-y-2 flex-grow">
-          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest pl-3 mb-2">Seções</p>
-          <NavItem id="dashboard" icon={Compass} label="Painel Geral" />
-          <NavItem id="agenda" icon={Calendar} label="Agendar Atendimento" />
-          <NavItem id="esportes" icon={Feather} label="Noticiário & Placares" />
-          <NavItem id="barberchat" icon={MessageSquare} label="Resenha Cadeira IA" sub="GEMINI" />
-          <NavItem id="alertas" icon={Bell} label="Alertas Recebidos" />
-          <NavItem id="admin" icon={Settings} label="Painel Barbeiro" />
+        <nav className="flex flex-row md:flex-col justify-around md:justify-start md:space-y-2 gap-1 w-full">
+          <NavItem id="dashboard" icon={Compass} label="Início" />
+          <NavItem id="agenda" icon={Calendar} label="Agenda" />
+          <NavItem id="esportes" icon={Feather} label="Esportes" />
+          <NavItem id="barberchat" icon={MessageSquare} label="Resenha" />
+          <NavItem id="admin" icon={Settings} label="Admin" />
         </nav>
-
-        <div className="border-t border-white/5 pt-6 text-xs text-muted-foreground font-classic italic">
-          "Onde a tradição da navalha encontra o requinte esportivo."
-        </div>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
-        <header className="sticky top-0 z-20 glass border-b border-white/5 px-8 py-4 flex items-center justify-between">
+        <header className="hidden md:flex sticky top-0 z-20 glass border-b border-white/5 px-8 py-4 items-center justify-between">
           <h2 className="font-classic text-2xl uppercase tracking-widest">
             {tab === "dashboard" && "Painel Geral"}
             {tab === "agenda" && "Agenda"}
             {tab === "esportes" && "Esportes"}
             {tab === "barberchat" && "IA Resenha"}
-            {tab === "alertas" && "Alertas"}
             {tab === "admin" && "Modo Barbeiro"}
           </h2>
           <div className="text-right">
@@ -93,62 +98,130 @@ function Index() {
           </div>
         </header>
 
-        <section className="p-8">
+        <section className="p-4 md:p-8 max-w-4xl mx-auto">
           {tab === "dashboard" && (
-            <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-6">
+              <div className="md:hidden mb-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-gold">Membro VIP</span>
+                <h2 className="font-classic text-xl font-bold">Boa tarde, Gabriel</h2>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                 {[
-                  { label: "FIDELIDADE", val: "120 PTS" },
-                  { label: "ESTILO", val: "Degradê" },
-                  { label: "PRÓXIMO", val: "14:30" },
+                  { label: "PONTOS", val: "120" },
+                  { label: "ESTILO", val: "Fade" },
+                  { label: "HORÁRIO", val: "14:30", full: true },
                 ].map((s, i) => (
-                  <div key={i} className="glass p-6 rounded-2xl">
-                    <p className="text-[10px] text-muted-foreground tracking-widest uppercase mb-2">{s.label}</p>
-                    <p className="font-classic text-2xl text-gold">{s.val}</p>
+                  <div key={i} className={`glass p-4 md:p-6 rounded-2xl border border-white/5 ${s.full ? 'col-span-2 md:col-span-1' : ''}`}>
+                    <p className="text-[9px] md:text-[10px] text-muted-foreground tracking-widest uppercase mb-1 md:mb-2">{s.label}</p>
+                    <p className="font-classic text-lg md:text-2xl text-gold">{s.val}</p>
                   </div>
                 ))}
               </div>
-              <div className="glass p-8 rounded-2xl">
-                <h3 className="font-classic text-xl mb-4">Sintonizador de Jogos</h3>
-                {matches.map((m, i) => (
-                  <div key={i} className="flex justify-between items-center py-3 border-b border-white/5 last:border-0">
-                    <span className="text-xs font-bold">{m.home} vs {m.away}</span>
-                    <span className="text-gold font-bold">{m.scoreH} - {m.scoreA}</span>
+
+              <div className="glass p-5 md:p-8 rounded-2xl border border-white/5">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-classic text-lg md:text-xl">Sintonizador de Jogos</h3>
+                  <div className="flex items-center gap-1 text-[10px] text-destructive animate-pulse font-bold">
+                    <div className="h-1.5 w-1.5 bg-destructive rounded-full" /> AO VIVO
                   </div>
-                ))}
+                </div>
+                <div className="space-y-4">
+                  {matches.map((m, i) => (
+                    <div key={i} className="flex justify-between items-center py-3 border-b border-white/5 last:border-0">
+                      <div>
+                        <p className="text-[9px] text-muted-foreground uppercase font-bold">{m.league}</p>
+                        <p className="text-xs font-bold">{m.home} vs {m.away}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-gold font-bold text-sm">{m.scoreH} - {m.scoreA}</p>
+                        <p className="text-[9px] text-muted-foreground italic">{m.min}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              <button className="w-full gradient-gold py-4 rounded-2xl font-bold text-sm text-primary-foreground shadow-lg shadow-gold/20 flex items-center justify-center gap-2">
+                <Calendar size={18} /> NOVO AGENDAMENTO
+              </button>
             </div>
           )}
 
           {tab === "barberchat" && (
-            <div className="glass h-[600px] flex flex-col rounded-2xl">
-              <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            <div className="flex flex-col h-[70vh] md:h-[600px] glass rounded-2xl border border-white/5 overflow-hidden">
+              <div className="bg-white/5 p-4 border-b border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full gradient-gold flex items-center justify-center"><Sparkles size={14} className="text-black" /></div>
+                  <span className="font-classic font-bold text-sm tracking-wide">RESENHA IA</span>
+                </div>
+                <span className="text-[9px] font-bold text-gold/50">GEMINI 1.5</span>
+              </div>
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-secondary/5">
                 {chatHistory.map((msg, i) => (
                   <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    <div className={`p-4 rounded-xl max-w-sm ${msg.role === 'user' ? 'bg-gold text-primary-foreground' : 'bg-secondary'}`}>
+                    <div className={`p-3 md:p-4 rounded-2xl max-w-[85%] text-xs leading-relaxed ${msg.role === 'user' ? 'bg-gold text-primary-foreground font-medium' : 'bg-secondary/80 border border-white/5'}`}>
                       {msg.text}
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="p-6 border-t border-white/5 flex gap-2">
+              <div className="p-4 border-t border-white/5 flex gap-2 glass">
                 <input 
-                  className="flex-1 bg-secondary rounded-lg px-4 py-2 outline-none" 
+                  className="flex-1 bg-secondary/50 border border-white/10 rounded-xl px-4 py-3 outline-none text-xs focus:border-gold/30 transition-all" 
                   value={resenha} onChange={(e) => setResenha(e.target.value)}
-                  placeholder="Pergunte à IA..."
+                  placeholder="Fale com a IA..."
+                  onKeyDown={(e) => e.key === 'Enter' && handleResenha()}
                 />
-                <button onClick={handleResenha} className="bg-gold text-black p-2 rounded-lg"><MessageSquare size={18} /></button>
+                <button onClick={handleResenha} className="bg-gold text-black p-3 rounded-xl shadow-lg shadow-gold/20"><MessageSquare size={18} /></button>
+              </div>
+            </div>
+          )}
+
+          {tab === "agenda" && (
+            <div className="space-y-6">
+              <h3 className="font-classic text-xl mb-4">Escolha seu Barbeiro</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {barbers.map((b) => (
+                  <div key={b.name} className="glass p-5 rounded-2xl border border-white/5 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full gradient-gold flex items-center justify-center font-bold text-black">{b.name[0]}</div>
+                      <div>
+                        <p className="font-bold text-sm">{b.name}</p>
+                        <p className="text-[10px] text-muted-foreground uppercase">{b.role}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-gold font-bold text-xs">{b.slot}</p>
+                      <button className="text-[10px] text-muted-foreground flex items-center gap-1 mt-1">Reservar <ChevronRight size={12} /></button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
           {tab === "admin" && (
-            <div className="space-y-6">
-              <button onClick={() => alert("GOL!")} className="glass p-4 rounded-xl text-gold border-gold w-full text-left">⚽ Simular Gol</button>
+            <div className="space-y-4">
+              <h3 className="font-classic text-xl">Gestão Rápida</h3>
+              <button onClick={() => alert("GOL!")} className="glass p-5 rounded-2xl text-gold border-gold/30 w-full text-left font-bold flex items-center gap-3">
+                <Trophy size={20} /> SIMULAR GOL (NOTIFICAÇÃO)
+              </button>
+              <div className="glass p-5 rounded-2xl border border-white/5">
+                <p className="text-[10px] text-muted-foreground uppercase mb-4">Próximos Clientes</p>
+                <div className="space-y-3">
+                   <div className="flex justify-between items-center text-xs pb-3 border-b border-white/5">
+                      <span>Gabriel R.</span>
+                      <span className="text-gold">14:30</span>
+                   </div>
+                   <div className="flex justify-between items-center text-xs">
+                      <span>Matheus S.</span>
+                      <span className="text-muted-foreground">15:15</span>
+                   </div>
+                </div>
+              </div>
             </div>
           )}
-          
-          {/* Add other tabs content here... */}
         </section>
       </main>
     </div>
