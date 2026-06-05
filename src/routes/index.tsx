@@ -40,7 +40,7 @@ function UnifiedArenaApp() {
       name: "Exclusive", 
       colorClass: "text-gradient-hologram", 
       bg: "bg-white/5", 
-      border: "border-white/20",
+      border: "border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.1)]",
       badge: "bg-hologram-metallic text-black font-black",
       icon: Gem,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
@@ -49,7 +49,7 @@ function UnifiedArenaApp() {
       name: "Privilege", 
       colorClass: "text-gradient-gold", 
       bg: "bg-gold/10", 
-      border: "border-gold/30",
+      border: "border-gold/30 shadow-[0_0_10px_rgba(212,175,55,0.1)]",
       badge: "bg-gold-metallic text-black font-black",
       icon: Sparkle,
       greeting: "Bom dia, Membro Privilege."
@@ -58,7 +58,7 @@ function UnifiedArenaApp() {
       name: "Select", 
       colorClass: "text-gradient-bronze", 
       bg: "bg-orange-400/5", 
-      border: "border-orange-400/20",
+      border: "border-orange-400/20 shadow-[0_0_10px_rgba(205,127,50,0.1)]",
       badge: "bg-bronze-metallic text-white font-black",
       icon: BadgeCheck,
       greeting: "Olá, Membro Select."
@@ -67,7 +67,7 @@ function UnifiedArenaApp() {
       name: "Classic", 
       colorClass: "text-gradient-silver", 
       bg: "bg-slate-400/5", 
-      border: "border-slate-400/20",
+      border: "border-slate-400/20 shadow-[0_0_10px_rgba(192,192,192,0.1)]",
       badge: "bg-silver-metallic text-black font-black",
       icon: Armchair,
       greeting: "Bem-vindo, Membro Classic."
