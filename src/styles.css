@@ -120,6 +120,7 @@
     background: var(--card);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   .shadow-gold { box-shadow: 0 10px 40px -10px oklch(0.78 0.13 80 / 0.4); }
   .marquee {
