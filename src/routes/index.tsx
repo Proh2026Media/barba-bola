@@ -141,7 +141,7 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#D4AF37]/50 shadow-[0_0_40px_rgba(212,175,55,0.15)] ring-1 ring-[#D4AF37]/20' : 'border-white/10'}`}>
+            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#FF00E5]/50 shadow-[0_0_40px_rgba(255,0,229,0.15)] ring-1 ring-[#FF00E5]/20' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
                 <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.color} ${tier.border} group-hover:scale-110`}>
