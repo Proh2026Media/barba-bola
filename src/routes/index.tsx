@@ -129,7 +129,7 @@ function UnifiedArenaApp() {
               </div>
             </section>
 
-            <button onClick={() => setTab("agenda")} className="w-full bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-[#c5a880]/10 flex items-center justify-center gap-2">
+            <button onClick={() => setTab("agenda")} className="w-full bg-gold hover:bg-gold/80 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-gold/10 flex items-center justify-center gap-2">
               <Calendar size={14} /> Novo Agendamento
             </button>
           </div>
