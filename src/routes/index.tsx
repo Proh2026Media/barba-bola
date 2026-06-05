@@ -115,13 +115,13 @@ function UnifiedArenaApp() {
               </div>
               <div className="space-y-4">
                 {matches.slice(0, 2).map(m => (
-                  <div key={m.id} className="bg-secondary p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
+                  <div key={m.id} className="bg-secondary p-3.5 rounded border border-border flex items-center justify-between">
                     <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest">{m.league}</span>
                     <div className="flex items-center space-x-3 text-xs font-bold">
                       <span className="font-classic text-foreground tracking-wide">{m.home}</span>
-                      <span className="text-gold px-2 py-0.5 rounded border border-white/5 bg-background">{m.scoreH}</span>
+                      <span className="text-gold px-2 py-0.5 rounded border border-border bg-background">{m.scoreH}</span>
                       <span className="text-foreground/20 font-light">x</span>
-                      <span className="text-foreground/40 px-2 py-0.5 rounded border border-white/5 bg-background">{m.scoreA}</span>
+                      <span className="text-foreground/40 px-2 py-0.5 rounded border border-border bg-background">{m.scoreA}</span>
                       <span className="font-classic text-foreground tracking-wide">{m.away}</span>
                     </div>
                   </div>
