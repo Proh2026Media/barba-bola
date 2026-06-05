@@ -123,15 +123,22 @@
   }
 
   @keyframes organic-float {
-    0% { background-position: 0% 0%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 50% 100%; }
-    75% { background-position: 0% 50%; }
-    100% { background-position: 0% 0%; }
+    0% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+    33% { transform: translate(10%, -10%) scale(1.1) rotate(2deg); }
+    66% { transform: translate(-10%, 15%) scale(0.9) rotate(-3deg); }
+    100% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+  }
+
+  @keyframes gooey-movement {
+    0% { background-position: 0% 0%; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { background-position: 100% 50%; border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { background-position: 50% 100%; border-radius: 70% 30% 40% 60% / 30% 70% 60% 40%; }
+    75% { background-position: 0% 50%; border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+    100% { background-position: 0% 0%; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
   }
   
   .animate-shimmer {
-    animation: organic-float 10s ease-in-out infinite;
+    animation: gooey-movement 12s ease-in-out infinite;
   }
 
   .text-gradient-silver {
@@ -139,7 +146,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 12s ease infinite;
+    animation: gooey-movement 15s ease-in-out infinite;
   }
 
   .text-gradient-bronze {
@@ -147,7 +154,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 15s ease infinite;
+    animation: gooey-movement 18s ease-in-out infinite;
   }
 
   .text-gradient-gold {
@@ -155,7 +162,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 13s ease-in-out infinite;
+    animation: gooey-movement 20s ease-in-out infinite;
   }
 
   .text-gradient-hologram {
@@ -173,7 +180,7 @@
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 18s linear infinite;
+    animation: gooey-movement 22s ease-in-out infinite;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
 
@@ -190,28 +197,28 @@
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 18s linear infinite;
+    animation: gooey-movement 22s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35));
   }
 
   .bg-silver-metallic {
     background: radial-gradient(circle at 20% 20%, #E0E0E0 0%, #FFFFFF 40%, #B0B0B0 70%, #FFFFFF 100%);
     background-size: 300% 300%;
-    animation: organic-float 11s ease infinite;
+    animation: gooey-movement 14s ease-in-out infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.1);
   }
 
   .bg-bronze-metallic {
     background: radial-gradient(circle at 80% 80%, #CD7F32 0%, #FFCBA4 45%, #8B4513 75%, #FFCBA4 100%);
     background-size: 300% 300%;
-    animation: organic-float 14s ease-in-out infinite;
+    animation: gooey-movement 16s ease-in-out infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 0 10px rgba(205,127,50,0.1);
   }
 
   .bg-gold-metallic {
     background: radial-gradient(circle at 50% 10%, #D4AF37 0%, #FFE29F 40%, #8A6623 80%, #FFE29F 100%);
     background-size: 300% 300%;
-    animation: organic-float 12s linear infinite;
+    animation: gooey-movement 15s ease-in-out infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 0 10px rgba(212,175,55,0.2);
   }
 
@@ -228,7 +235,7 @@
       rgba(255, 255, 255, 0.95) 100%
     );
     background-size: 400% 400%;
-    animation: organic-float 15s ease-in-out infinite;
+    animation: gooey-movement 15s ease-in-out infinite;
     backdrop-filter: blur(12px);
     box-shadow: 
       0 0 25px rgba(186, 230, 253, 0.3),
@@ -249,7 +256,7 @@
       #F0F9FF 100%
     );
     background-size: 400% 400%;
-    animation: organic-float 15s ease-in-out infinite;
+    animation: gooey-movement 18s ease-in-out infinite;
     box-shadow: 
       0 0 35px rgba(255, 255, 255, 0.25), 
       inset 0 1px 6px rgba(255, 255, 255, 0.9),
