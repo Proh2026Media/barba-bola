@@ -133,16 +133,18 @@
   }
 
   @keyframes gooey-flow {
-    0%   { background-position: 10% 10%; background-size: 400% 400%; }
-    20%  { background-position: 90% 30%; background-size: 450% 450%; }
-    40%  { background-position: 50% 90%; background-size: 400% 400%; }
-    60%  { background-position: 10% 70%; background-size: 480% 480%; }
-    80%  { background-position: 80% 10%; background-size: 420% 420%; }
-    100% { background-position: 10% 10%; background-size: 400% 400%; }
+    0%   { background-position: 5% 5%; background-size: 400% 400%; }
+    10%  { background-position: 30% 15%; background-size: 450% 350%; }
+    25%  { background-position: 90% 40%; background-size: 350% 500%; }
+    40%  { background-position: 60% 85%; background-size: 500% 400%; }
+    55%  { background-position: 15% 70%; background-size: 380% 480%; }
+    70%  { background-position: 40% 20%; background-size: 420% 380%; }
+    85%  { background-position: 85% 60%; background-size: 460% 440%; }
+    100% { background-position: 5% 5%; background-size: 400% 400%; }
   }
   
   .animate-shimmer {
-    animation: gooey-flow 25s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    animation: gooey-flow 45s cubic-bezier(0.37, 0, 0.63, 1) infinite;
   }
 
   .text-gradient-silver {
