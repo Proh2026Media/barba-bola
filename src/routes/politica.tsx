@@ -171,10 +171,10 @@ function PoliticaSistemas() {
 
         <section className="pt-10 border-t border-border/50 text-center">
           <div className="flex justify-center gap-4 mb-4 grayscale opacity-30">
-            <Scissors size={16} />
-            <CreditCard size={16} />
-            <Shield size={16} />
-            <Crown size={16} />
+            <Armchair size={16} />
+            <BadgeCheck size={16} />
+            <Sparkle size={16} />
+            <Gem size={16} />
           </div>
           <p className="text-[9px] text-muted-foreground uppercase font-black tracking-[0.4em]">Classic · Select · Privilege · Exclusive</p>
           <p className="text-[10px] text-muted-foreground/40 mt-3 font-medium">Arena Barber Club & Lounge © 2026</p>
