@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { 
   Bell, Calendar, Compass, Feather, MessageSquare, Settings, 
   ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock,
-  Moon, Sun, Info, X, Zap, Beer, Star
+  Moon, Sun, Info, X, Zap, Beer, Star, CreditCard, Shield, Crown, Diamond,
+  Briefcase
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -41,6 +42,7 @@ function UnifiedArenaApp() {
       bg: "bg-[#D4AF37]/10", 
       border: "border-[#D4AF37]/30",
       badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black",
+      icon: Crown,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
@@ -49,6 +51,7 @@ function UnifiedArenaApp() {
       bg: "bg-cyan-400/10", 
       border: "border-cyan-400/30",
       badge: "bg-cyan-500 text-white",
+      icon: Shield,
       greeting: "Bom dia, Membro Privilege."
     };
     if (pts >= 100) return { 
@@ -57,6 +60,7 @@ function UnifiedArenaApp() {
       bg: "bg-slate-300/10", 
       border: "border-slate-300/30",
       badge: "bg-slate-400 text-white",
+      icon: CreditCard,
       greeting: "Olá, Membro Select."
     };
     return { 
@@ -65,6 +69,7 @@ function UnifiedArenaApp() {
       bg: "bg-orange-400/10", 
       border: "border-orange-400/30",
       badge: "bg-orange-500 text-white",
+      icon: Scissors,
       greeting: "Bem-vindo, Membro Classic."
     };
   };
@@ -129,17 +134,18 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 ${tier.name === 'Exclusive' ? 'bg-gradient-to-b from-[#D4AF37]/20 via-background to-transparent shadow-[0_0_20px_rgba(212,175,55,0.1)]' : 'bg-gradient-to-b from-primary/10 to-transparent'}`}>
+            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#D4AF37]/50 shadow-[0_0_40px_rgba(212,175,55,0.15)] ring-1 ring-[#D4AF37]/20' : 'border-white/10'}`}>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
-                <div className={`h-8 w-8 rounded-full flex items-center justify-center border transition-colors ${tier.bg} ${tier.color} ${tier.border}`}>
-                  <Star size={16} fill="currentColor" />
+                <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.color} ${tier.border} group-hover:scale-110`}>
+                  <tier.icon size={20} className="drop-shadow-[0_0_8px_currentColor]" />
                 </div>
               </div>
-              <span className={`text-[10px] uppercase font-black px-3 py-1 rounded-full inline-block mb-2 tracking-[0.2em] shadow-sm ${tier.badge}`}>
+              <span className={`text-[10px] uppercase font-black px-4 py-1.5 rounded-full inline-block mb-3 tracking-[0.2em] shadow-lg transform transition-transform hover:scale-105 ${tier.badge}`}>
                 {tier.name}
               </span>
-              <h2 className="text-3xl font-black text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-sm mt-2 font-medium italic">{tier.greeting}</p>
+              <h2 className="text-3xl font-black text-foreground tracking-tight uppercase drop-shadow-sm">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-sm mt-2 font-medium italic opacity-80">{tier.greeting}</p>
               <div className="flex gap-4 justify-center mt-6">
                 <div className="text-center px-4">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
@@ -367,48 +373,60 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">A Escala do Clube</h4>
             <div className="space-y-4">
               {/* Classic */}
-              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-1.5">
-                    <Trophy size={12} /> Classic (O Alicerce)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-2">
+                    <div className="p-1.5 bg-orange-400/10 rounded-lg border border-orange-400/20">
+                      <Scissors size={14} />
+                    </div>
+                    Classic
                   </span>
-                  <span className="text-[9px] font-bold text-muted-foreground">0 - 99 pts</span>
+                  <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">0 - 99 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground">Visual alinhado e manutenção do dia a dia com qualidade.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">O alicerce: Tradição e manutenção impecável do seu visual.</p>
               </div>
               
               {/* Select */}
-              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
-                    <Trophy size={12} /> Select (Exclusividade)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-2">
+                    <div className="p-1.5 bg-slate-300/10 rounded-lg border border-slate-300/20">
+                      <CreditCard size={14} />
+                    </div>
+                    Select
                   </span>
-                  <span className="text-[9px] font-bold text-muted-foreground">100 - 299 pts</span>
+                  <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">100 - 299 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground">Maior flexibilidade na marcação e conveniência extra.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Conveniência: Prioridade na agenda e lugar cativo na Arena.</p>
               </div>
 
               {/* Privilege */}
-              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-1.5">
-                    <Trophy size={12} /> Privilege (Experiência)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-2">
+                    <div className="p-1.5 bg-cyan-400/10 rounded-lg border border-cyan-400/20">
+                      <Shield size={14} />
+                    </div>
+                    Privilege
                   </span>
-                  <span className="text-[9px] font-bold text-muted-foreground">300 - 499 pts</span>
+                  <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">300 - 499 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground">Atendimento diferenciado e descontos em produtos de cuidado pessoal.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Experiência: Descontos em produtos e atendimento regado a benefícios.</p>
               </div>
 
               {/* Exclusive */}
-              <div className="bg-primary/5 p-4 rounded-2xl border-[#D4AF37]/30 relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/5 to-transparent">
-                <div className="absolute -right-2 -top-2 opacity-10">
-                  <Star size={48} fill="currentColor" className="text-[#D4AF37]" />
+              <div className="bg-[#D4AF37]/5 backdrop-blur-md p-4 rounded-2xl border border-[#D4AF37]/30 shadow-xl relative overflow-hidden group hover:bg-[#D4AF37]/10 transition-all ring-1 ring-[#D4AF37]/10">
+                <div className="absolute -right-2 -top-2 opacity-5 transition-transform group-hover:scale-110">
+                  <Crown size={64} fill="currentColor" className="text-[#D4AF37]" />
                 </div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-1.5">
-                    <Star size={12} fill="currentColor" /> Exclusive (O Topo)
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#D4AF37]/20 rounded-lg border border-[#D4AF37]/30 shadow-inner">
+                      <Crown size={14} fill="currentColor" />
+                    </div>
+                    Exclusive
                   </span>
-                  <span className="text-[9px] font-bold text-[#D4AF37]">500+ pts ou Assinatura</span>
+                  <span className="text-[9px] font-black text-black bg-gradient-to-r from-[#D4AF37] to-[#F9E272] px-2 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
                 </div>
                 <ul className="space-y-1.5">
                   <li className="text-[10px] font-bold flex items-center gap-2">
