@@ -141,26 +141,25 @@ function UnifiedArenaApp() {
                   <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
               </div>
-              <span className={`text-[10px] uppercase font-black px-4 py-1.5 rounded-full inline-block mb-3 tracking-[0.2em] shadow-lg transform transition-transform hover:scale-105 ${tier.badge}`}>
-                {tier.name}
+              <span className={`text-[10px] uppercase font-black px-5 py-2 rounded-full inline-block mb-4 tracking-[0.25em] shadow-xl transform transition-all hover:scale-105 ${tier.badge} border border-white/20`}>
+                Membro {tier.name}
               </span>
               <h2 className="text-3xl font-black text-foreground tracking-tight uppercase drop-shadow-sm">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-sm mt-2 font-medium italic opacity-80">{tier.greeting}</p>
-              <div className="flex gap-4 justify-center mt-6">
-                <div className="text-center px-4">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
+              <div className="flex gap-4 justify-center mt-8">
+                <div className="text-center px-6">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1">Pontos</p>
                   <p className={`text-2xl font-black ${tier.colorClass}`}>{points}</p>
                 </div>
-                <div className="w-px bg-border"></div>
-                <div className="text-center px-4 relative">
+                <div className="w-px bg-border/50 h-10 self-center"></div>
+                <div className="text-center px-6 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
                     className={`absolute -top-1 -right-1 hover:scale-110 transition-transform ${tier.colorClass}`}
                   >
                     <Info size={12} />
                   </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
-                  <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1">Benefícios</p>
+                  <p className="text-[10px] font-black uppercase text-primary tracking-tighter bg-primary/5 px-2 py-0.5 rounded border border-primary/10">Ver Detalhes</p>
                 </div>
               </div>
             </section>
