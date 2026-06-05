@@ -154,7 +154,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 12s ease-in-out infinite alternate;
+    animation: gooey-gradient 15s ease-in-out infinite;
     display: inline-block;
   }
 
