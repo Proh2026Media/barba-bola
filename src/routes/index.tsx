@@ -147,6 +147,11 @@ function UnifiedArenaApp() {
               </div>
 
               <div className="flex gap-4 justify-center mt-4">
+                <div className="text-center px-6">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
+                  <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
+                </div>
+                <div className="w-px bg-border/30 h-10 self-center"></div>
                 <div className="text-center px-6 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
@@ -154,11 +159,6 @@ function UnifiedArenaApp() {
                   >
                     <Info size={12} />
                   </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
-                  <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
-                </div>
-                <div className="w-px bg-border/30 h-10 self-center"></div>
-                <div className="text-center px-6">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Pontos</p>
                   <p className={`text-2xl font-black ${tier.colorClass}`}>{points}</p>
                 </div>
