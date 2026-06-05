@@ -230,7 +230,7 @@ function UnifiedArenaApp() {
           <div className="space-y-6">
             <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide italic">Modo Barbeiro</h2>
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-card p-5 rounded border border-white/[0.04]">
+              <div className="bg-card p-5 rounded border border-border">
                 <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
                 <div className="grid grid-cols-2 gap-2">
                   <button onClick={() => alert("Simulando Gol...")} className="bg-secondary text-[10px] py-2 rounded border border-white/5 font-bold text-foreground">⚽ Gol Flamengo</button>
