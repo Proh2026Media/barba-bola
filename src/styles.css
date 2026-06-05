@@ -133,61 +133,61 @@
   }
 
   @keyframes gooey-flow {
-    0%   { background-position: 5% 5%; background-size: 400% 400%; }
-    10%  { background-position: 30% 15%; background-size: 450% 350%; }
-    25%  { background-position: 90% 40%; background-size: 350% 500%; }
-    40%  { background-position: 60% 85%; background-size: 500% 400%; }
-    55%  { background-position: 15% 70%; background-size: 380% 480%; }
-    70%  { background-position: 40% 20%; background-size: 420% 380%; }
-    85%  { background-position: 85% 60%; background-size: 460% 440%; }
-    100% { background-position: 5% 5%; background-size: 400% 400%; }
+    0%   { background-position: 10% 10%; background-size: 400% 400%; }
+    15%  { background-position: 85% 20%; background-size: 420% 380%; }
+    30%  { background-position: 20% 85%; background-size: 380% 420%; }
+    45%  { background-position: 90% 70%; background-size: 450% 450%; }
+    60%  { background-position: 15% 30%; background-size: 400% 400%; }
+    75%  { background-position: 70% 90%; background-size: 350% 450%; }
+    90%  { background-position: 40% 15%; background-size: 420% 400%; }
+    100% { background-position: 10% 10%; background-size: 400% 400%; }
   }
   
   .animate-shimmer {
-    animation: gooey-flow 45s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 35s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   .text-gradient-silver {
     background: radial-gradient(circle at center, #000000 0%, #404040 30%, #808080 60%, #404040 100%);
-    background-size: 400% 400%;
+    background-size: 500% 500%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 50s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 40s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
   }
 
   .dark .text-gradient-silver {
     background: radial-gradient(circle at center, #FFFFFF 0%, #E0E0E0 30%, #A0A0A0 60%, #E0E0E0 100%);
-    background-size: 400% 400%;
+    background-size: 500% 500%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 50s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 40s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
   }
 
   .text-gradient-bronze {
     background: radial-gradient(circle at 30% 30%, #FFCBA4 0%, #CD7F32 40%, #8B4513 70%, #FFCBA4 100%);
-    background-size: 400% 400%;
+    background-size: 500% 500%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 55s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 45s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
   }
 
   .text-gradient-gold {
     background: radial-gradient(circle at 70% 20%, #FFE29F 0%, #D4AF37 35%, #8A6623 75%, #FFE29F 100%);
-    background-size: 400% 400%;
+    background-size: 500% 500%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 52s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 42s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
   }
 
@@ -203,12 +203,12 @@
       #FFD670 90%,
       #000000 100%
     );
-    background-size: 400% 400%;
+    background-size: 600% 600%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 60s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 50s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
@@ -223,34 +223,34 @@
       #FEF08A 80%,
       #E0F2FE 100%
     );
-    background-size: 400% 400%;
+    background-size: 600% 600%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-flow 60s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation: gooey-flow 50s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35));
   }
 
   .bg-silver-metallic {
     background: radial-gradient(circle at center, #E0E0E0 0%, #FFFFFF 30%, #B0B0B0 60%, #FFFFFF 100%);
-    background-size: 400% 400%;
-    animation: gooey-flow 48s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    background-size: 500% 500%;
+    animation: gooey-flow 38s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.1);
   }
 
   .bg-bronze-metallic {
     background: radial-gradient(circle at 80% 80%, #CD7F32 0%, #FFCBA4 45%, #8B4513 75%, #FFCBA4 100%);
-    background-size: 400% 400%;
-    animation: gooey-flow 52s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    background-size: 500% 500%;
+    animation: gooey-flow 42s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 0 10px rgba(205,127,50,0.1);
   }
 
   .bg-gold-metallic {
     background: radial-gradient(circle at 50% 10%, #D4AF37 0%, #FFE29F 40%, #8A6623 80%, #FFE29F 100%);
-    background-size: 400% 400%;
-    animation: gooey-flow 46s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    background-size: 500% 500%;
+    animation: gooey-flow 40s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 0 10px rgba(212,175,55,0.2);
   }
 
@@ -266,8 +266,8 @@
       rgba(254, 249, 195, 0.4) 85%,
       rgba(255, 255, 255, 0.95) 100%
     );
-    background-size: 400% 400%;
-    animation: gooey-flow 58s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    background-size: 600% 600%;
+    animation: gooey-flow 48s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     backdrop-filter: blur(12px);
     box-shadow: 
       0 0 25px rgba(186, 230, 253, 0.3),
@@ -287,8 +287,8 @@
       #FEF9C3 80%,
       #F0F9FF 100%
     );
-    background-size: 400% 400%;
-    animation: gooey-flow 58s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    background-size: 600% 600%;
+    animation: gooey-flow 48s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     box-shadow: 
       0 0 35px rgba(255, 255, 255, 0.25), 
       inset 0 1px 6px rgba(255, 255, 255, 0.9),
