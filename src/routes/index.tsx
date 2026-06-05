@@ -45,43 +45,43 @@ function UnifiedArenaApp() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-primary/20 transition-colors duration-300">
       {/* Editorial Marquee */}
-      <div className="bg-muted/30 text-muted-foreground py-1.5 overflow-hidden border-b border-border/50 flex items-center relative h-7">
-        <div className="absolute left-0 bg-background px-3 z-10 font-bold text-[9px] text-primary border-r border-border">
-          LIVE:
+      <div className="bg-primary text-primary-foreground py-2 overflow-hidden border-b border-border/50 flex items-center relative h-9">
+        <div className="absolute left-0 bg-primary px-4 z-10 font-black text-[10px] border-r border-primary-foreground/20">
+          PLACAR AO VIVO
         </div>
-        <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-bold tracking-tight pl-16">
+        <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-black tracking-widest pl-24">
           {matches.map(m => (
-            <span key={m.id} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
+            <span key={m.id} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary-foreground/70 bg-primary-foreground/10 px-1.5 py-0.5 rounded">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
           ))}
           {/* Duplicate for infinite effect */}
           {matches.map(m => (
-            <span key={`${m.id}-dup`} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
+            <span key={`${m.id}-dup`} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary-foreground/70 bg-primary-foreground/10 px-1.5 py-0.5 rounded">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
           ))}
         </div>
       </div>
 
       {/* Header */}
-      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-border p-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl border border-border bg-card flex items-center justify-center text-primary font-bold text-lg">A</div>
+      <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-xl border-b border-border/50 p-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="h-11 w-11 rounded-2xl border-2 border-primary bg-primary/5 flex items-center justify-center text-primary font-black text-xl shadow-inner">A</div>
           <div>
-            <h1 className="text-sm font-bold uppercase tracking-tight text-foreground">Arena Barber</h1>
-            <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground font-sans font-bold">Club & Lounge</p>
+            <h1 className="text-base font-black uppercase tracking-tighter text-foreground leading-none">Arena Barber</h1>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-black mt-1">Club & Lounge</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button 
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 rounded-xl border border-border text-muted-foreground hover:text-foreground transition-all"
+            className="p-2.5 rounded-2xl bg-muted/30 text-muted-foreground hover:text-foreground transition-all border border-border/50"
           >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <button onClick={() => setTab("notifications")} className="relative text-muted-foreground hover:text-foreground transition-colors p-2">
-            <Bell size={18} />
-            {notifications.length > 0 && <span className="absolute top-2 right-2 h-1.5 w-1.5 bg-primary rounded-full" />}
+          <button onClick={() => setTab("notifications")} className="relative bg-muted/30 text-muted-foreground hover:text-foreground transition-all p-2.5 rounded-2xl border border-border/50">
+            <Bell size={20} />
+            {notifications.length > 0 && <span className="absolute top-2 right-2 h-2 w-2 bg-primary rounded-full border-2 border-background" />}
           </button>
-          <div className="h-9 w-9 rounded-xl border border-border flex items-center justify-center text-muted-foreground bg-card">
-            <User size={18} />
+          <div className="h-11 w-11 rounded-2xl border border-border/50 flex items-center justify-center text-muted-foreground bg-muted/30">
+            <User size={20} />
           </div>
         </div>
       </header>
