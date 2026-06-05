@@ -40,7 +40,7 @@ function UnifiedArenaApp() {
       name: "Exclusive", 
       colorClass: "text-gradient-hologram", 
       bg: "bg-white/5", 
-      border: "border-white/20",
+      border: "border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.1)]",
       badge: "bg-hologram-metallic text-black font-black",
       icon: Gem,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
@@ -49,7 +49,7 @@ function UnifiedArenaApp() {
       name: "Privilege", 
       colorClass: "text-gradient-gold", 
       bg: "bg-gold/10", 
-      border: "border-gold/30",
+      border: "border-gold/30 shadow-[0_0_10px_rgba(212,175,55,0.1)]",
       badge: "bg-gold-metallic text-black font-black",
       icon: Sparkle,
       greeting: "Bom dia, Membro Privilege."
@@ -58,7 +58,7 @@ function UnifiedArenaApp() {
       name: "Select", 
       colorClass: "text-gradient-bronze", 
       bg: "bg-orange-400/5", 
-      border: "border-orange-400/20",
+      border: "border-orange-400/20 shadow-[0_0_10px_rgba(205,127,50,0.1)]",
       badge: "bg-bronze-metallic text-white font-black",
       icon: BadgeCheck,
       greeting: "Olá, Membro Select."
@@ -67,7 +67,7 @@ function UnifiedArenaApp() {
       name: "Classic", 
       colorClass: "text-gradient-silver", 
       bg: "bg-slate-400/5", 
-      border: "border-slate-400/20",
+      border: "border-slate-400/20 shadow-[0_0_10px_rgba(192,192,192,0.1)]",
       badge: "bg-silver-metallic text-black font-black",
       icon: Armchair,
       greeting: "Bem-vindo, Membro Classic."
@@ -141,7 +141,7 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] ring-1 ring-white/10' : 'border-white/10'}`}>
+            <section className={`p-6 rounded-[32px] border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-xl bg-white/5 dark:bg-black/40 ${tier.name === 'Exclusive' ? 'border-white/40 shadow-[0_0_50px_rgba(255,255,255,0.15)] ring-1 ring-white/20' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
                 <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} group-hover:scale-110`}>
