@@ -221,5 +221,3 @@ function UnifiedArenaApp() {
     </div>
   );
 }
-
-}
