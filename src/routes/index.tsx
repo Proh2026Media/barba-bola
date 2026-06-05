@@ -472,3 +472,5 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
     </div>
   );
 };
+
+export default UnifiedArenaApp;
