@@ -346,7 +346,14 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
           </div>
         </div>
 
-        <div className="p-4 bg-muted/20 border-t border-border">
+        <div className="p-4 bg-muted/20 border-t border-border space-y-2">
+          <Link 
+            to="/politica"
+            onClick={onClose}
+            className="w-full bg-background border border-border text-foreground font-black text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl hover:bg-muted transition-colors flex items-center justify-center gap-2"
+          >
+            Política Completa <ChevronRight size={12} />
+          </Link>
           <button 
             onClick={onClose}
             className="w-full bg-foreground text-background font-black text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl hover:opacity-90 transition-opacity"
