@@ -91,12 +91,14 @@ function UnifiedArenaApp() {
       <svg width="0" height="0" className="absolute pointer-events-none">
         <defs>
           <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="20%" stopColor="#E0F2FE" />
-            <stop offset="40%" stopColor="#70D6FF" />
+            <stop offset="0%" stopColor="#0a0a0a" />
+            <stop offset="10%" stopColor="#1a1a1a" />
+            <stop offset="30%" stopColor="#E0F2FE" />
+            <stop offset="45%" stopColor="#70D6FF" />
             <stop offset="60%" stopColor="#FBCFE8" />
-            <stop offset="80%" stopColor="#FEF9C3" />
-            <stop offset="100%" stopColor="#70D6FF" />
+            <stop offset="75%" stopColor="#FEF9C3" />
+            <stop offset="90%" stopColor="#70D6FF" />
+            <stop offset="100%" stopColor="#0a0a0a" />
           </linearGradient>
         </defs>
       </svg>
@@ -151,7 +153,7 @@ function UnifiedArenaApp() {
               <div className="absolute top-0 right-0 p-3">
                 <button 
                   onClick={() => setShowVipInfo(true)}
-                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-black border-white/30' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
+                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-[#0a0a0a] border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
                 >
                   <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: 'url(#hologram-gradient)' } : {}} />
                 </button>
