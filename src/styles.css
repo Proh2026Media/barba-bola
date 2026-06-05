@@ -150,6 +150,10 @@
     animation: gooey-gradient 15s ease-in-out infinite;
   }
 
+  .dark .text-gradient-silver {
+    background: radial-gradient(circle at center, #FFFFFF 0%, #E0E0E0 30%, #A0A0A0 60%, #E0E0E0 100%);
+  }
+
   .text-gradient-bronze {
     background: radial-gradient(circle at 30% 30%, #FFCBA4 0%, #CD7F32 40%, #8B4513 70%, #FFCBA4 100%);
     background-size: 300% 300%;
