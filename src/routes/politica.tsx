@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors, Armchair, BadgeCheck, Sparkle, Gem } from "lucide-react";
+import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors, Armchair, BadgeCheck, Sparkle, Diamond } from "lucide-react";
 
 export const Route = createFileRoute("/politica")({
   component: PoliticaSistemas,
@@ -8,6 +8,18 @@ export const Route = createFileRoute("/politica")({
 function PoliticaSistemas() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans pb-10">
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="20%" stopColor="#E0F2FE" />
+            <stop offset="40%" stopColor="#70D6FF" />
+            <stop offset="60%" stopColor="#FBCFE8" />
+            <stop offset="80%" stopColor="#FEF9C3" />
+            <stop offset="100%" stopColor="#70D6FF" />
+          </linearGradient>
+        </defs>
+      </svg>
       {/* Header */}
       <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-xl border-b border-border/50 p-4 flex items-center justify-between">
         <Link to="/" className="p-2.5 rounded-2xl bg-muted/30 text-muted-foreground hover:text-foreground transition-all border border-border/50">
@@ -107,11 +119,11 @@ function PoliticaSistemas() {
             {/* Exclusive */}
             <div className="bg-white/5 p-6 rounded-[32px] border border-white/20 shadow-2xl backdrop-blur-lg relative overflow-hidden ring-1 ring-white/10 group">
               <div className="absolute -right-4 -top-4 opacity-10 transition-transform group-hover:scale-110">
-                <Gem size={80} fill="currentColor" className="text-white" />
+                <Diamond size={80} fill="currentColor" className="text-white" />
               </div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-2.5 bg-hologram-metallic rounded-2xl text-black border border-white/30 shadow-inner group-hover:scale-110 transition-transform">
-                  <Gem size={20} fill="currentColor" />
+                <div className="p-2.5 bg-black rounded-2xl text-white border border-white/30 shadow-inner group-hover:scale-110 transition-transform">
+                  <Diamond size={20} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-gradient-hologram">Nível Exclusive</h3>
@@ -121,15 +133,15 @@ function PoliticaSistemas() {
               <p className="text-xs text-foreground/90 font-medium leading-relaxed mb-5">O topo da experiência Arena Barber Club: Acesso total e benefícios irrestritos (Holograma).</p>
               <ul className="space-y-3">
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-hologram-metallic rounded-lg shadow-sm"><CheckCircle size={12} className="text-black" /></div>
+                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Cortes Ilimitados Mensais (Plano Exclusivo)</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-hologram-metallic rounded-lg shadow-sm"><CheckCircle size={12} className="text-black" /></div>
+                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Acesso Irrestrito ao Lounge VIP Exclusive</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-hologram-metallic rounded-lg shadow-sm"><CheckCircle size={12} className="text-black" /></div>
+                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Prioridade Máxima em todos os horários</span>
                 </li>
               </ul>
@@ -174,7 +186,7 @@ function PoliticaSistemas() {
             <Armchair size={16} />
             <BadgeCheck size={16} />
             <Sparkle size={16} />
-            <Gem size={16} />
+            <Diamond size={16} />
           </div>
           <p className="text-[9px] text-muted-foreground uppercase font-black tracking-[0.4em]">Classic · Select · Privilege · Exclusive</p>
           <p className="text-[10px] text-muted-foreground/40 mt-3 font-medium">Arena Barber Club & Lounge © 2026</p>
