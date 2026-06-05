@@ -428,7 +428,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-black dark:bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
-                      <Gem size={14} className="text-gradient-hologram animate-shimmer" />
+                      <Gem size={14} className="text-gradient-hologram" />
                     </div>
                     <span className="text-gradient-hologram">Exclusive</span>
                   </span>
