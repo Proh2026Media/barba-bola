@@ -190,7 +190,7 @@ function UnifiedArenaApp() {
             </div>
             <div className="grid grid-cols-1 gap-4">
               {matches.map(m => (
-                <div key={m.id} className="bg-card p-5 rounded border border-white/[0.04]">
+                <div key={m.id} className="bg-card p-5 rounded border border-border">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-[9px] text-muted-foreground font-semibold uppercase">{m.league} · {m.status}</span>
                   </div>
