@@ -43,7 +43,7 @@ function UnifiedArenaApp() {
   );
 
   return (
-    <div className="min-h-screen bg-[#121110] text-[#eae6e1] pb-20 font-sans selection:bg-[#c5a880]/30">
+    <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-[#c5a880]/30 transition-colors duration-300">
       {/* Editorial Marquee */}
       <div className="bg-[#191715] text-[#8e8984] py-1.5 overflow-hidden border-b border-white/[0.03] flex items-center relative h-7">
         <div className="absolute left-0 bg-[#191715] px-3 z-10 font-classic italic text-[10px] text-[#c5a880] font-bold border-r border-white/5">
