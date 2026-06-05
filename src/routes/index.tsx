@@ -35,10 +35,10 @@ function UnifiedArenaApp() {
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
       onClick={() => setTab(id)}
-      className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all flex-1 ${tab === id ? "text-primary" : "text-muted-foreground"}`}
+      className={`flex flex-col items-center justify-center p-2.5 rounded-2xl transition-all flex-1 min-w-[64px] ${tab === id ? "text-primary bg-primary/5 shadow-inner" : "text-muted-foreground"}`}
     >
-      <Icon className="h-5 w-5 mb-1" />
-      <span className="text-[10px] font-bold uppercase tracking-tight">{label}</span>
+      <Icon className={`h-5 w-5 mb-1.5 transition-transform ${tab === id ? "scale-110" : ""}`} />
+      <span className="text-[9px] font-black uppercase tracking-widest">{label}</span>
     </button>
   );
 
