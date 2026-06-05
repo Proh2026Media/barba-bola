@@ -6,19 +6,20 @@ export const Route = createFileRoute("/politica")({
 });
 
 function PoliticaSistemas() {
+  const isDarkMode = document.documentElement.classList.contains('dark');
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans pb-10">
+    <div className={`min-h-screen bg-background text-foreground font-sans pb-10 ${isDarkMode ? 'dark' : ''}`}>
       <svg width="0" height="0" className="absolute pointer-events-none">
         <defs>
           <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0a0a0a" />
-            <stop offset="10%" stopColor="#1a1a1a" />
-            <stop offset="30%" stopColor="#E0F2FE" />
-            <stop offset="45%" stopColor="#70D6FF" />
-            <stop offset="60%" stopColor="#FBCFE8" />
-            <stop offset="75%" stopColor="#FEF9C3" />
-            <stop offset="90%" stopColor="#70D6FF" />
-            <stop offset="100%" stopColor="#0a0a0a" />
+            <stop offset="0%" stopColor="#050505" className="dark:stop-[#F0F9FF]" />
+            <stop offset="10%" stopColor="#0d0d0d" className="dark:stop-[#7DD3FC]" />
+            <stop offset="30%" stopColor="#B3E5FC" className="dark:stop-[#FFFFFF]" />
+            <stop offset="45%" stopColor="#4FC3F7" className="dark:stop-[#F9A8D4]" />
+            <stop offset="60%" stopColor="#F8BBD0" className="dark:stop-[#FEF08A]" />
+            <stop offset="75%" stopColor="#FFF9C4" className="dark:stop-[#7DD3FC]" />
+            <stop offset="90%" stopColor="#4FC3F7" className="dark:stop-[#F0F9FF]" />
+            <stop offset="100%" stopColor="#050505" className="dark:stop-[#F0F9FF]" />
           </linearGradient>
         </defs>
       </svg>
@@ -124,8 +125,8 @@ function PoliticaSistemas() {
                 <Diamond size={80} fill="currentColor" className="text-white" />
               </div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-2.5 bg-black rounded-2xl text-white border border-white/30 shadow-inner group-hover:scale-110 transition-transform">
-                  <Diamond size={20} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
+                <div className="p-2.5 bg-black dark:bg-hologram-metallic rounded-2xl text-white dark:text-black border border-white/30 dark:border-transparent shadow-inner group-hover:scale-110 transition-transform">
+                  <Diamond size={20} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-gradient-hologram">Nível Exclusive</h3>
@@ -135,15 +136,15 @@ function PoliticaSistemas() {
               <p className="text-xs text-foreground/90 font-medium leading-relaxed mb-5">O topo da experiência Arena Barber Club: Acesso total e benefícios irrestritos (Holograma).</p>
               <ul className="space-y-3">
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
+                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Cortes Ilimitados Mensais (Plano Exclusivo)</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
+                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Acesso Irrestrito ao Lounge VIP Exclusive</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black rounded-lg shadow-sm border border-white/10"><CheckCircle size={12} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} /></div>
+                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Prioridade Máxima em todos os horários</span>
                 </li>
               </ul>
