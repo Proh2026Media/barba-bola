@@ -213,6 +213,26 @@
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   }
 
+  .text-gradient-hologram-icon {
+    background: radial-gradient(
+      circle at 50% 50%,
+      #FFFFFF 0%,
+      #E0F2FE 20%,
+      #70D6FF 40%,
+      #FBCFE8 60%,
+      #FEF9C3 80%,
+      #70D6FF 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+  }
+
   .dark .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
