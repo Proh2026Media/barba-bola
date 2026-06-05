@@ -86,7 +86,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-cyan-400/10 rounded-2xl text-cyan-400 border border-cyan-400/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <Shield size={20} />
+                  <Sparkle size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-cyan-400">Nível Privilege</h3>
