@@ -63,7 +63,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-slate-300/10 rounded-2xl text-slate-300 border border-slate-300/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <CreditCard size={20} />
+                  <BadgeCheck size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-slate-300">Nível Select</h3>
