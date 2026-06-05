@@ -107,11 +107,11 @@ function PoliticaSistemas() {
             {/* Exclusive */}
             <div className="bg-[#D4AF37]/5 p-6 rounded-[32px] border border-[#D4AF37]/30 shadow-2xl backdrop-blur-lg relative overflow-hidden ring-1 ring-[#D4AF37]/20 group">
               <div className="absolute -right-4 -top-4 opacity-10 transition-transform group-hover:scale-110">
-                <Crown size={80} fill="currentColor" className="text-[#D4AF37]" />
+                <Gem size={80} fill="currentColor" className="text-[#D4AF37]" />
               </div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-[#D4AF37]/20 rounded-2xl text-[#D4AF37] border border-[#D4AF37]/30 shadow-inner group-hover:scale-110 transition-transform">
-                  <Crown size={20} fill="currentColor" />
+                  <Gem size={20} fill="currentColor" />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-[#D4AF37]">Nível Exclusive</h3>
