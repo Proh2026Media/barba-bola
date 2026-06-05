@@ -375,11 +375,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Classic */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-silver flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-silver-metallic rounded-lg border border-white/20">
                       <Armchair size={14} className="text-black" />
                     </div>
-                    Classic
+                    <span className="text-gradient-silver">Classic</span>
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">0 - 99 pts</span>
                 </div>
@@ -389,11 +389,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Select */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-bronze flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-bronze-metallic rounded-lg border border-white/20">
                       <BadgeCheck size={14} className="text-white" />
                     </div>
-                    Select
+                    <span className="text-gradient-bronze">Select</span>
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">100 - 299 pts</span>
                 </div>
@@ -403,11 +403,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Privilege */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-gold flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-gold-metallic rounded-lg border border-white/20">
                       <Sparkle size={14} className="text-black" />
                     </div>
-                    Privilege
+                    <span className="text-gradient-gold">Privilege</span>
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">300 - 499 pts</span>
                 </div>
@@ -420,11 +420,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                   <Gem size={64} fill="currentColor" className="text-white" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-hologram flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
                       <Gem size={14} className="text-black" />
                     </div>
-                    Exclusive
+                    <span className="text-gradient-hologram">Exclusive</span>
                   </span>
                   <span className="text-[9px] font-black text-black bg-hologram-metallic px-3 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
                 </div>
