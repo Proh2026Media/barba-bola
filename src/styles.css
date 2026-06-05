@@ -149,7 +149,7 @@
 
   .text-gradient-silver {
     background: radial-gradient(circle at center, #000000 0%, #404040 30%, #808080 60%, #404040 100%);
-    background-size: 300% 300%;
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -160,28 +160,29 @@
 
   .dark .text-gradient-silver {
     background: radial-gradient(circle at center, #FFFFFF 0%, #E0E0E0 30%, #A0A0A0 60%, #E0E0E0 100%);
-    background-size: 300% 300%;
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    animation: gooey-gradient 15s ease-in-out infinite;
     display: inline-block;
   }
 
   .text-gradient-bronze {
     background: radial-gradient(circle at 30% 30%, #FFCBA4 0%, #CD7F32 40%, #8B4513 70%, #FFCBA4 100%);
-    background-size: 300% 300%;
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 18s ease-in-out infinite;
+    animation: gooey-gradient 15s ease-in-out infinite;
     display: inline-block;
   }
 
   .text-gradient-gold {
     background: radial-gradient(circle at 70% 20%, #FFE29F 0%, #D4AF37 35%, #8A6623 75%, #FFE29F 100%);
-    background-size: 300% 300%;
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -207,7 +208,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 20s ease-in-out infinite;
+    animation: gooey-gradient 15s ease-in-out infinite;
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
