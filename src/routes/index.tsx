@@ -4,7 +4,7 @@ import {
   Bell, Calendar, Compass, Feather, MessageSquare, Settings, 
   ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock,
   Moon, Sun, Info, X, Zap, Beer, Star, CreditCard, Shield, Crown, Diamond,
-  Briefcase
+  Briefcase, Armchair, BadgeCheck, Sparkle, Gem
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -42,7 +42,7 @@ function UnifiedArenaApp() {
       bg: "bg-[#D4AF37]/10", 
       border: "border-[#D4AF37]/30",
       badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black",
-      icon: Crown,
+      icon: Gem,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
@@ -51,7 +51,7 @@ function UnifiedArenaApp() {
       bg: "bg-cyan-400/10", 
       border: "border-cyan-400/30",
       badge: "bg-cyan-500 text-white",
-      icon: Shield,
+      icon: Sparkle,
       greeting: "Bom dia, Membro Privilege."
     };
     if (pts >= 100) return { 
@@ -60,7 +60,7 @@ function UnifiedArenaApp() {
       bg: "bg-slate-300/10", 
       border: "border-slate-300/30",
       badge: "bg-slate-400 text-white",
-      icon: CreditCard,
+      icon: BadgeCheck,
       greeting: "Olá, Membro Select."
     };
     return { 
@@ -69,7 +69,7 @@ function UnifiedArenaApp() {
       bg: "bg-orange-400/10", 
       border: "border-orange-400/30",
       badge: "bg-orange-500 text-white",
-      icon: Scissors,
+      icon: Armchair,
       greeting: "Bem-vindo, Membro Classic."
     };
   };

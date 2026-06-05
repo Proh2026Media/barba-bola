@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors } from "lucide-react";
+import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors, Armchair, BadgeCheck, Sparkle, Gem } from "lucide-react";
 
 export const Route = createFileRoute("/politica")({
   component: PoliticaSistemas,
@@ -40,7 +40,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-orange-400/10 rounded-2xl text-orange-400 border border-orange-400/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <Scissors size={20} />
+                  <Armchair size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-orange-400">Nível Classic</h3>
@@ -63,7 +63,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-slate-300/10 rounded-2xl text-slate-300 border border-slate-300/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <CreditCard size={20} />
+                  <BadgeCheck size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-slate-300">Nível Select</h3>
@@ -86,7 +86,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-cyan-400/10 rounded-2xl text-cyan-400 border border-cyan-400/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <Shield size={20} />
+                  <Sparkle size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-cyan-400">Nível Privilege</h3>
@@ -107,11 +107,11 @@ function PoliticaSistemas() {
             {/* Exclusive */}
             <div className="bg-[#D4AF37]/5 p-6 rounded-[32px] border border-[#D4AF37]/30 shadow-2xl backdrop-blur-lg relative overflow-hidden ring-1 ring-[#D4AF37]/20 group">
               <div className="absolute -right-4 -top-4 opacity-10 transition-transform group-hover:scale-110">
-                <Crown size={80} fill="currentColor" className="text-[#D4AF37]" />
+                <Gem size={80} fill="currentColor" className="text-[#D4AF37]" />
               </div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-[#D4AF37]/20 rounded-2xl text-[#D4AF37] border border-[#D4AF37]/30 shadow-inner group-hover:scale-110 transition-transform">
-                  <Crown size={20} fill="currentColor" />
+                  <Gem size={20} fill="currentColor" />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-[#D4AF37]">Nível Exclusive</h3>
@@ -171,10 +171,10 @@ function PoliticaSistemas() {
 
         <section className="pt-10 border-t border-border/50 text-center">
           <div className="flex justify-center gap-4 mb-4 grayscale opacity-30">
-            <Scissors size={16} />
-            <CreditCard size={16} />
-            <Shield size={16} />
-            <Crown size={16} />
+            <Armchair size={16} />
+            <BadgeCheck size={16} />
+            <Sparkle size={16} />
+            <Gem size={16} />
           </div>
           <p className="text-[9px] text-muted-foreground uppercase font-black tracking-[0.4em]">Classic · Select · Privilege · Exclusive</p>
           <p className="text-[10px] text-muted-foreground/40 mt-3 font-medium">Arena Barber Club & Lounge © 2026</p>
