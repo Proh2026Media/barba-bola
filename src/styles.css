@@ -33,7 +33,7 @@
   --color-gold-soft: var(--gold-soft);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-  --font-classic: "Cormorant Garamond", serif;
+  --font-classic: "Inter", sans-serif;
 }
 
 :root {

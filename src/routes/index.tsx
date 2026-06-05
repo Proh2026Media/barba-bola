@@ -91,23 +91,23 @@ function UnifiedArenaApp() {
         {tab === "dashboard" && (
           <div className="space-y-6">
             <section className="border-b border-white/[0.05] pb-6">
-              <span className="text-[9px] uppercase tracking-[0.25em] text-gold block mb-1">MEMBRO VIP RECONHECIDO</span>
-              <h2 className="text-2xl font-classic font-bold text-foreground tracking-wide uppercase italic">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-gold font-bold block mb-1">MEMBRO VIP</span>
+              <h2 className="text-2xl font-bold text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-xs mt-1 leading-relaxed font-medium">Sua cadeira está pronta. Desfrute da resenha e do lounge.</p>
             </section>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-card p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Afiliação</p>
-                <p className="text-lg font-classic font-bold text-gold">{points} <span className="text-[10px] font-sans font-light italic text-muted-foreground">PTS</span></p>
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Seus Pontos</p>
+                <p className="text-lg font-bold text-primary">{points} <span className="text-[10px] font-sans font-medium text-muted-foreground">PTS</span></p>
               </div>
-              <div className="bg-card p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Preferência</p>
-                <p className="text-lg font-classic font-bold text-foreground">Degradê Razor</p>
+              <div className="bg-card p-5 rounded-xl border border-border">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Assinatura</p>
+                <p className="text-lg font-bold text-foreground">Degradê Razor</p>
               </div>
             </div>
 
-            <section className="bg-card p-5 rounded-xl border border-border">
+            <section className="bg-card p-5 rounded-2xl border border-border shadow-sm">
               <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
                 <h3 className="text-[10px] font-classic font-bold text-gold uppercase tracking-widest flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" /> Sintonizador de Jogos
@@ -118,18 +118,18 @@ function UnifiedArenaApp() {
                   <div key={m.id} className="bg-secondary p-3.5 rounded border border-border flex items-center justify-between">
                     <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest">{m.league}</span>
                     <div className="flex items-center space-x-3 text-xs font-bold">
-                      <span className="font-classic text-foreground tracking-wide">{m.home}</span>
-                      <span className="text-gold px-2 py-0.5 rounded border border-border bg-background">{m.scoreH}</span>
-                      <span className="text-foreground/20 font-light">x</span>
-                      <span className="text-foreground/40 px-2 py-0.5 rounded border border-border bg-background">{m.scoreA}</span>
-                      <span className="font-classic text-foreground tracking-wide">{m.away}</span>
+                      <span className="font-bold text-foreground tracking-tight">{m.home}</span>
+                      <span className="text-primary px-2 py-0.5 rounded-md border border-border bg-background font-mono">{m.scoreH}</span>
+                      <span className="text-muted-foreground/30 font-light px-1">:</span>
+                      <span className="text-muted-foreground px-2 py-0.5 rounded-md border border-border bg-background font-mono">{m.scoreA}</span>
+                      <span className="font-bold text-foreground tracking-tight">{m.away}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <button onClick={() => setTab("agenda")} className="w-full bg-gold hover:bg-gold/80 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-gold/10 flex items-center justify-center gap-2">
+            <button onClick={() => setTab("agenda")} className="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
               <Calendar size={14} /> Novo Agendamento
             </button>
           </div>
