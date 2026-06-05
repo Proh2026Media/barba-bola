@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { 
   Bell, Calendar, Compass, Feather, MessageSquare, Settings, 
   ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock,
-  Moon, Sun
+  Moon, Sun, Info, X, Zap, Beer, Star
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -21,6 +21,7 @@ function UnifiedArenaApp() {
   const [tab, setTab] = useState("dashboard");
   const [points, setPoints] = useState(120);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [showVipInfo, setShowVipInfo] = useState(false);
   const [notifications, setNotifications] = useState([{
     id: 1, title: "Reserva de Atendimento", text: "Seu horário com o Mestre Carlão está confirmado hoje às 18:30.", time: "Há 10 min"
   }]);
@@ -101,7 +102,13 @@ function UnifiedArenaApp() {
                   <p className="text-2xl font-black text-primary">{points}</p>
                 </div>
                 <div className="w-px bg-border"></div>
-                <div className="text-center px-4">
+                <div className="text-center px-4 relative">
+                  <button 
+                    onClick={() => setShowVipInfo(true)}
+                    className="absolute -top-1 -right-1 text-primary hover:scale-110 transition-transform"
+                  >
+                    <Info size={12} />
+                  </button>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
                   <p className="text-2xl font-black text-foreground">VIP</p>
                 </div>
@@ -267,6 +274,87 @@ function UnifiedArenaApp() {
         <NavItem id="barberchat" icon={MessageSquare} label="Resenha" />
         <NavItem id="admin" icon={Settings} label="Admin" />
       </nav>
+      <VipInfoModal isOpen={showVipInfo} onClose={() => setShowVipInfo(false)} />
     </div>
   );
 }
+
+const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
+  if (!isOpen) return null;
+  
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-card w-full max-w-sm rounded-[32px] border border-border shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+        <div className="p-6 border-b border-border flex items-center justify-between bg-primary/5">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/10 rounded-xl text-primary">
+              <Trophy size={20} />
+            </div>
+            <h3 className="font-black uppercase tracking-tight text-sm">Sistema de Pontos & VIP</h3>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-muted rounded-full transition-colors"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        
+        <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar">
+          <section>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Como Acumular</h4>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 bg-muted/30 p-3 rounded-2xl border border-border/50">
+                <Zap size={16} className="text-primary mt-0.5" />
+                <p className="text-xs font-medium leading-relaxed">Cada <span className="font-bold text-foreground">R$ 1,00 gasto</span> em serviços ou produtos equivale a <span className="font-bold text-primary">1 Ponto</span>.</p>
+              </div>
+              <div className="flex items-start gap-3 bg-muted/30 p-3 rounded-2xl border border-border/50">
+                <MessageSquare size={16} className="text-primary mt-0.5" />
+                <p className="text-xs font-medium leading-relaxed">Interação na <span className="font-bold text-foreground">Resenha IA</span> gera <span className="font-bold text-primary">5 Pontos</span> diários.</p>
+              </div>
+              <div className="flex items-start gap-3 bg-muted/30 p-3 rounded-2xl border border-border/50">
+                <Star size={16} className="text-primary mt-0.5" />
+                <p className="text-xs font-medium leading-relaxed">Check-in em <span className="font-bold text-foreground">dias de jogo</span> na Arena garante <span className="font-bold text-primary">10 Pontos</span> bônus.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Benefícios VIP</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { icon: Scissors, text: "10% OFF em serviços" },
+                { icon: Clock, text: "Prioridade na agenda" },
+                { icon: Beer, text: "Bebida cortesia" },
+                { icon: Sparkles, text: "IA Premium" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col gap-2 bg-primary/5 p-3 rounded-2xl border border-primary/10">
+                  <item.icon size={16} className="text-primary" />
+                  <p className="text-[10px] font-bold text-foreground uppercase tracking-tight">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20 text-center">
+            <p className="text-[10px] font-black text-primary uppercase tracking-widest">
+              Como chegar ao VIP?
+            </p>
+            <p className="text-xs mt-2 font-medium">
+              Acumule <span className="font-black underline">500 pontos</span> ou assine nosso plano mensal por <span className="font-black">R$ 49,90</span>.
+            </p>
+          </div>
+        </div>
+
+        <div className="p-4 bg-muted/20 border-t border-border">
+          <button 
+            onClick={onClose}
+            className="w-full bg-foreground text-background font-black text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl hover:opacity-90 transition-opacity"
+          >
+            Entendido
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
