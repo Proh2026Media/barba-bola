@@ -137,19 +137,19 @@ function UnifiedArenaApp() {
 
         {tab === "agenda" && (
           <div className="space-y-6">
-            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Agendar Atendimento</h2>
+            <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Agendar Atendimento</h2>
             <div className="space-y-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04] space-y-4">
-                <label className="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-widest">1. Seleção de Tratamento</label>
+              <div className="bg-card p-5 rounded border border-white/[0.04] space-y-4">
+                <label className="block text-[9px] font-semibold text-muted-foreground uppercase tracking-widest">1. Seleção de Tratamento</label>
                 <div className="grid grid-cols-1 gap-3">
                   {["Corte Tradicional (R$ 45)", "Barboterapia (R$ 35)", "Combo VIP (R$ 75)"].map((s, i) => (
-                    <button key={i} className={`p-4 rounded border text-left text-xs transition-all ${i === 0 ? "bg-[#1c1a18] border-[#c5a880]/30 text-white" : "border-white/5 text-[#8e8984]"}`}>
+                    <button key={i} className={`p-4 rounded border text-left text-xs transition-all ${i === 0 ? "bg-secondary border-gold/30 text-foreground" : "border-white/5 text-muted-foreground"}`}>
                       {s}
                     </button>
                   ))}
                 </div>
               </div>
-              <button className="w-full bg-[#c5a880] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded shadow-lg shadow-[#c5a880]/10">
+              <button className="w-full bg-gold text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded shadow-lg shadow-gold/10">
                 Confirmar Reserva
               </button>
             </div>
