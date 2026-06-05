@@ -107,22 +107,22 @@ function UnifiedArenaApp() {
               </div>
             </div>
 
-            <section className="bg-[#161513] p-5 rounded-xl border border-white/[0.04]">
+            <section className="bg-card p-5 rounded-xl border border-white/[0.04]">
               <div className="flex items-center justify-between border-b border-white/[0.05] pb-3 mb-4">
-                <h3 className="text-[10px] font-classic font-bold text-[#c5a880] uppercase tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" /> Sintonizador de Jogos
+                <h3 className="text-[10px] font-classic font-bold text-gold uppercase tracking-widest flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" /> Sintonizador de Jogos
                 </h3>
               </div>
               <div className="space-y-4">
                 {matches.slice(0, 2).map(m => (
-                  <div key={m.id} className="bg-[#1c1a18] p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
-                    <span className="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest">{m.league}</span>
+                  <div key={m.id} className="bg-secondary p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
+                    <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest">{m.league}</span>
                     <div className="flex items-center space-x-3 text-xs font-bold">
-                      <span className="font-classic text-white tracking-wide">{m.home}</span>
-                      <span className="text-[#c5a880] px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreH}</span>
-                      <span className="text-white/20 font-light">x</span>
-                      <span className="text-white/40 px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreA}</span>
-                      <span className="font-classic text-white tracking-wide">{m.away}</span>
+                      <span className="font-classic text-foreground tracking-wide">{m.home}</span>
+                      <span className="text-gold px-2 py-0.5 rounded border border-white/5 bg-background">{m.scoreH}</span>
+                      <span className="text-foreground/20 font-light">x</span>
+                      <span className="text-foreground/40 px-2 py-0.5 rounded border border-white/5 bg-background">{m.scoreA}</span>
+                      <span className="font-classic text-foreground tracking-wide">{m.away}</span>
                     </div>
                   </div>
                 ))}
