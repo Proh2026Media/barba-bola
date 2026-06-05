@@ -19,9 +19,18 @@ const matches = [
 function UnifiedArenaApp() {
   const [tab, setTab] = useState("dashboard");
   const [points, setPoints] = useState(120);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [notifications, setNotifications] = useState([{
     id: 1, title: "Reserva de Atendimento", text: "Seu horário com o Mestre Carlão está confirmado hoje às 18:30.", time: "Há 10 min"
   }]);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
