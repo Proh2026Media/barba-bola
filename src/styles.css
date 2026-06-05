@@ -266,7 +266,7 @@
       rgba(255, 255, 255, 0.95) 100%
     );
     background-size: 400% 400%;
-    animation: gooey-gradient 18s ease-in-out infinite alternate-reverse;
+    animation: gooey-gradient 15s ease-in-out infinite;
     backdrop-filter: blur(12px);
     box-shadow: 
       0 0 25px rgba(186, 230, 253, 0.3),
