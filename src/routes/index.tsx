@@ -141,11 +141,11 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#FF00E5]/50 shadow-[0_0_40px_rgba(255,0,229,0.15)] ring-1 ring-[#FF00E5]/20' : 'border-white/10'}`}>
+            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] ring-1 ring-white/10' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
-                <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.color} ${tier.border} group-hover:scale-110`}>
-                  <tier.icon size={20} className="drop-shadow-[0_0_8px_currentColor]" />
+                <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} group-hover:scale-110`}>
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
               </div>
               <span className={`text-[10px] uppercase font-black px-4 py-1.5 rounded-full inline-block mb-3 tracking-[0.2em] shadow-lg transform transition-transform hover:scale-105 ${tier.badge}`}>
@@ -156,18 +156,18 @@ function UnifiedArenaApp() {
               <div className="flex gap-4 justify-center mt-6">
                 <div className="text-center px-4">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
-                  <p className={`text-2xl font-black ${tier.color}`}>{points}</p>
+                  <p className={`text-2xl font-black ${tier.colorClass}`}>{points}</p>
                 </div>
                 <div className="w-px bg-border"></div>
                 <div className="text-center px-4 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
-                    className={`absolute -top-1 -right-1 hover:scale-110 transition-transform ${tier.color}`}
+                    className={`absolute -top-1 -right-1 hover:scale-110 transition-transform ${tier.colorClass}`}
                   >
                     <Info size={12} />
                   </button>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
-                  <p className="text-2xl font-black text-foreground">{tier.name}</p>
+                  <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
                 </div>
               </div>
             </section>
