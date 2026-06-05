@@ -42,7 +42,7 @@ function UnifiedArenaApp() {
       bg: "bg-black dark:bg-white/5", 
       border: "border-black/20 dark:border-white/40 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]",
       badge: "bg-hologram-metallic text-black font-black",
-      icon: Gem,
+      icon: Diamond,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
@@ -435,12 +435,12 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Exclusive */}
               <div className="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-xl relative overflow-hidden group hover:bg-white/10 transition-all ring-1 ring-white/10">
                 <div className="absolute -right-2 -top-2 opacity-5 transition-transform group-hover:scale-110">
-                  <Gem size={64} fill="currentColor" className="text-white" />
+                  <Diamond size={64} fill="currentColor" className="text-white" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-black rounded-lg border border-white/30 shadow-inner">
-                      <Gem size={14} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
+                      <Diamond size={14} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
                     </div>
                     <span className="text-gradient-hologram">Exclusive</span>
                   </span>
