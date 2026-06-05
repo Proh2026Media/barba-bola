@@ -174,7 +174,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: organic-float 18s linear infinite;
-    filter: drop-shadow(0 0 12px rgba(255,255,255,0.6));
+    filter: drop-shadow(0 0 12px rgba(186, 230, 253, 0.8));
+  }
+
+  .dark .text-gradient-hologram {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
   }
 
   .bg-silver-metallic {
