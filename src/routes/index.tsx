@@ -150,10 +150,9 @@ function UnifiedArenaApp() {
                 <div className="text-center px-6 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
-                    className="absolute -top-2 -right-2 p-1.5 rounded-full bg-primary/10 hover:bg-primary/20 transition-all z-[60] flex items-center justify-center shadow-sm border border-primary/20"
-                    title="Informações VIP"
+                    className="absolute -top-1 -right-1 hover:scale-110 transition-transform z-[60]"
                   >
-                    <Info size={14} className="text-primary animate-pulse" />
+                    <Info size={12} className="text-primary" />
                   </button>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
                   <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
