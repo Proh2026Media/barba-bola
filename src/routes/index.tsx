@@ -88,6 +88,18 @@ function UnifiedArenaApp() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-primary/20 transition-colors duration-300">
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="20%" stopColor="#E0F2FE" />
+            <stop offset="40%" stopColor="#70D6FF" />
+            <stop offset="60%" stopColor="#FBCFE8" />
+            <stop offset="80%" stopColor="#FEF9C3" />
+            <stop offset="100%" stopColor="#70D6FF" />
+          </linearGradient>
+        </defs>
+      </svg>
       {/* Editorial Marquee */}
       <div className="bg-primary text-primary-foreground py-2 overflow-hidden border-b border-border/50 flex items-center relative h-9">
         <div className="absolute left-0 bg-primary px-4 z-10 font-black text-[10px] border-r border-primary-foreground/20">
@@ -141,7 +153,7 @@ function UnifiedArenaApp() {
                   onClick={() => setShowVipInfo(true)}
                   className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-black border-white/30' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-gradient-hologram-icon' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: 'url(#hologram-gradient)' } : {}} />
                 </button>
               </div>
               
@@ -428,7 +440,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-black rounded-lg border border-white/30 shadow-inner">
-                      <Gem size={14} className="text-gradient-hologram-icon" />
+                      <Gem size={14} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
                     </div>
                     <span className="text-gradient-hologram">Exclusive</span>
                   </span>
