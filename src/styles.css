@@ -123,6 +123,55 @@
   }
   
   .animate-shimmer {
-    animation: shimmer 3s ease infinite;
+    animation: shimmer 5s ease infinite;
+  }
+
+  .text-gradient-silver {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #C0C0C0 45%, #808080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-bronze {
+    background: linear-gradient(to bottom, #E3A676 0%, #CD7F32 45%, #8B4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(to bottom, #FFE29F 0%, #D4AF37 45%, #8A6623 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-hologram {
+    background: linear-gradient(135deg, #A5CCFF 0%, #FFFFFF 25%, #FFD0A5 50%, #D0A5FF 75%, #A5CCFF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+  }
+
+  .bg-silver-metallic {
+    background: linear-gradient(135deg, #E0E0E0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.5);
+  }
+
+  .bg-bronze-metallic {
+    background: linear-gradient(135deg, #CD7F32 0%, #E3A676 50%, #8B4513 100%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3);
+  }
+
+  .bg-gold-metallic {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFE29F 50%, #8A6623 100%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.4);
+  }
+
+  .bg-hologram-metallic {
+    background: linear-gradient(135deg, #A5CCFF 0%, #FFFFFF 25%, #FFD0A5 50%, #D0A5FF 75%, #A5CCFF 100%);
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2), inset 0 1px 2px rgba(255,255,255,0.5);
   }
 }
