@@ -33,6 +33,7 @@
   --color-gold-soft: var(--gold-soft);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --font-classic: "Cormorant Garamond", serif;
 }
 
 :root {
@@ -58,7 +59,7 @@
   --ring: oklch(0.78 0.13 80);
   --gold: oklch(0.82 0.15 82);
   --gold-soft: oklch(0.88 0.09 85);
-  --font-display: "Bebas Neue", "Oswald", sans-serif;
+  --font-display: "Bebas Neue", "Cormorant Garamond", "Oswald", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -80,6 +81,8 @@
 }
 
 @layer utilities {
+  .font-classic { font-family: var(--font-classic); }
+
   .text-gold { color: var(--gold); }
   .bg-gold { background-color: var(--gold); }
   .border-gold { border-color: var(--gold); }
