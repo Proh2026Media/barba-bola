@@ -117,9 +117,9 @@
     color: transparent;
   }
   .glass {
-    background: oklch(0.17 0.008 50 / 0.7);
+    background: var(--card);
     backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.78 0.13 80 / 0.12);
+    border: 1px solid var(--border);
   }
   .shadow-gold { box-shadow: 0 10px 40px -10px oklch(0.78 0.13 80 / 0.4); }
   .marquee {
