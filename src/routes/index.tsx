@@ -375,11 +375,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Classic */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-silver flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-silver-metallic rounded-lg border border-white/20">
                       <Armchair size={14} className="text-black" />
                     </div>
-                    Classic
+                    <span className="text-gradient-silver">Classic</span>
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">0 - 99 pts</span>
                 </div>
