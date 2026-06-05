@@ -92,10 +92,15 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-3xl border border-primary/20 text-center">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold block mb-2 px-3 py-1 bg-primary/10 rounded-full inline-block">Membro VIP</span>
+            <section className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-3xl border border-primary/20 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3">
+                <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary border border-primary/30">
+                  <Star size={16} fill="currentColor" />
+                </div>
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold block mb-2 px-3 py-1 bg-primary/10 rounded-full inline-block">Sócio Arena (MVP)</span>
               <h2 className="text-3xl font-black text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-sm mt-2 font-medium">Sua cadeira está pronta.</p>
+              <p className="text-muted-foreground text-sm mt-2 font-medium italic">O campo é seu, craque.</p>
               <div className="flex gap-4 justify-center mt-6">
                 <div className="text-center px-4">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
@@ -109,8 +114,8 @@ function UnifiedArenaApp() {
                   >
                     <Info size={12} />
                   </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
-                  <p className="text-2xl font-black text-foreground">VIP</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Patente</p>
+                  <p className="text-2xl font-black text-foreground">MVP</p>
                 </div>
               </div>
             </section>
@@ -320,28 +325,62 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
           </section>
 
           <section>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Benefícios VIP</h4>
-            <div className="grid grid-cols-2 gap-2">
-              {[
-                { icon: Scissors, text: "10% OFF em serviços" },
-                { icon: Clock, text: "Prioridade na agenda" },
-                { icon: Beer, text: "Bebida cortesia" },
-                { icon: Sparkles, text: "IA Premium" },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col gap-2 bg-primary/5 p-3 rounded-2xl border border-primary/10">
-                  <item.icon size={16} className="text-primary" />
-                  <p className="text-[10px] font-bold text-foreground uppercase tracking-tight">{item.text}</p>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Patentes & Benefícios</h4>
+            <div className="space-y-4">
+              {/* Bronze */}
+              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-600 flex items-center gap-1.5">
+                    <Trophy size={12} /> Bronze (Iniciante)
+                  </span>
+                  <span className="text-[9px] font-bold text-muted-foreground">0 - 100 pts</span>
                 </div>
-              ))}
+                <p className="text-[10px] text-muted-foreground">Acesso básico ao sistema e agendamento.</p>
+              </div>
+              
+              {/* Prata */}
+              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-1.5">
+                    <Trophy size={12} /> Prata (Titular)
+                  </span>
+                  <span className="text-[9px] font-bold text-muted-foreground">101 - 500 pts</span>
+                </div>
+                <p className="text-[10px] text-muted-foreground">Desconto de 5% em produtos do Lounge.</p>
+              </div>
+
+              {/* VIP / MVP */}
+              <div className="bg-primary/5 p-4 rounded-2xl border border-primary/20 relative overflow-hidden">
+                <div className="absolute -right-2 -top-2 opacity-10">
+                  <Star size={48} fill="currentColor" className="text-primary" />
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-1.5">
+                    <Star size={12} fill="currentColor" /> MVP (Sócio Arena)
+                  </span>
+                  <span className="text-[9px] font-bold text-primary">500+ pts ou Assinatura</span>
+                </div>
+                <ul className="space-y-1.5">
+                  <li className="text-[10px] font-bold flex items-center gap-2">
+                    <CheckCircle size={10} className="text-primary" /> Prioridade na fila de espera
+                  </li>
+                  <li className="text-[10px] font-bold flex items-center gap-2">
+                    <CheckCircle size={10} className="text-primary" /> 1 Drink cortesia por visita
+                  </li>
+                  <li className="text-[10px] font-bold flex items-center gap-2">
+                    <CheckCircle size={10} className="text-primary" /> IA "Resenha Premium" ilimitada
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
 
-          <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20 text-center">
-            <p className="text-[10px] font-black text-primary uppercase tracking-widest">
-              Como chegar ao VIP?
+          <div className="bg-card p-4 rounded-2xl border border-border text-center">
+            <p className="text-[10px] font-black text-foreground uppercase tracking-widest">
+              Por que assinar o Sócio Arena?
             </p>
-            <p className="text-xs mt-2 font-medium">
-              Acumule <span className="font-black underline">500 pontos</span> ou assine nosso plano mensal por <span className="font-black">R$ 49,90</span>.
+            <p className="text-[11px] mt-2 text-muted-foreground leading-relaxed">
+              Diferente dos pontos, a assinatura garante benefícios <span className="font-bold text-foreground">imediatos</span> e exclusivos como o <span className="font-bold text-foreground italic">Corte Ilimitado mensal</span> e acesso ao Lounge VIP.
             </p>
           </div>
         </div>
