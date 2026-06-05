@@ -210,7 +210,6 @@
     color: transparent !important;
     animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
   }
 
   .text-gradient-hologram-icon {
@@ -230,7 +229,6 @@
     color: transparent !important;
     animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
   }
 
   .dark .text-gradient-hologram {
