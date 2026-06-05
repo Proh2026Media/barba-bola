@@ -238,7 +238,7 @@ function UnifiedArenaApp() {
                   <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-gold/10 text-gold text-[10px] py-3 rounded border border-gold/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
                 </div>
               </div>
-              <div className="bg-card p-5 rounded border border-white/[0.04]">
+              <div className="bg-card p-5 rounded border border-border">
                 <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
