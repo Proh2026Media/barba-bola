@@ -228,26 +228,26 @@ function UnifiedArenaApp() {
 
         {tab === "admin" && (
           <div className="space-y-6">
-            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide italic">Modo Barbeiro</h2>
+            <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide italic">Modo Barbeiro</h2>
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Flamengo</button>
-                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Real Madrid</button>
-                  <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-[#c5a880]/10 text-[#c5a880] text-[10px] py-3 rounded border border-[#c5a880]/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-secondary text-[10px] py-2 rounded border border-white/5 font-bold text-foreground">⚽ Gol Flamengo</button>
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-secondary text-[10px] py-2 rounded border border-white/5 font-bold text-foreground">⚽ Gol Real Madrid</button>
+                  <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-gold/10 text-gold text-[10px] py-3 rounded border border-gold/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
                 </div>
               </div>
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-white font-medium">Gabriel Rodrigues</span>
-                    <span className="text-[#c5a880]">18:30</span>
+                    <span className="text-foreground font-medium">Gabriel Rodrigues</span>
+                    <span className="text-gold">18:30</span>
                   </div>
                   <div className="flex justify-between items-center text-xs opacity-50">
-                    <span className="text-white font-medium">Mateus Silva</span>
-                    <span className="text-[#8e8984]">15:00 (Concluído)</span>
+                    <span className="text-foreground font-medium">Mateus Silva</span>
+                    <span className="text-muted-foreground">15:00 (Concluído)</span>
                   </div>
                 </div>
               </div>
