@@ -90,45 +90,54 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className="border-b border-border pb-6">
-              <span className="text-[9px] uppercase tracking-[0.2em] text-primary font-bold block mb-1">Membro VIP</span>
-              <h2 className="text-2xl font-bold text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-xs mt-1 leading-relaxed font-medium">Sua cadeira está pronta. Desfrute da resenha e do lounge.</p>
+            <section className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-3xl border border-primary/20 text-center">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold block mb-2 px-3 py-1 bg-primary/10 rounded-full inline-block">Membro VIP</span>
+              <h2 className="text-3xl font-black text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-sm mt-2 font-medium">Sua cadeira está pronta.</p>
+              <div className="flex gap-4 justify-center mt-6">
+                <div className="text-center px-4">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
+                  <p className="text-2xl font-black text-primary">{points}</p>
+                </div>
+                <div className="w-px bg-border"></div>
+                <div className="text-center px-4">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
+                  <p className="text-2xl font-black text-foreground">VIP</p>
+                </div>
+              </div>
             </section>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Pontos</p>
-                <p className="text-xl font-bold text-primary">{points} <span className="text-[10px] text-muted-foreground">PTS</span></p>
+            <section className="bg-card p-6 rounded-3xl border border-border shadow-sm">
+              <h3 className="text-xs font-black text-foreground uppercase tracking-widest mb-5 flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full" /> Próxima Resenha (IA)
+              </h3>
+              <div className="bg-muted/30 p-4 rounded-2xl text-xs font-medium text-foreground leading-relaxed italic border-l-4 border-primary">
+                "E aí, Gabriel! O Flamengo joga hoje às 21h, vamos preparar o visual?"
               </div>
-              <div className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Plano</p>
-                <p className="text-xl font-bold text-foreground">Premium</p>
-              </div>
-            </div>
+            </section>
 
-            <section className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
-                <h3 className="text-[10px] font-bold text-foreground uppercase tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" /> Placares do Dia
-                </h3>
+            <section className="bg-card p-6 rounded-3xl border border-border shadow-sm">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-xs font-black text-foreground uppercase tracking-widest">Placares do Dia</h3>
+                <button className="text-[10px] font-bold text-primary uppercase">Ver todos</button>
               </div>
               <div className="space-y-3">
                 {matches.slice(0, 2).map(m => (
-                  <div key={m.id} className="bg-muted/20 p-3.5 rounded-xl border border-border/50 flex items-center justify-between">
-                    <span className="text-[9px] text-muted-foreground font-bold uppercase tracking-tight">{m.league}</span>
-                    <div className="flex items-center space-x-3 text-xs font-bold">
-                      <span className="text-foreground tracking-tight">{m.home}</span>
-                      <span className="text-primary px-2 py-0.5 rounded-md border border-border bg-background font-mono">{m.scoreH}:{m.scoreA}</span>
-                      <span className="text-foreground tracking-tight">{m.away}</span>
+                  <div key={m.id} className="bg-muted/20 p-4 rounded-2xl border border-border/50 flex items-center justify-between">
+                    <div className="flex flex-col">
+                        <span className="text-[9px] text-muted-foreground font-bold uppercase">{m.league}</span>
+                        <span className="text-xs font-black tracking-tight text-foreground">{m.home} x {m.away}</span>
+                    </div>
+                    <div className="bg-background px-3 py-1 rounded-lg border border-border font-mono font-bold text-primary text-xs">
+                      {m.scoreH}:{m.scoreA}
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <button onClick={() => setTab("agenda")} className="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-              <Calendar size={14} /> Novo Agendamento
+            <button onClick={() => setTab("agenda")} className="w-full bg-primary hover:opacity-90 text-primary-foreground font-black text-xs uppercase tracking-widest py-5 rounded-2xl transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+              <Calendar size={16} /> Novo Agendamento
             </button>
           </div>
         )}
