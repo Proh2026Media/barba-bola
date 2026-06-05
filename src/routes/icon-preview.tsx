@@ -13,7 +13,8 @@ import {
   Gem,
   Compass,
   BadgeCheck,
-  Armchair
+  Armchair,
+  Sparkle
 } from "lucide-react";
 
 export const Route = createFileRoute("/icon-preview")({
