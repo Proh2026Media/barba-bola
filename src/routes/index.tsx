@@ -137,26 +137,32 @@ function UnifiedArenaApp() {
             <section className={`p-8 rounded-[32px] border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-xl bg-white/5 dark:bg-black/40 ${tier.name === 'Exclusive' ? 'border-white/50 shadow-[0_0_60px_rgba(255,255,255,0.2)] ring-1 ring-white/30' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
-                <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} group-hover:scale-110`}>
+                <button 
+                  onClick={() => setShowVipInfo(true)}
+                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:scale-110 active:scale-95`}
+                >
                   <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
-                </div>
+                </button>
               </div>
               
-              <div className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:scale-105 border border-white/20 ${tier.badge}`}>
+              <button 
+                onClick={() => setShowVipInfo(true)}
+                className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:scale-105 active:scale-95 border border-white/20 ${tier.badge}`}
+              >
                 <h2 className="text-3xl font-black tracking-tight uppercase drop-shadow-md">Gabriel Rodrigues</h2>
-              </div>
+              </button>
 
               <div className="flex gap-4 justify-center mt-4">
-                <div className="text-center px-6 relative">
-                  <button 
-                    onClick={() => setShowVipInfo(true)}
-                    className="absolute -top-1 -right-1 hover:scale-110 transition-transform z-[60]"
-                  >
-                    <Info size={12} className="text-primary" />
-                  </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
+                <button 
+                  onClick={() => setShowVipInfo(true)}
+                  className="text-center px-6 relative group hover:scale-105 transition-transform"
+                >
+                  <div className="flex items-center justify-center gap-1 mb-1">
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold opacity-70">Membro</p>
+                    <Info size={10} className="text-muted-foreground opacity-50 group-hover:text-primary group-hover:opacity-100 transition-all" />
+                  </div>
                   <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
-                </div>
+                </button>
                 <div className="w-px bg-border/30 h-10 self-center"></div>
                 <div className="text-center px-6">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Pontos</p>
