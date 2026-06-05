@@ -162,11 +162,9 @@
     background: radial-gradient(
       circle at 50% 50%,
       #FFFFFF 0%,
-      rgba(0, 0, 0, 0.4) 12%,
       #70D6FF 25%,
       #FFFFFF 40%,
       #FF70A6 55%,
-      rgba(0, 0, 0, 0.3) 70%,
       #FFD670 85%,
       #FFFFFF 100%
     );
