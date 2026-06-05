@@ -130,12 +130,14 @@
   }
 
   @keyframes gooey-gradient {
-    0% { background-position: 0% 50%; }
-    20% { background-position: 100% 20%; }
-    40% { background-position: 30% 100%; }
-    60% { background-position: 80% 40%; }
-    80% { background-position: 10% 70%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%; }
+    15% { background-position: 100% 30%; }
+    30% { background-position: 40% 100%; }
+    45% { background-position: 0% 60%; }
+    60% { background-position: 100% 100%; }
+    75% { background-position: 20% 0%; }
+    90% { background-position: 80% 50%; }
+    100% { background-position: 0% 0%; }
   }
   
   .animate-shimmer {
