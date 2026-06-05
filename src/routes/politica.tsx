@@ -184,4 +184,3 @@ function PoliticaSistemas() {
   );
 }
 
-export default PoliticaSistemas;
