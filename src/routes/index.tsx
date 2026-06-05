@@ -108,7 +108,7 @@ function UnifiedArenaApp() {
             </div>
 
             <section className="bg-card p-5 rounded-xl border border-border">
-              <div className="flex items-center justify-between border-b border-white/[0.05] pb-3 mb-4">
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
                 <h3 className="text-[10px] font-classic font-bold text-gold uppercase tracking-widest flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" /> Sintonizador de Jogos
                 </h3>
