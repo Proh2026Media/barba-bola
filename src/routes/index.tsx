@@ -45,8 +45,8 @@ function UnifiedArenaApp() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-[#c5a880]/30 transition-colors duration-300">
       {/* Editorial Marquee */}
-      <div className="bg-[#191715] text-[#8e8984] py-1.5 overflow-hidden border-b border-white/[0.03] flex items-center relative h-7">
-        <div className="absolute left-0 bg-[#191715] px-3 z-10 font-classic italic text-[10px] text-[#c5a880] font-bold border-r border-white/5">
+      <div className="bg-secondary/10 text-muted-foreground py-1.5 overflow-hidden border-b border-white/[0.05] flex items-center relative h-7">
+        <div className="absolute left-0 bg-secondary/10 px-3 z-10 font-classic italic text-[10px] text-gold font-bold border-r border-white/5">
           BOLETIM:
         </div>
         <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-classic italic tracking-wide pl-20">
