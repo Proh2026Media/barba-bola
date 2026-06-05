@@ -93,10 +93,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.78 0.13 80 / 0.12), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.78 0.13 80 / 0.06), transparent);
-    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1, h2, h3, .display {
     font-family: var(--font-display);
