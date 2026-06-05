@@ -11,12 +11,14 @@ function PoliticaSistemas() {
       <svg width="0" height="0" className="absolute pointer-events-none">
         <defs>
           <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="20%" stopColor="#E0F2FE" />
-            <stop offset="40%" stopColor="#70D6FF" />
+            <stop offset="0%" stopColor="#0a0a0a" />
+            <stop offset="10%" stopColor="#1a1a1a" />
+            <stop offset="30%" stopColor="#E0F2FE" />
+            <stop offset="45%" stopColor="#70D6FF" />
             <stop offset="60%" stopColor="#FBCFE8" />
-            <stop offset="80%" stopColor="#FEF9C3" />
-            <stop offset="100%" stopColor="#70D6FF" />
+            <stop offset="75%" stopColor="#FEF9C3" />
+            <stop offset="90%" stopColor="#70D6FF" />
+            <stop offset="100%" stopColor="#0a0a0a" />
           </linearGradient>
         </defs>
       </svg>
