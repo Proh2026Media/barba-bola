@@ -162,7 +162,7 @@ function UnifiedArenaApp() {
               <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Resenha de Cadeira</h2>
               <span className="text-[8px] font-classic tracking-widest text-gold uppercase">IA GEMINI</span>
             </div>
-            <div className="bg-card border border-white/[0.04] rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
+            <div className="bg-card border border-border rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
