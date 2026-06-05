@@ -148,8 +148,11 @@
     background: radial-gradient(circle at center, #000000 0%, #404040 30%, #808080 60%, #404040 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gooey-gradient 12s ease-in-out infinite alternate;
+    display: inline-block;
   }
 
   .dark .text-gradient-silver {
