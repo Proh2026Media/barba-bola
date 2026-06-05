@@ -132,17 +132,17 @@
     100% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
   }
 
-  @keyframes gooey-gradient {
-    0% { background-position: 5% 5%; }
-    20% { background-position: 95% 45%; }
-    40% { background-position: 15% 90%; }
-    60% { background-position: 80% 15%; }
-    80% { background-position: 10% 40%; }
-    100% { background-position: 5% 5%; }
+  @keyframes gooey-flow {
+    0%   { background-position: 10% 10%; background-size: 400% 400%; }
+    20%  { background-position: 90% 30%; background-size: 450% 450%; }
+    40%  { background-position: 50% 90%; background-size: 400% 400%; }
+    60%  { background-position: 10% 70%; background-size: 480% 480%; }
+    80%  { background-position: 80% 10%; background-size: 420% 420%; }
+    100% { background-position: 10% 10%; background-size: 400% 400%; }
   }
   
   .animate-shimmer {
-    animation: gooey-gradient 25s ease-in-out infinite alternate;
+    animation: gooey-flow 25s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   }
 
   .text-gradient-silver {
