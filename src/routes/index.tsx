@@ -211,15 +211,15 @@ function UnifiedArenaApp() {
 
         {tab === "notifications" && (
           <div className="space-y-6">
-             <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Alertas do Clube</h2>
+             <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Alertas do Clube</h2>
              <div className="space-y-3">
                {notifications.map(n => (
-                 <div key={n.id} className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                 <div key={n.id} className="bg-card p-5 rounded border border-white/[0.04]">
                    <div className="flex justify-between items-start mb-1">
-                     <h4 className="text-xs font-classic font-bold text-white uppercase tracking-wider">{n.title}</h4>
-                     <span className="text-[8px] text-[#8e8984] font-semibold">{n.time}</span>
+                     <h4 className="text-xs font-classic font-bold text-foreground uppercase tracking-wider">{n.title}</h4>
+                     <span className="text-[8px] text-muted-foreground font-semibold">{n.time}</span>
                    </div>
-                   <p className="text-[11px] text-[#8e8984] leading-relaxed">{n.text}</p>
+                   <p className="text-[11px] text-muted-foreground leading-relaxed">{n.text}</p>
                  </div>
                ))}
              </div>
