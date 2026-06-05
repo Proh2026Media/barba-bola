@@ -4,7 +4,7 @@ import {
   Bell, Calendar, Compass, Feather, MessageSquare, Settings, 
   ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock,
   Moon, Sun, Info, X, Zap, Beer, Star, CreditCard, Shield, Crown, Diamond,
-  Briefcase
+  Briefcase, Armchair, BadgeCheck, Sparkle, Gem
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
