@@ -13,7 +13,8 @@ export const Route = createFileRoute("/")({
 const matches = [
   { id: 1, league: "Brasileirão", home: "Flamengo", away: "Palmeiras", scoreH: 2, scoreA: 1, status: "AO VIVO", min: "82'" },
   { id: 2, league: "Champions League", home: "Real Madrid", away: "Man City", scoreH: 3, scoreA: 3, status: "PRORROGAÇÃO", min: "ET" },
-  { id: 3, league: "NBA", home: "Lakers", away: "Celtics", scoreH: 102, scoreA: 108, status: "ENC", min: "FT" },
+  { id: 3, league: "Brasileirão", home: "Galo", away: "Cruzeiro", scoreH: 1, scoreA: 0, status: "ENC", min: "FT" },
+  { id: 4, league: "NBA", home: "Lakers", away: "Celtics", scoreH: 102, scoreA: 108, status: "ENC", min: "FT" },
 ];
 
 function UnifiedArenaApp() {
