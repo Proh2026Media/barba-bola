@@ -389,11 +389,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Select */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-bronze flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-bronze-metallic rounded-lg border border-white/20">
                       <BadgeCheck size={14} className="text-white" />
                     </div>
-                    Select
+                    <span className="text-gradient-bronze">Select</span>
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">100 - 299 pts</span>
                 </div>
