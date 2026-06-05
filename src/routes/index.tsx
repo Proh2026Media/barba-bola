@@ -134,23 +134,24 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-[32px] border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-xl bg-white/5 dark:bg-black/40 ${tier.name === 'Exclusive' ? 'border-white/50 shadow-[0_0_60px_rgba(255,255,255,0.2)] ring-1 ring-white/30' : 'border-white/10'}`}>
+            <section className={`p-8 rounded-[32px] border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-xl bg-white/5 dark:bg-black/40 ${tier.name === 'Exclusive' ? 'border-white/50 shadow-[0_0_60px_rgba(255,255,255,0.2)] ring-1 ring-white/30' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
                 <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} group-hover:scale-110`}>
                   <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
               </div>
-              <span className={`text-[10px] uppercase font-black px-5 py-2 rounded-full inline-block mb-4 tracking-[0.25em] shadow-xl transform transition-all hover:scale-105 ${tier.badge} border border-white/20`}>
-                Membro {tier.name}
-              </span>
-              <h2 className="text-3xl font-black text-foreground tracking-tight uppercase drop-shadow-sm">Gabriel Rodrigues</h2>
-              <div className="flex gap-4 justify-center mt-8">
+              
+              <div className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:scale-105 border border-white/20 ${tier.badge}`}>
+                <h2 className="text-3xl font-black tracking-tight uppercase drop-shadow-md">Gabriel Rodrigues</h2>
+              </div>
+
+              <div className="flex gap-4 justify-center mt-4">
                 <div className="text-center px-6">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1">Pontos</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Pontos</p>
                   <p className={`text-2xl font-black ${tier.colorClass}`}>{points}</p>
                 </div>
-                <div className="w-px bg-border/50 h-10 self-center"></div>
+                <div className="w-px bg-border/30 h-10 self-center"></div>
                 <div className="text-center px-6 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
@@ -158,8 +159,8 @@ function UnifiedArenaApp() {
                   >
                     <Info size={12} />
                   </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1">Benefícios</p>
-                  <p className="text-[10px] font-black uppercase text-primary tracking-tighter bg-primary/5 px-2 py-0.5 rounded border border-primary/10">Ver Detalhes</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
+                  <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
                 </div>
               </div>
             </section>
