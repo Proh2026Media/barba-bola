@@ -162,21 +162,32 @@
     background: radial-gradient(
       circle at 50% 50%,
       #FFFFFF 0%,
-      #70D6FF 25%,
-      #FFFFFF 40%,
-      #FF70A6 55%,
-      #FFD670 85%,
+      rgba(0, 0, 0, 0.15) 15%,
+      #70D6FF 30%,
+      #FFFFFF 45%,
+      #FF70A6 60%,
+      rgba(0, 0, 0, 0.1) 75%,
+      #FFD670 90%,
       #FFFFFF 100%
     );
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: organic-float 18s linear infinite;
-    filter: drop-shadow(0 0 12px rgba(186, 230, 253, 0.8));
+    filter: drop-shadow(0 0 15px rgba(186, 230, 253, 0.6)) drop-shadow(0 0 5px rgba(251, 207, 232, 0.4));
   }
 
   .dark .text-gradient-hologram {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+    background: radial-gradient(
+      circle at 50% 50%,
+      #E0F2FE 0%,
+      #7DD3FC 20%,
+      #F0F9FF 40%,
+      #F9A8D4 60%,
+      #FEF08A 80%,
+      #E0F2FE 100%
+    );
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35));
   }
 
   .bg-silver-metallic {
