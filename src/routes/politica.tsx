@@ -125,8 +125,8 @@ function PoliticaSistemas() {
                 <Diamond size={80} fill="currentColor" className="text-white" />
               </div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-2.5 bg-black dark:bg-hologram-metallic rounded-2xl text-white dark:text-black border border-white/30 dark:border-transparent shadow-inner group-hover:scale-110 transition-transform">
-                  <Diamond size={20} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} />
+                <div className={`p-2.5 rounded-2xl border transition-transform group-hover:scale-110 shadow-inner ${isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-black border-white/30'}`}>
+                  <Diamond size={20} className={`${isDarkMode ? 'text-black' : 'text-white'}`} style={{ fill: isDarkMode ? 'black' : 'url(#hologram-gradient)' }} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-gradient-hologram">Nível Exclusive</h3>
@@ -136,15 +136,15 @@ function PoliticaSistemas() {
               <p className="text-xs text-foreground/90 font-medium leading-relaxed mb-5">O topo da experiência Arena Barber Club: Acesso total e benefícios irrestritos (Holograma).</p>
               <ul className="space-y-3">
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
+                  <div className={`p-1 rounded-lg shadow-sm border ${isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-black border-white/10'}`}><CheckCircle size={12} className={`${isDarkMode ? 'text-black' : 'text-white'}`} style={{ fill: isDarkMode ? 'black' : 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Cortes Ilimitados Mensais (Plano Exclusivo)</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
+                  <div className={`p-1 rounded-lg shadow-sm border ${isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-black border-white/10'}`}><CheckCircle size={12} className={`${isDarkMode ? 'text-black' : 'text-white'}`} style={{ fill: isDarkMode ? 'black' : 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Acesso Irrestrito ao Lounge VIP Exclusive</span>
                 </li>
                 <li className="text-[10px] font-black flex items-center gap-3">
-                  <div className="p-1 bg-black dark:bg-hologram-metallic rounded-lg shadow-sm border border-white/10 dark:border-transparent"><CheckCircle size={12} className="text-white dark:text-black" style={{ fill: 'var(--is-dark, 0) === 1 ? black : url(#hologram-gradient)' }} /></div>
+                  <div className={`p-1 rounded-lg shadow-sm border ${isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-black border-white/10'}`}><CheckCircle size={12} className={`${isDarkMode ? 'text-black' : 'text-white'}`} style={{ fill: isDarkMode ? 'black' : 'url(#hologram-gradient)' }} /></div>
                   <span className="text-gradient-hologram">Prioridade Máxima em todos os horários</span>
                 </li>
               </ul>
