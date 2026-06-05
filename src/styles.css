@@ -194,14 +194,11 @@
   .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
-      #050505 0%,
-      #080808 10%,
-      #B3E5FC 25%,
-      #4FC3F7 40%,
-      #F8BBD0 55%,
-      #FFF9C4 70%,
-      #4FC3F7 85%,
-      #050505 100%
+      #B3E5FC 0%,
+      #4FC3F7 25%,
+      #F8BBD0 50%,
+      #FFF9C4 75%,
+      #4FC3F7 100%
     );
     background-size: 400% 400%;
     -webkit-background-clip: text !important;
@@ -275,11 +272,9 @@
     background: radial-gradient(
       circle at 50% 50%,
       rgba(255, 255, 255, 0.95) 0%,
-      rgba(0, 0, 0, 0.1) 12%,
       rgba(186, 230, 253, 0.4) 25%,
       rgba(255, 255, 255, 0.85) 45%,
       rgba(251, 207, 232, 0.4) 65%,
-      rgba(0, 0, 0, 0.05) 75%,
       rgba(254, 249, 195, 0.4) 85%,
       rgba(255, 255, 255, 0.95) 100%
     );
@@ -292,6 +287,30 @@
       inset 0 1px 8px rgba(255, 255, 255, 1),
       inset 0 -1px 6px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.9);
+  }
+
+  .bg-piano-black {
+    background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #050505 100%);
+    background-size: 200% 200%;
+    animation: gooey-flow 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 10px 30px rgba(0,0,0,0.5),
+      inset 0 1px 1px rgba(255,255,255,0.1);
+  }
+
+  .bg-piano-black::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
   }
 
   .dark .bg-hologram-metallic {
