@@ -91,14 +91,14 @@ function UnifiedArenaApp() {
       <svg width="0" height="0" className="absolute pointer-events-none">
         <defs>
           <linearGradient id="hologram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0a0a0a" />
-            <stop offset="10%" stopColor="#1a1a1a" />
-            <stop offset="30%" stopColor="#E0F2FE" />
-            <stop offset="45%" stopColor="#70D6FF" />
-            <stop offset="60%" stopColor="#FBCFE8" />
-            <stop offset="75%" stopColor="#FEF9C3" />
-            <stop offset="90%" stopColor="#70D6FF" />
-            <stop offset="100%" stopColor="#0a0a0a" />
+            <stop offset="0%" stopColor="#050505" className="dark:stop-[#F0F9FF]" />
+            <stop offset="10%" stopColor="#0d0d0d" className="dark:stop-[#7DD3FC]" />
+            <stop offset="30%" stopColor="#B3E5FC" className="dark:stop-[#FFFFFF]" />
+            <stop offset="45%" stopColor="#4FC3F7" className="dark:stop-[#F9A8D4]" />
+            <stop offset="60%" stopColor="#F8BBD0" className="dark:stop-[#FEF08A]" />
+            <stop offset="75%" stopColor="#FFF9C4" className="dark:stop-[#7DD3FC]" />
+            <stop offset="90%" stopColor="#4FC3F7" className="dark:stop-[#F0F9FF]" />
+            <stop offset="100%" stopColor="#050505" className="dark:stop-[#F0F9FF]" />
           </linearGradient>
         </defs>
       </svg>
@@ -153,9 +153,9 @@ function UnifiedArenaApp() {
               <div className="absolute top-0 right-0 p-3">
                 <button 
                   onClick={() => setShowVipInfo(true)}
-                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-[#0a0a0a] border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
+                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-[#0a0a0a] dark:bg-hologram-metallic border-white/20 dark:border-transparent shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: 'url(#hologram-gradient)' } : {}} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white dark:text-black' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: isDarkMode ? 'black' : 'url(#hologram-gradient)' } : {}} />
                 </button>
               </div>
               
