@@ -142,7 +142,7 @@
   }
   
   .animate-shimmer {
-    animation: gooey-gradient 10s ease-in-out infinite alternate;
+    animation: gooey-gradient 25s ease-in-out infinite alternate;
   }
 
   .text-gradient-silver {
