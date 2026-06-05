@@ -141,7 +141,7 @@ function UnifiedArenaApp() {
                   onClick={() => setShowVipInfo(true)}
                   className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-gradient-hologram animate-shimmer' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-gradient-hologram' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </button>
               </div>
               
@@ -428,7 +428,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-black dark:bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
-                      <Gem size={14} className="text-gradient-hologram animate-shimmer" />
+                      <Gem size={14} className="text-gradient-hologram" />
                     </div>
                     <span className="text-gradient-hologram">Exclusive</span>
                   </span>
