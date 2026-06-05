@@ -350,6 +350,7 @@ function UnifiedArenaApp() {
 }
 
 const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
+  const isDarkMode = document.documentElement.classList.contains('dark');
   if (!isOpen) return null;
   
   return (
@@ -441,8 +442,8 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 </div>
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
-                    <div className="p-1.5 bg-black rounded-lg border border-white/30 shadow-inner">
-                      <Diamond size={14} className="text-white" style={{ fill: 'url(#hologram-gradient)' }} />
+                    <div className={`p-1.5 rounded-lg border shadow-inner ${isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-[#050505] border-white/30'}`}>
+                      <Diamond size={14} className={isDarkMode ? 'text-[#050505]' : 'text-white'} style={{ fill: isDarkMode ? '#050505' : 'url(#hologram-gradient)', stroke: 'none' }} />
                     </div>
                     <span className="text-gradient-hologram">Exclusive</span>
                   </span>
