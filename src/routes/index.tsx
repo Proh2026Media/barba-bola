@@ -382,68 +382,68 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Classic */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-2">
-                    <div className="p-1.5 bg-orange-400/10 rounded-lg border border-orange-400/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#C0C0C0] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#C0C0C0]/10 rounded-lg border border-[#C0C0C0]/20">
                       <Armchair size={14} />
                     </div>
                     Classic
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">0 - 99 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">O alicerce: Tradição e manutenção impecável do seu visual.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">O alicerce: Tradição e manutenção impecável do seu visual (Prata).</p>
               </div>
               
               {/* Select */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-2">
-                    <div className="p-1.5 bg-slate-300/10 rounded-lg border border-slate-300/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#CD7F32] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#CD7F32]/10 rounded-lg border border-[#CD7F32]/20">
                       <BadgeCheck size={14} />
                     </div>
                     Select
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">100 - 299 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Conveniência: Prioridade na agenda e lugar cativo na Arena.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Conveniência: Prioridade na agenda e lugar cativo na Arena (Bronze).</p>
               </div>
 
               {/* Privilege */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-2">
-                    <div className="p-1.5 bg-cyan-400/10 rounded-lg border border-cyan-400/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#D4AF37]/10 rounded-lg border border-[#D4AF37]/20">
                       <Sparkle size={14} />
                     </div>
                     Privilege
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">300 - 499 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Experiência: Descontos em produtos e atendimento regado a benefícios.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Experiência: Descontos em produtos e atendimento premium (Ouro).</p>
               </div>
 
               {/* Exclusive */}
-              <div className="bg-[#D4AF37]/5 backdrop-blur-md p-4 rounded-2xl border border-[#D4AF37]/30 shadow-xl relative overflow-hidden group hover:bg-[#D4AF37]/10 transition-all ring-1 ring-[#D4AF37]/10">
+              <div className="bg-[#FF00E5]/5 backdrop-blur-md p-4 rounded-2xl border border-[#FF00E5]/30 shadow-xl relative overflow-hidden group hover:bg-[#FF00E5]/10 transition-all ring-1 ring-[#FF00E5]/10">
                 <div className="absolute -right-2 -top-2 opacity-5 transition-transform group-hover:scale-110">
-                  <Gem size={64} fill="currentColor" className="text-[#D4AF37]" />
+                  <Gem size={64} fill="currentColor" className="text-[#FF00E5]" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
-                    <div className="p-1.5 bg-[#D4AF37]/20 rounded-lg border border-[#D4AF37]/30 shadow-inner">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#FF00E5] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#FF00E5]/20 rounded-lg border border-[#FF00E5]/30 shadow-inner">
                       <Gem size={14} fill="currentColor" />
                     </div>
                     Exclusive
                   </span>
-                  <span className="text-[9px] font-black text-black bg-gradient-to-r from-[#D4AF37] to-[#F9E272] px-2 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
+                  <span className="text-[9px] font-black text-white bg-gradient-to-br from-[#00D1FF] via-[#FF00E5] to-[#FFD600] px-3 py-0.5 rounded-full shadow-md animate-shimmer bg-[length:200%_auto]">500+ pts ou Assinatura (Holograma)</span>
                 </div>
                 <ul className="space-y-1.5">
                   <li className="text-[10px] font-bold flex items-center gap-2">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Prioridade máxima nos horários disputados
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Prioridade máxima nos horários disputados
                   </li>
                   <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Acesso irrestrito ao Lounge VIP
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Acesso irrestrito ao Lounge VIP
                   </li>
                   <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Plano de Cortes Ilimitados (Exclusivo)
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Plano de Cortes Ilimitados (Exclusivo)
                   </li>
                 </ul>
               </div>
