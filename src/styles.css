@@ -187,6 +187,10 @@
       #FEF08A 80%,
       #E0F2FE 100%
     );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: organic-float 18s linear infinite;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35));
   }
 
