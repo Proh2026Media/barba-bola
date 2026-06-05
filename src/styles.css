@@ -294,6 +294,7 @@
     position: relative;
     overflow: hidden;
     box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   /* Efeito Vidro Líquido Escuro (Liquid Glass) */
@@ -305,32 +306,49 @@
     right: 0;
     height: 100%;
     background: linear-gradient(
-      165deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0.05) 48%,
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
       rgba(255, 255, 255, 0) 50%,
-      rgba(0, 0, 0, 0.2) 100%
+      rgba(0, 0, 0, 0.3) 100%
     );
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Brilho superior tipo lente de vidro */
+  /* Brilho superior tipo lente de vidro (Glossy highlight) */
   .bg-piano-black::after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 4px;
-    right: 4px;
-    height: 45%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.02) 100%
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.05) 100%
     );
-    border-radius: 14px 14px 100% 100% / 14px 14px 40% 40%;
+    border-radius: 0 0 50% 50% / 0 0 15% 15%;
     pointer-events: none;
     z-index: 2;
+  }
+
+  /* Reflexo de "ponto de luz" (Specular highlight) */
+  .bg-piano-black .specular-shine {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 120%;
+    height: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 70%
+    );
+    transform: rotate(-15deg);
+    pointer-events: none;
+    z-index: 3;
   }
 
   .dark .bg-hologram-metallic {
