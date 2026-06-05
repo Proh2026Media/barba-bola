@@ -183,7 +183,7 @@ function UnifiedArenaApp() {
         {tab === "esportes" && (
           <div className="space-y-6">
             <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Noticiário & Resultados</h2>
-            <div className="flex space-x-2 overflow-x-auto pb-2 border-b border-white/5">
+            <div className="flex space-x-2 overflow-x-auto pb-2 border-b border-border">
               {["Todos", "Futebol", "NBA"].map((f, i) => (
                 <button key={i} className={`text-[10px] uppercase font-bold px-3 py-1.5 rounded-full border transition-all whitespace-nowrap ${i === 0 ? "border-gold text-gold" : "border-white/5 text-muted-foreground"}`}>{f}</button>
               ))}
