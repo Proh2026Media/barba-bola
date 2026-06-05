@@ -114,13 +114,6 @@ function UnifiedArenaApp() {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <Link 
-            to="/icon-preview"
-            className="p-2.5 rounded-2xl bg-primary/10 text-primary hover:bg-primary/20 transition-all border border-primary/20 flex items-center gap-2"
-          >
-            <Sparkles size={18} />
-            <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Ícones</span>
-          </Link>
           <button 
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="p-2.5 rounded-2xl bg-muted/30 text-muted-foreground hover:text-foreground transition-all border border-border/50"
