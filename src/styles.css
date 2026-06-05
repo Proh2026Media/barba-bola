@@ -162,11 +162,9 @@
     background: radial-gradient(
       circle at 50% 50%,
       #FFFFFF 0%,
-      rgba(0, 0, 0, 0.4) 12%,
       #70D6FF 25%,
       #FFFFFF 40%,
       #FF70A6 55%,
-      rgba(0, 0, 0, 0.3) 70%,
       #FFD670 85%,
       #FFFFFF 100%
     );
@@ -205,25 +203,33 @@
   .bg-hologram-metallic {
     background: radial-gradient(
       circle at 50% 50%,
-      #FFFFFF 0%,
-      rgba(0, 0, 0, 0.25) 15%,
-      #A5F3FC 30%,
-      #FFFFFF 45%,
-      #FBCFE8 60%,
-      rgba(0, 0, 0, 0.2) 75%,
-      #FEF9C3 90%,
-      #FFFFFF 100%
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(186, 230, 253, 0.3) 25%,
+      rgba(255, 255, 255, 0.8) 45%,
+      rgba(251, 207, 232, 0.3) 65%,
+      rgba(254, 249, 195, 0.3) 85%,
+      rgba(255, 255, 255, 0.9) 100%
     );
     background-size: 400% 400%;
     animation: organic-float 15s ease-in-out infinite;
+    backdrop-filter: blur(12px);
     box-shadow: 
-      0 0 25px rgba(186, 230, 253, 0.5), 
-      inset 0 1px 4px rgba(255, 255, 255, 0.8),
-      inset 0 -1px 4px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+      0 0 25px rgba(186, 230, 253, 0.4), 
+      inset 0 1px 6px rgba(255, 255, 255, 1),
+      inset 0 -1px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
   }
 
   .dark .bg-hologram-metallic {
+    background: radial-gradient(
+      circle at 50% 50%,
+      #FFFFFF 0%,
+      #A5F3FC 30%,
+      #FFFFFF 45%,
+      #FBCFE8 60%,
+      #FEF9C3 90%,
+      #FFFFFF 100%
+    );
     box-shadow: 
       0 0 25px rgba(255, 255, 255, 0.4), 
       inset 0 1px 4px rgba(255, 255, 255, 0.8),
