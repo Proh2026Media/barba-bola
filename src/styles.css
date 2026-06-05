@@ -206,7 +206,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 15s ease-in-out infinite;
+    animation: gooey-gradient 18s ease-in-out infinite alternate;
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
