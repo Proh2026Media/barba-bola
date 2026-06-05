@@ -214,7 +214,7 @@ function UnifiedArenaApp() {
              <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Alertas do Clube</h2>
              <div className="space-y-3">
                {notifications.map(n => (
-                 <div key={n.id} className="bg-card p-5 rounded border border-white/[0.04]">
+                 <div key={n.id} className="bg-card p-5 rounded border border-border">
                    <div className="flex justify-between items-start mb-1">
                      <h4 className="text-xs font-classic font-bold text-foreground uppercase tracking-wider">{n.title}</h4>
                      <span className="text-[8px] text-muted-foreground font-semibold">{n.time}</span>
