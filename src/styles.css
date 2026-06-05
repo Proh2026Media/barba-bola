@@ -206,7 +206,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 18s ease-in-out infinite alternate;
+    animation: gooey-gradient 30s ease-in-out infinite alternate;
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
@@ -226,7 +226,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gooey-gradient 16s ease-in-out infinite alternate-reverse;
+    animation: gooey-gradient 30s ease-in-out infinite alternate;
     display: inline-block;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.35));
   }
