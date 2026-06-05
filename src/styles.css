@@ -195,8 +195,11 @@
     );
     background-size: 400% 400%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gooey-gradient 20s ease-in-out infinite;
+    display: inline-block;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
 
