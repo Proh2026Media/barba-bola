@@ -163,8 +163,11 @@
     background: radial-gradient(circle at 30% 30%, #FFCBA4 0%, #CD7F32 40%, #8B4513 70%, #FFCBA4 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gooey-gradient 14s ease-in-out infinite alternate-reverse;
+    display: inline-block;
   }
 
   .text-gradient-gold {
