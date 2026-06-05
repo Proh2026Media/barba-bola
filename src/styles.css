@@ -194,21 +194,23 @@
   .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
-      #E0F2FE 0%,
-      #70D6FF 20%,
-      #FBCFE8 40%,
+      #FFFFFF 0%,
+      #E0F2FE 15%,
+      #70D6FF 30%,
+      #FBCFE8 45%,
       #FEF9C3 60%,
-      #70D6FF 80%,
-      #E0F2FE 100%
+      #E0F2FE 75%,
+      #70D6FF 90%,
+      #FFFFFF 100%
     );
     background-size: 400% 400%;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
-    animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: gooey-flow 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
-    filter: drop-shadow(0 0 5px rgba(186, 230, 253, 0.4));
+    filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.6));
   }
 
   /* Specific class for Exclusive text with black touch in light mode */

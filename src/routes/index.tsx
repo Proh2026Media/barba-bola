@@ -40,10 +40,11 @@ function UnifiedArenaApp() {
       name: "Exclusive", 
       colorClass: "text-exclusive-piano", 
       iconColorClass: "text-gradient-hologram", 
-      bg: "bg-black dark:bg-white/5", 
-      border: "border-black/20 dark:border-white/40 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]",
-      badge: "bg-hologram-metallic text-black font-black",
+      bg: "bg-black dark:bg-white/10", 
+      border: "border-black/20 dark:border-white/40 shadow-xl dark:shadow-white/5",
+      badge: "bg-black dark:bg-white text-gradient-hologram font-black",
       icon: Gem,
+
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
@@ -428,12 +429,12 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 </div>
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
-                    <div className="p-1.5 bg-black dark:bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
+                    <div className="p-1.5 bg-black dark:bg-white/10 rounded-lg border border-white/30 shadow-inner">
                       <Gem size={14} className="text-gradient-hologram" />
                     </div>
                     <span className="text-exclusive-piano">Exclusive</span>
                   </span>
-                  <span className="text-[9px] font-black text-black bg-hologram-metallic px-3 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
+                  <span className="text-[9px] font-black bg-black dark:bg-white px-3 py-0.5 rounded-full shadow-md text-gradient-hologram">500+ pts ou Assinatura</span>
                 </div>
                 <ul className="space-y-1.5">
                   <li className="text-[10px] font-bold flex items-center gap-2">
