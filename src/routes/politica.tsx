@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors } from "lucide-react";
+import { ChevronLeft, Trophy, Star, Zap, MessageSquare, CheckCircle, Crown, Shield, CreditCard, Scissors, Armchair, BadgeCheck, Sparkle, Gem } from "lucide-react";
 
 export const Route = createFileRoute("/politica")({
   component: PoliticaSistemas,
