@@ -147,15 +147,18 @@ function UnifiedArenaApp() {
               </div>
 
               <div className="flex gap-4 justify-center mt-4">
-                <div className="text-center px-6 relative">
+                <div className="text-center px-6 relative flex flex-col items-center">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mb-1 opacity-70">Membro</p>
-                  <div className="flex items-center justify-center gap-1">
+                  <div className="flex items-center gap-2">
                     <p className={`text-2xl font-black ${tier.colorClass}`}>{tier.name}</p>
                     <button 
-                      onClick={() => setShowVipInfo(true)}
-                      className={`hover:scale-110 transition-transform ${tier.colorClass}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShowVipInfo(true);
+                      }}
+                      className="p-1.5 rounded-full bg-primary/5 hover:bg-primary/15 transition-all flex items-center justify-center cursor-pointer z-50 shadow-sm border border-primary/10"
                     >
-                      <Info size={14} />
+                      <Info size={16} className="text-primary animate-pulse" />
                     </button>
                   </div>
                 </div>
