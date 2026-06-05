@@ -25,89 +25,194 @@ function UnifiedArenaApp() {
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
       onClick={() => setTab(id)}
-      className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all flex-1 ${tab === id ? "text-gold" : "text-muted-foreground"}`}
+      className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all flex-1 ${tab === id ? "text-[#c5a880]" : "text-[#8e8984]"}`}
     >
       <Icon className="h-5 w-5 mb-1" />
-      <span className="text-[10px] font-medium">{label}</span>
+      <span className="text-[10px] font-medium uppercase tracking-tighter">{label}</span>
     </button>
   );
 
   return (
-    <div className="min-h-screen bg-[#121110] text-[#eae6e1] pb-20 font-sans">
+    <div className="min-h-screen bg-[#121110] text-[#eae6e1] pb-20 font-sans selection:bg-[#c5a880]/30">
+      {/* Editorial Marquee */}
+      <div className="bg-[#191715] text-[#8e8984] py-1.5 overflow-hidden border-b border-white/[0.03] flex items-center relative h-7">
+        <div className="absolute left-0 bg-[#191715] px-3 z-10 font-classic italic text-[10px] text-[#c5a880] font-bold border-r border-white/5">
+          BOLETIM:
+        </div>
+        <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-classic italic tracking-wide pl-20">
+          {matches.map(m => (
+            <span key={m.id}>⚽ {m.home} {m.scoreH} x {m.scoreA} {m.away} ({m.min})</span>
+          ))}
+          {/* Duplicate for infinite effect */}
+          {matches.map(m => (
+            <span key={`${m.id}-dup`}>⚽ {m.home} {m.scoreH} x {m.scoreA} {m.away} ({m.min})</span>
+          ))}
+        </div>
+      </div>
+
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-[#121110]/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
+      <header className="sticky top-7 z-30 bg-[#121110]/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-full border border-[#c5a880]/30 flex items-center justify-center text-[#c5a880] italic font-classic font-bold text-lg">A</div>
           <div>
             <h1 className="text-sm font-classic font-bold uppercase tracking-wider text-white">Arena Barber</h1>
-            <p className="text-[9px] uppercase tracking-[0.1em] text-[#8e8984]">Club & Lounge</p>
+            <p className="text-[9px] uppercase tracking-[0.1em] text-[#8e8984] font-sans">Club & Lounge</p>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => setTab("notifications")} className="relative text-[#8e8984]">
-            <Bell size={20} />
-            {notifications.length > 0 && <span className="absolute -top-1 -right-1 h-2 w-2 bg-[#c5a880] rounded-full" />}
+          <button onClick={() => setTab("notifications")} className="relative text-[#8e8984] hover:text-white transition-colors">
+            <Bell size={18} />
+            {notifications.length > 0 && <span className="absolute top-0 right-0 h-1.5 w-1.5 bg-[#c5a880] rounded-full" />}
           </button>
+          <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-[#8e8984]">
+            <User size={16} />
+          </div>
         </div>
       </header>
 
       {/* Main Viewport */}
-      <main className="p-4 max-w-xl mx-auto space-y-6">
+      <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className="bg-[#161513] p-6 rounded-2xl border border-white/[0.04]">
-              <h2 className="text-xl font-classic font-bold text-white uppercase mb-2 italic">Boa tarde, Gabriel</h2>
-              <div className="grid grid-cols-2 gap-4 mt-4">
-                <div className="bg-[#1c1a18] p-4 rounded-xl border border-white/[0.03]">
-                  <p className="text-[9px] text-[#8e8984] uppercase tracking-widest">Seus Pontos</p>
-                  <p className="text-lg font-classic font-bold text-[#c5a880]">{points} PTS</p>
-                </div>
-                <div className="bg-[#1c1a18] p-4 rounded-xl border border-white/[0.03]">
-                  <p className="text-[9px] text-[#8e8984] uppercase tracking-widest">Estilo</p>
-                  <p className="text-lg font-classic font-bold text-white">Degradê</p>
-                </div>
+            <section className="border-b border-white/[0.05] pb-6">
+              <span className="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">MEMBRO VIP RECONHECIDO</span>
+              <h2 className="text-2xl font-classic font-bold text-white tracking-wide uppercase italic">Gabriel Rodrigues</h2>
+              <p className="text-[#8e8984] text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
+            </section>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Afiliação</p>
+                <p className="text-lg font-classic font-bold text-[#c5a880]">{points} <span className="text-[10px] font-sans font-light italic text-[#8e8984]">PTS</span></p>
+              </div>
+              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Preferência</p>
+                <p className="text-lg font-classic font-bold text-white">Degradê Razor</p>
+              </div>
+            </div>
+
+            <section className="bg-[#161513] p-5 rounded-xl border border-white/[0.04]">
+              <div className="flex items-center justify-between border-b border-white/[0.05] pb-3 mb-4">
+                <h3 className="text-[10px] font-classic font-bold text-[#c5a880] uppercase tracking-widest flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" /> Sintonizador de Jogos
+                </h3>
+              </div>
+              <div className="space-y-4">
+                {matches.slice(0, 2).map(m => (
+                  <div key={m.id} className="bg-[#1c1a18] p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
+                    <span className="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest">{m.league}</span>
+                    <div className="flex items-center space-x-3 text-xs font-bold">
+                      <span className="font-classic text-white tracking-wide">{m.home}</span>
+                      <span className="text-[#c5a880] px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreH}</span>
+                      <span className="text-white/20 font-light">x</span>
+                      <span className="text-white/40 px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreA}</span>
+                      <span className="font-classic text-white tracking-wide">{m.away}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </section>
 
-            <section className="bg-[#161513] p-6 rounded-2xl border border-white/[0.04]">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#c5a880] mb-4 font-bold">Resumo Esportivo</h3>
-              {matches.map(m => (
-                <div key={m.id} className="flex justify-between items-center py-3 border-b border-white/[0.03] last:border-0 text-sm">
-                  <div className="font-medium text-white">{m.home} <span className="text-[#8e8984]">vs</span> {m.away}</div>
-                  <div className="font-bold text-[#c5a880]">{m.scoreH} - {m.scoreA}</div>
-                </div>
-              ))}
-            </section>
+            <button onClick={() => setTab("agenda")} className="w-full bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-[#c5a880]/10 flex items-center justify-center gap-2">
+              <Calendar size={14} /> Novo Agendamento
+            </button>
           </div>
         )}
 
         {tab === "agenda" && (
-          <div className="bg-[#161513] p-6 rounded-2xl border border-white/[0.04] space-y-6">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#c5a880] font-bold">Novo Atendimento</h3>
+          <div className="space-y-6">
+            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Agendar Atendimento</h2>
             <div className="space-y-4">
-              <select className="w-full bg-[#1c1a18] p-3 rounded-lg border border-white/[0.05] text-xs">
-                <option>Corte Tradicional</option>
-                <option>Barboterapia</option>
-                <option>Combo VIP</option>
-              </select>
-              <button className="w-full bg-[#c5a880] text-[#121110] py-3 rounded-lg font-bold text-xs uppercase tracking-widest">Confirmar Reserva</button>
+              <div className="bg-[#161513] p-5 rounded border border-white/[0.04] space-y-4">
+                <label className="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-widest">1. Seleção de Tratamento</label>
+                <div className="grid grid-cols-1 gap-3">
+                  {["Corte Tradicional (R$ 45)", "Barboterapia (R$ 35)", "Combo VIP (R$ 75)"].map((s, i) => (
+                    <button key={i} className={`p-4 rounded border text-left text-xs transition-all ${i === 0 ? "bg-[#1c1a18] border-[#c5a880]/30 text-white" : "border-white/5 text-[#8e8984]"}`}>
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <button className="w-full bg-[#c5a880] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded shadow-lg shadow-[#c5a880]/10">
+                Confirmar Reserva
+              </button>
             </div>
           </div>
         )}
 
         {tab === "barberchat" && (
-          <div className="bg-[#161513] p-6 rounded-2xl border border-white/[0.04] h-[60vh] flex flex-col">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#c5a880] font-bold mb-4">Resenha IA (GEMINI)</h3>
-            <div className="flex-1 bg-[#121110] rounded-xl p-4 overflow-y-auto mb-4 text-xs italic text-[#8e8984]">
-              Fala craque! Como foi o jogo do Mengão?
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Resenha de Cadeira</h2>
+              <span className="text-[8px] font-classic tracking-widest text-[#c5a880] uppercase">IA GEMINI</span>
             </div>
-            <input placeholder="Digite sua resenha..." className="bg-[#1c1a18] p-3 rounded-lg w-full text-xs" />
+            <div className="bg-[#161513] border border-white/[0.04] rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-[#8e8984]">
+                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" />
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white">Lounge Editorial Pronto</p>
+                </div>
+                <div className="bg-[#1c1a18] p-4 rounded-xl text-xs italic text-[#8e8984] leading-relaxed border border-white/5">
+                  "Fala craque! Já vi aqui que o Mengão tá no 2x1 contra o Palmeiras. Quer saber as estatísticas ou prefere falar sobre o corte pro fim de semana?"
+                </div>
+              </div>
+              <div className="mt-6 flex gap-2">
+                <input placeholder="Digite sua resenha..." className="flex-1 bg-[#121110] border border-white/5 rounded-xl px-4 py-3 text-xs outline-none focus:border-[#c5a880]/30 transition-all" />
+                <button className="bg-[#c5a880] text-black p-3 rounded-xl"><MessageSquare size={16} /></button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {tab === "notifications" && (
+          <div className="space-y-6">
+             <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Alertas do Clube</h2>
+             <div className="space-y-3">
+               {notifications.map(n => (
+                 <div key={n.id} className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                   <div className="flex justify-between items-start mb-1">
+                     <h4 className="text-xs font-classic font-bold text-white uppercase tracking-wider">{n.title}</h4>
+                     <span className="text-[8px] text-[#8e8984] font-semibold">{n.time}</span>
+                   </div>
+                   <p className="text-[11px] text-[#8e8984] leading-relaxed">{n.text}</p>
+                 </div>
+               ))}
+             </div>
+          </div>
+        )}
+
+        {tab === "admin" && (
+          <div className="space-y-6">
+            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide italic">Modo Barbeiro</h2>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Flamengo</button>
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Real Madrid</button>
+                  <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-[#c5a880]/10 text-[#c5a880] text-[10px] py-3 rounded border border-[#c5a880]/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
+                </div>
+              </div>
+              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-white font-medium">Gabriel Rodrigues</span>
+                    <span className="text-[#c5a880]">18:30</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs opacity-50">
+                    <span className="text-white font-medium">Mateus Silva</span>
+                    <span className="text-[#8e8984]">15:00 (Concluído)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-[#121110] border-t border-white/[0.05] p-2 flex justify-around z-40">
+      <nav className="fixed bottom-0 left-0 right-0 bg-[#121110]/95 backdrop-blur-md border-t border-white/[0.05] p-2 flex justify-around z-40">
         <NavItem id="dashboard" icon={Compass} label="Início" />
         <NavItem id="agenda" icon={Calendar} label="Agenda" />
         <NavItem id="barberchat" icon={MessageSquare} label="Resenha" />
@@ -115,4 +220,6 @@ function UnifiedArenaApp() {
       </nav>
     </div>
   );
+}
+
 }
