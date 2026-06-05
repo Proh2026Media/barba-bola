@@ -10,17 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PoliticaRouteImport } from './routes/politica'
-import { Route as IconPreviewRouteImport } from './routes/icon-preview'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PoliticaRoute = PoliticaRouteImport.update({
   id: '/politica',
   path: '/politica',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IconPreviewRoute = IconPreviewRouteImport.update({
-  id: '/icon-preview',
-  path: '/icon-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +25,27 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/icon-preview': typeof IconPreviewRoute
   '/politica': typeof PoliticaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/icon-preview': typeof IconPreviewRoute
   '/politica': typeof PoliticaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/icon-preview': typeof IconPreviewRoute
   '/politica': typeof PoliticaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/icon-preview' | '/politica'
+  fullPaths: '/' | '/politica'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/icon-preview' | '/politica'
-  id: '__root__' | '/' | '/icon-preview' | '/politica'
+  to: '/' | '/politica'
+  id: '__root__' | '/' | '/politica'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  IconPreviewRoute: typeof IconPreviewRoute
   PoliticaRoute: typeof PoliticaRoute
 }
 
@@ -66,13 +56,6 @@ declare module '@tanstack/react-router' {
       path: '/politica'
       fullPath: '/politica'
       preLoaderRoute: typeof PoliticaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/icon-preview': {
-      id: '/icon-preview'
-      path: '/icon-preview'
-      fullPath: '/icon-preview'
-      preLoaderRoute: typeof IconPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,9 +70,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  IconPreviewRoute: IconPreviewRoute,
   PoliticaRoute: PoliticaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
