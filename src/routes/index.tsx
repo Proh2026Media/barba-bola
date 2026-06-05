@@ -91,9 +91,9 @@ function UnifiedArenaApp() {
         {tab === "dashboard" && (
           <div className="space-y-6">
             <section className="border-b border-white/[0.05] pb-6">
-              <span className="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">MEMBRO VIP RECONHECIDO</span>
-              <h2 className="text-2xl font-classic font-bold text-white tracking-wide uppercase italic">Gabriel Rodrigues</h2>
-              <p className="text-[#8e8984] text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
+              <span className="text-[9px] uppercase tracking-[0.25em] text-gold block mb-1">MEMBRO VIP RECONHECIDO</span>
+              <h2 className="text-2xl font-classic font-bold text-foreground tracking-wide uppercase italic">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
             </section>
 
             <div className="grid grid-cols-2 gap-4">
