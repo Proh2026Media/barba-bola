@@ -194,36 +194,13 @@
   .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
-      #FFFFFF 0%,
-      #E0F2FE 15%,
-      #70D6FF 30%,
-      #FBCFE8 45%,
-      #FEF9C3 60%,
-      #E0F2FE 75%,
-      #70D6FF 90%,
-      #FFFFFF 100%
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    animation: gooey-flow 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    display: inline-block;
-    filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.6));
-  }
-
-  /* Specific class for Exclusive text with black touch in light mode */
-  .text-exclusive-piano {
-    background: radial-gradient(
-      circle at 50% 50%,
       #000000 0%,
-      #333333 15%,
-      #E0F2FE 30%,
-      #70D6FF 45%,
-      #FBCFE8 60%,
-      #FEF9C3 75%,
-      #70D6FF 90%,
+      #333333 10%,
+      #E0F2FE 25%,
+      #70D6FF 40%,
+      #FBCFE8 55%,
+      #FEF9C3 70%,
+      #70D6FF 85%,
       #000000 100%
     );
     background-size: 400% 400%;
@@ -234,26 +211,6 @@
     animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     display: inline-block;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-  }
-
-  .dark .text-exclusive-piano {
-    background: radial-gradient(
-      circle at 50% 50%,
-      #F0F9FF 0%,
-      #7DD3FC 20%,
-      #F9A8D4 40%,
-      #FEF08A 60%,
-      #7DD3FC 80%,
-      #F0F9FF 100%
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    animation: gooey-flow 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    display: inline-block;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
   }
 
   .dark .text-gradient-hologram {
