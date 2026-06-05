@@ -13,7 +13,8 @@ export const Route = createFileRoute("/")({
 const matches = [
   { id: 1, league: "Brasileirão", home: "Flamengo", away: "Palmeiras", scoreH: 2, scoreA: 1, status: "AO VIVO", min: "82'" },
   { id: 2, league: "Champions League", home: "Real Madrid", away: "Man City", scoreH: 3, scoreA: 3, status: "PRORROGAÇÃO", min: "ET" },
-  { id: 3, league: "NBA", home: "Lakers", away: "Celtics", scoreH: 102, scoreA: 108, status: "ENC", min: "FT" },
+  { id: 3, league: "Brasileirão", home: "Galo", away: "Cruzeiro", scoreH: 1, scoreA: 0, status: "ENC", min: "FT" },
+  { id: 4, league: "NBA", home: "Lakers", away: "Celtics", scoreH: 102, scoreA: 108, status: "ENC", min: "FT" },
 ];
 
 function UnifiedArenaApp() {
@@ -35,53 +36,53 @@ function UnifiedArenaApp() {
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
       onClick={() => setTab(id)}
-      className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all flex-1 ${tab === id ? "text-primary" : "text-muted-foreground"}`}
+      className={`flex flex-col items-center justify-center p-2.5 rounded-2xl transition-all flex-1 min-w-[64px] ${tab === id ? "text-primary bg-primary/5 shadow-inner" : "text-muted-foreground"}`}
     >
-      <Icon className="h-5 w-5 mb-1" />
-      <span className="text-[10px] font-bold uppercase tracking-tight">{label}</span>
+      <Icon className={`h-5 w-5 mb-1.5 transition-transform ${tab === id ? "scale-110" : ""}`} />
+      <span className="text-[9px] font-black uppercase tracking-widest">{label}</span>
     </button>
   );
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-primary/20 transition-colors duration-300">
       {/* Editorial Marquee */}
-      <div className="bg-muted/30 text-muted-foreground py-1.5 overflow-hidden border-b border-border/50 flex items-center relative h-7">
-        <div className="absolute left-0 bg-background px-3 z-10 font-bold text-[9px] text-primary border-r border-border">
-          LIVE:
+      <div className="bg-primary text-primary-foreground py-2 overflow-hidden border-b border-border/50 flex items-center relative h-9">
+        <div className="absolute left-0 bg-primary px-4 z-10 font-black text-[10px] border-r border-primary-foreground/20">
+          PLACAR AO VIVO
         </div>
-        <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-bold tracking-tight pl-16">
+        <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-black tracking-widest pl-24">
           {matches.map(m => (
-            <span key={m.id} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
+            <span key={m.id} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary-foreground/70 bg-primary-foreground/10 px-1.5 py-0.5 rounded">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
           ))}
           {/* Duplicate for infinite effect */}
           {matches.map(m => (
-            <span key={`${m.id}-dup`} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
+            <span key={`${m.id}-dup`} className="flex items-center gap-2">⚽ {m.home} <span className="text-primary-foreground/70 bg-primary-foreground/10 px-1.5 py-0.5 rounded">{m.scoreH}:{m.scoreA}</span> {m.away}</span>
           ))}
         </div>
       </div>
 
       {/* Header */}
-      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-border p-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl border border-border bg-card flex items-center justify-center text-primary font-bold text-lg">A</div>
+      <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-xl border-b border-border/50 p-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="h-11 w-11 rounded-2xl border-2 border-primary bg-primary/5 flex items-center justify-center text-primary font-black text-xl shadow-inner">A</div>
           <div>
-            <h1 className="text-sm font-bold uppercase tracking-tight text-foreground">Arena Barber</h1>
-            <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground font-sans font-bold">Club & Lounge</p>
+            <h1 className="text-base font-black uppercase tracking-tighter text-foreground leading-none">Arena Barber</h1>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-black mt-1">Club & Lounge</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button 
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 rounded-xl border border-border text-muted-foreground hover:text-foreground transition-all"
+            className="p-2.5 rounded-2xl bg-muted/30 text-muted-foreground hover:text-foreground transition-all border border-border/50"
           >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <button onClick={() => setTab("notifications")} className="relative text-muted-foreground hover:text-foreground transition-colors p-2">
-            <Bell size={18} />
-            {notifications.length > 0 && <span className="absolute top-2 right-2 h-1.5 w-1.5 bg-primary rounded-full" />}
+          <button onClick={() => setTab("notifications")} className="relative bg-muted/30 text-muted-foreground hover:text-foreground transition-all p-2.5 rounded-2xl border border-border/50">
+            <Bell size={20} />
+            {notifications.length > 0 && <span className="absolute top-2 right-2 h-2 w-2 bg-primary rounded-full border-2 border-background" />}
           </button>
-          <div className="h-9 w-9 rounded-xl border border-border flex items-center justify-center text-muted-foreground bg-card">
-            <User size={18} />
+          <div className="h-11 w-11 rounded-2xl border border-border/50 flex items-center justify-center text-muted-foreground bg-muted/30">
+            <User size={20} />
           </div>
         </div>
       </header>
@@ -90,45 +91,54 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className="border-b border-border pb-6">
-              <span className="text-[9px] uppercase tracking-[0.2em] text-primary font-bold block mb-1">Membro VIP</span>
-              <h2 className="text-2xl font-bold text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-xs mt-1 leading-relaxed font-medium">Sua cadeira está pronta. Desfrute da resenha e do lounge.</p>
+            <section className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-3xl border border-primary/20 text-center">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold block mb-2 px-3 py-1 bg-primary/10 rounded-full inline-block">Membro VIP</span>
+              <h2 className="text-3xl font-black text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-sm mt-2 font-medium">Sua cadeira está pronta.</p>
+              <div className="flex gap-4 justify-center mt-6">
+                <div className="text-center px-4">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
+                  <p className="text-2xl font-black text-primary">{points}</p>
+                </div>
+                <div className="w-px bg-border"></div>
+                <div className="text-center px-4">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
+                  <p className="text-2xl font-black text-foreground">VIP</p>
+                </div>
+              </div>
             </section>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Pontos</p>
-                <p className="text-xl font-bold text-primary">{points} <span className="text-[10px] text-muted-foreground">PTS</span></p>
+            <section className="bg-card p-6 rounded-3xl border border-border shadow-sm">
+              <h3 className="text-xs font-black text-foreground uppercase tracking-widest mb-5 flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full" /> Próxima Resenha (IA)
+              </h3>
+              <div className="bg-muted/30 p-4 rounded-2xl text-xs font-medium text-foreground leading-relaxed italic border-l-4 border-primary">
+                "E aí, Gabriel! O Flamengo joga hoje às 21h, vamos preparar o visual?"
               </div>
-              <div className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold mb-2">Plano</p>
-                <p className="text-xl font-bold text-foreground">Premium</p>
-              </div>
-            </div>
+            </section>
 
-            <section className="bg-card p-5 rounded-2xl border border-border shadow-sm">
-              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
-                <h3 className="text-[10px] font-bold text-foreground uppercase tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" /> Placares do Dia
-                </h3>
+            <section className="bg-card p-6 rounded-3xl border border-border shadow-sm">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-xs font-black text-foreground uppercase tracking-widest">Placares do Dia</h3>
+                <button className="text-[10px] font-bold text-primary uppercase">Ver todos</button>
               </div>
               <div className="space-y-3">
                 {matches.slice(0, 2).map(m => (
-                  <div key={m.id} className="bg-muted/20 p-3.5 rounded-xl border border-border/50 flex items-center justify-between">
-                    <span className="text-[9px] text-muted-foreground font-bold uppercase tracking-tight">{m.league}</span>
-                    <div className="flex items-center space-x-3 text-xs font-bold">
-                      <span className="text-foreground tracking-tight">{m.home}</span>
-                      <span className="text-primary px-2 py-0.5 rounded-md border border-border bg-background font-mono">{m.scoreH}:{m.scoreA}</span>
-                      <span className="text-foreground tracking-tight">{m.away}</span>
+                  <div key={m.id} className="bg-muted/20 p-4 rounded-2xl border border-border/50 flex items-center justify-between">
+                    <div className="flex flex-col">
+                        <span className="text-[9px] text-muted-foreground font-bold uppercase">{m.league}</span>
+                        <span className="text-xs font-black tracking-tight text-foreground">{m.home} x {m.away}</span>
+                    </div>
+                    <div className="bg-background px-3 py-1 rounded-lg border border-border font-mono font-bold text-primary text-xs">
+                      {m.scoreH}:{m.scoreA}
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <button onClick={() => setTab("agenda")} className="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-              <Calendar size={14} /> Novo Agendamento
+            <button onClick={() => setTab("agenda")} className="w-full bg-primary hover:opacity-90 text-primary-foreground font-black text-xs uppercase tracking-widest py-5 rounded-2xl transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+              <Calendar size={16} /> Novo Agendamento
             </button>
           </div>
         )}
@@ -250,7 +260,7 @@ function UnifiedArenaApp() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border p-2 flex justify-around z-40 overflow-x-auto">
+      <nav className="fixed bottom-4 left-4 right-4 bg-background/80 backdrop-blur-2xl border border-border/50 p-2 flex justify-around z-40 rounded-3xl shadow-2xl overflow-x-auto no-scrollbar">
         <NavItem id="dashboard" icon={Compass} label="Início" />
         <NavItem id="agenda" icon={Calendar} label="Agenda" />
         <NavItem id="esportes" icon={Feather} label="Esportes" />
