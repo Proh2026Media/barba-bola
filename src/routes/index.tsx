@@ -72,7 +72,7 @@ function UnifiedArenaApp() {
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 rounded-full border border-white/10 text-muted-foreground hover:text-foreground transition-all"
+            className="p-2 rounded-full border border-border text-muted-foreground hover:text-foreground transition-all"
           >
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -80,7 +80,7 @@ function UnifiedArenaApp() {
             <Bell size={18} />
             {notifications.length > 0 && <span className="absolute top-2 right-2 h-1.5 w-1.5 bg-gold rounded-full" />}
           </button>
-          <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground">
+          <div className="h-8 w-8 rounded-full border border-border flex items-center justify-center text-muted-foreground">
             <User size={16} />
           </div>
         </div>
