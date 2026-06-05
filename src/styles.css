@@ -146,7 +146,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 12s ease infinite;
+    animation: gooey-movement 15s ease-in-out infinite;
   }
 
   .text-gradient-bronze {
@@ -154,7 +154,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 15s ease infinite;
+    animation: gooey-movement 18s ease-in-out infinite;
   }
 
   .text-gradient-gold {
@@ -162,7 +162,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 13s ease-in-out infinite;
+    animation: gooey-movement 20s ease-in-out infinite;
   }
 
   .text-gradient-hologram {
@@ -180,7 +180,7 @@
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: organic-float 18s linear infinite;
+    animation: gooey-movement 22s ease-in-out infinite;
     filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
 
