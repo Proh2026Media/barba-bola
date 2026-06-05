@@ -164,6 +164,35 @@ function UnifiedArenaApp() {
           </div>
         )}
 
+        {tab === "esportes" && (
+          <div className="space-y-6">
+            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Noticiário & Resultados</h2>
+            <div className="flex space-x-2 overflow-x-auto pb-2 border-b border-white/5">
+              {["Todos", "Futebol", "NBA"].map((f, i) => (
+                <button key={i} className={`text-[10px] uppercase font-bold px-3 py-1.5 rounded-full border transition-all whitespace-nowrap ${i === 0 ? "border-[#c5a880] text-[#c5a880]" : "border-white/5 text-[#8e8984]"}`}>{f}</button>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {matches.map(m => (
+                <div key={m.id} className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-[9px] text-[#8e8984] font-semibold uppercase">{m.league} · {m.status}</span>
+                  </div>
+                  <div className="flex items-center justify-between font-classic text-sm">
+                    <span className="text-white">{m.home}</span>
+                    <span className="text-[#c5a880] font-sans font-bold">{m.scoreH}</span>
+                  </div>
+                  <div className="flex items-center justify-between font-classic text-sm mt-2">
+                    <span className="text-[#8e8984]">{m.away}</span>
+                    <span className="text-white/40 font-sans font-bold">{m.scoreA}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+
         {tab === "notifications" && (
           <div className="space-y-6">
              <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Alertas do Clube</h2>
