@@ -159,22 +159,22 @@ function UnifiedArenaApp() {
         {tab === "barberchat" && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Resenha de Cadeira</h2>
-              <span className="text-[8px] font-classic tracking-widest text-[#c5a880] uppercase">IA GEMINI</span>
+              <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Resenha de Cadeira</h2>
+              <span className="text-[8px] font-classic tracking-widest text-gold uppercase">IA GEMINI</span>
             </div>
-            <div className="bg-[#161513] border border-white/[0.04] rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
+            <div className="bg-card border border-white/[0.04] rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-[#8e8984]">
-                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" />
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white">Lounge Editorial Pronto</p>
+                <div className="flex items-center space-x-3 text-muted-foreground">
+                  <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-foreground">Lounge Editorial Pronto</p>
                 </div>
-                <div className="bg-[#1c1a18] p-4 rounded-xl text-xs italic text-[#8e8984] leading-relaxed border border-white/5">
+                <div className="bg-secondary p-4 rounded-xl text-xs italic text-muted-foreground leading-relaxed border border-white/5">
                   "Fala craque! Já vi aqui que o Mengão tá no 2x1 contra o Palmeiras. Quer saber as estatísticas ou prefere falar sobre o corte pro fim de semana?"
                 </div>
               </div>
               <div className="mt-6 flex gap-2">
-                <input placeholder="Digite sua resenha..." className="flex-1 bg-[#121110] border border-white/5 rounded-xl px-4 py-3 text-xs outline-none focus:border-[#c5a880]/30 transition-all" />
-                <button className="bg-[#c5a880] text-black p-3 rounded-xl"><MessageSquare size={16} /></button>
+                <input placeholder="Digite sua resenha..." className="flex-1 bg-background border border-white/5 rounded-xl px-4 py-3 text-xs outline-none focus:border-gold/30 transition-all text-foreground" />
+                <button className="bg-gold text-primary-foreground p-3 rounded-xl"><MessageSquare size={16} /></button>
               </div>
             </div>
           </div>
