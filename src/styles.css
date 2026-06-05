@@ -174,8 +174,11 @@
     background: radial-gradient(circle at 70% 20%, #FFE29F 0%, #D4AF37 35%, #8A6623 75%, #FFE29F 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gooey-gradient 16s ease-in-out infinite alternate;
+    display: inline-block;
   }
 
   .text-gradient-hologram {
