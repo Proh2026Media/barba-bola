@@ -20,7 +20,7 @@ const matches = [
 
 function UnifiedArenaApp() {
   const [tab, setTab] = useState("dashboard");
-  const [points, setPoints] = useState(120);
+  const [points, setPoints] = useState(550);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showVipInfo, setShowVipInfo] = useState(false);
   const [notifications, setNotifications] = useState([{
@@ -141,7 +141,7 @@ function UnifiedArenaApp() {
                   onClick={() => setShowVipInfo(true)}
                   className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-gradient-hologram animate-shimmer' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </button>
               </div>
               
