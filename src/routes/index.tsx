@@ -155,7 +155,7 @@ function UnifiedArenaApp() {
                   onClick={() => setShowVipInfo(true)}
                   className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-hologram-metallic border-transparent shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-black' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: 'url(#hologram-gradient)' } : {}} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-[#050505]' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: '#050505', stroke: 'none' } : {}} />
                 </button>
               </div>
               
