@@ -102,6 +102,9 @@
   .text-gold { color: var(--gold); }
   .bg-gold { background-color: var(--gold); }
   .border-gold { border-color: var(--gold); }
+  .text-silver { color: #808080; }
+  .text-bronze { color: #CD7F32; }
+  .text-hologram { color: #70D6FF; }
   .glass {
     background: var(--card);
     backdrop-filter: blur(12px);
