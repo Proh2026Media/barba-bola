@@ -38,37 +38,37 @@ function UnifiedArenaApp() {
   const getTierData = (pts: number) => {
     if (pts >= 500) return { 
       name: "Exclusive", 
-      color: "text-[#D4AF37]", 
-      bg: "bg-[#D4AF37]/10", 
-      border: "border-[#D4AF37]/30",
-      badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black",
+      color: "text-[#FF00E5]", 
+      bg: "bg-[#FF00E5]/10", 
+      border: "border-[#FF00E5]/30",
+      badge: "bg-gradient-to-br from-[#00D1FF] via-[#FF00E5] to-[#FFD600] text-white shadow-[0_0_15px_rgba(255,0,229,0.5)] animate-shimmer bg-[length:200%_auto]",
       icon: Gem,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
       name: "Privilege", 
-      color: "text-cyan-400", 
-      bg: "bg-cyan-400/10", 
-      border: "border-cyan-400/30",
-      badge: "bg-cyan-500 text-white",
+      color: "text-[#D4AF37]", 
+      bg: "bg-[#D4AF37]/10", 
+      border: "border-[#D4AF37]/30",
+      badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black shadow-[0_0_10px_rgba(212,175,55,0.3)]",
       icon: Sparkle,
       greeting: "Bom dia, Membro Privilege."
     };
     if (pts >= 100) return { 
       name: "Select", 
-      color: "text-slate-300", 
-      bg: "bg-slate-300/10", 
-      border: "border-slate-300/30",
-      badge: "bg-slate-400 text-white",
+      color: "text-[#CD7F32]", 
+      bg: "bg-[#CD7F32]/10", 
+      border: "border-[#CD7F32]/30",
+      badge: "bg-gradient-to-r from-[#CD7F32] to-[#A0522D] text-white shadow-[0_0_10px_rgba(205,127,50,0.3)]",
       icon: BadgeCheck,
       greeting: "Olá, Membro Select."
     };
     return { 
       name: "Classic", 
-      color: "text-orange-400", 
-      bg: "bg-orange-400/10", 
-      border: "border-orange-400/30",
-      badge: "bg-orange-500 text-white",
+      color: "text-[#C0C0C0]", 
+      bg: "bg-[#C0C0C0]/10", 
+      border: "border-[#C0C0C0]/30",
+      badge: "bg-gradient-to-r from-[#C0C0C0] to-[#808080] text-white shadow-[0_0_10px_rgba(192,192,192,0.3)]",
       icon: Armchair,
       greeting: "Bem-vindo, Membro Classic."
     };
