@@ -420,11 +420,11 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                   <Gem size={64} fill="currentColor" className="text-white" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gradient-hologram flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
                     <div className="p-1.5 bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
                       <Gem size={14} className="text-black" />
                     </div>
-                    Exclusive
+                    <span className="text-gradient-hologram">Exclusive</span>
                   </span>
                   <span className="text-[9px] font-black text-black bg-hologram-metallic px-3 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
                 </div>
