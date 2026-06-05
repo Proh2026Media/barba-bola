@@ -202,11 +202,11 @@
     background: radial-gradient(
       circle at 50% 50%,
       #FFFFFF 0%,
-      #000000 15%,
+      rgba(0, 0, 0, 0.25) 15%,
       #A5F3FC 30%,
       #FFFFFF 45%,
       #FBCFE8 60%,
-      #000000 75%,
+      rgba(0, 0, 0, 0.2) 75%,
       #FEF9C3 90%,
       #FFFFFF 100%
     );
@@ -215,7 +215,7 @@
     box-shadow: 
       0 0 25px rgba(255,255,255,0.4), 
       inset 0 1px 4px rgba(255,255,255,0.8),
-      inset 0 -1px 4px rgba(0,0,0,0.2);
+      inset 0 -1px 4px rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.7);
   }
 }
