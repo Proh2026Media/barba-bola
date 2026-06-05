@@ -384,7 +384,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-2">
                     <div className="p-1.5 bg-orange-400/10 rounded-lg border border-orange-400/20">
-                      <Scissors size={14} />
+                      <Armchair size={14} />
                     </div>
                     Classic
                   </span>
@@ -398,7 +398,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-2">
                     <div className="p-1.5 bg-slate-300/10 rounded-lg border border-slate-300/20">
-                      <CreditCard size={14} />
+                      <BadgeCheck size={14} />
                     </div>
                     Select
                   </span>
@@ -412,7 +412,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-2">
                     <div className="p-1.5 bg-cyan-400/10 rounded-lg border border-cyan-400/20">
-                      <Shield size={14} />
+                      <Sparkle size={14} />
                     </div>
                     Privilege
                   </span>
@@ -424,12 +424,12 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Exclusive */}
               <div className="bg-[#D4AF37]/5 backdrop-blur-md p-4 rounded-2xl border border-[#D4AF37]/30 shadow-xl relative overflow-hidden group hover:bg-[#D4AF37]/10 transition-all ring-1 ring-[#D4AF37]/10">
                 <div className="absolute -right-2 -top-2 opacity-5 transition-transform group-hover:scale-110">
-                  <Crown size={64} fill="currentColor" className="text-[#D4AF37]" />
+                  <Gem size={64} fill="currentColor" className="text-[#D4AF37]" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
                     <div className="p-1.5 bg-[#D4AF37]/20 rounded-lg border border-[#D4AF37]/30 shadow-inner">
-                      <Crown size={14} fill="currentColor" />
+                      <Gem size={14} fill="currentColor" />
                     </div>
                     Exclusive
                   </span>
