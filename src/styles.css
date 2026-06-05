@@ -194,14 +194,14 @@
   .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
-      #000000 0%,
-      rgba(0, 0, 0, 0.8) 15%,
+      #FFFFFF 0%,
+      #E0F2FE 15%,
       #70D6FF 30%,
-      #000000 45%,
-      #FF70A6 60%,
-      rgba(0, 0, 0, 0.7) 75%,
-      #FFD670 90%,
-      #000000 100%
+      #FBCFE8 45%,
+      #FEF9C3 60%,
+      #E0F2FE 75%,
+      #70D6FF 90%,
+      #FFFFFF 100%
     );
     background-size: 600% 600%;
     -webkit-background-clip: text;
