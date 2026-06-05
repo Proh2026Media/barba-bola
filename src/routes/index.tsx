@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   Bell, Calendar, Compass, Feather, MessageSquare, Settings, 
-  ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock
+  ChevronRight, Sparkles, User, Trophy, Scissors, CheckCircle, Clock,
+  Moon, Sun
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -18,9 +19,18 @@ const matches = [
 function UnifiedArenaApp() {
   const [tab, setTab] = useState("dashboard");
   const [points, setPoints] = useState(120);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [notifications, setNotifications] = useState([{
     id: 1, title: "Reserva de Atendimento", text: "Seu horário com o Mestre Carlão está confirmado hoje às 18:30.", time: "Há 10 min"
   }]);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
@@ -33,10 +43,10 @@ function UnifiedArenaApp() {
   );
 
   return (
-    <div className="min-h-screen bg-[#121110] text-[#eae6e1] pb-20 font-sans selection:bg-[#c5a880]/30">
+    <div className="min-h-screen bg-background text-foreground pb-20 font-sans selection:bg-gold/30 transition-colors duration-300">
       {/* Editorial Marquee */}
-      <div className="bg-[#191715] text-[#8e8984] py-1.5 overflow-hidden border-b border-white/[0.03] flex items-center relative h-7">
-        <div className="absolute left-0 bg-[#191715] px-3 z-10 font-classic italic text-[10px] text-[#c5a880] font-bold border-r border-white/5">
+      <div className="bg-muted/10 text-muted-foreground py-1.5 overflow-hidden border-b border-border/50 flex items-center relative h-7">
+        <div className="absolute left-0 bg-background px-3 z-10 font-classic italic text-[10px] text-gold font-bold border-r border-border">
           BOLETIM:
         </div>
         <div className="animate-marquee whitespace-nowrap flex space-x-12 text-[10px] font-classic italic tracking-wide pl-20">
@@ -51,20 +61,26 @@ function UnifiedArenaApp() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-7 z-30 bg-[#121110]/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
+      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-border p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full border border-[#c5a880]/30 flex items-center justify-center text-[#c5a880] italic font-classic font-bold text-lg">A</div>
+          <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center text-gold italic font-classic font-bold text-lg">A</div>
           <div>
-            <h1 className="text-sm font-classic font-bold uppercase tracking-wider text-white">Arena Barber</h1>
-            <p className="text-[9px] uppercase tracking-[0.1em] text-[#8e8984] font-sans">Club & Lounge</p>
+            <h1 className="text-sm font-classic font-bold uppercase tracking-wider text-foreground">Arena Barber</h1>
+            <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground font-sans">Club & Lounge</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <button onClick={() => setTab("notifications")} className="relative text-[#8e8984] hover:text-white transition-colors">
-            <Bell size={18} />
-            {notifications.length > 0 && <span className="absolute top-0 right-0 h-1.5 w-1.5 bg-[#c5a880] rounded-full" />}
+        <div className="flex items-center gap-3">
+          <button 
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-full border border-border text-muted-foreground hover:text-foreground transition-all"
+          >
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-[#8e8984]">
+          <button onClick={() => setTab("notifications")} className="relative text-muted-foreground hover:text-foreground transition-colors p-2">
+            <Bell size={18} />
+            {notifications.length > 0 && <span className="absolute top-2 right-2 h-1.5 w-1.5 bg-gold rounded-full" />}
+          </button>
+          <div className="h-8 w-8 rounded-full border border-border flex items-center justify-center text-muted-foreground">
             <User size={16} />
           </div>
         </div>
@@ -75,45 +91,45 @@ function UnifiedArenaApp() {
         {tab === "dashboard" && (
           <div className="space-y-6">
             <section className="border-b border-white/[0.05] pb-6">
-              <span className="text-[9px] uppercase tracking-[0.25em] text-[#c5a880] block mb-1">MEMBRO VIP RECONHECIDO</span>
-              <h2 className="text-2xl font-classic font-bold text-white tracking-wide uppercase italic">Gabriel Rodrigues</h2>
-              <p className="text-[#8e8984] text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
+              <span className="text-[9px] uppercase tracking-[0.25em] text-gold block mb-1">MEMBRO VIP RECONHECIDO</span>
+              <h2 className="text-2xl font-classic font-bold text-foreground tracking-wide uppercase italic">Gabriel Rodrigues</h2>
+              <p className="text-muted-foreground text-xs mt-1 leading-relaxed">Sua cadeira está em processo de higienização. Desfrute da resenha e bebidas do clube.</p>
             </section>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Afiliação</p>
-                <p className="text-lg font-classic font-bold text-[#c5a880]">{points} <span className="text-[10px] font-sans font-light italic text-[#8e8984]">PTS</span></p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Afiliação</p>
+                <p className="text-lg font-classic font-bold text-gold">{points} <span className="text-[10px] font-sans font-light italic text-muted-foreground">PTS</span></p>
               </div>
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Preferência</p>
-                <p className="text-lg font-classic font-bold text-white">Degradê Razor</p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Preferência</p>
+                <p className="text-lg font-classic font-bold text-foreground">Degradê Razor</p>
               </div>
             </div>
 
-            <section className="bg-[#161513] p-5 rounded-xl border border-white/[0.04]">
-              <div className="flex items-center justify-between border-b border-white/[0.05] pb-3 mb-4">
-                <h3 className="text-[10px] font-classic font-bold text-[#c5a880] uppercase tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" /> Sintonizador de Jogos
+            <section className="bg-card p-5 rounded-xl border border-border">
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+                <h3 className="text-[10px] font-classic font-bold text-gold uppercase tracking-widest flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" /> Sintonizador de Jogos
                 </h3>
               </div>
               <div className="space-y-4">
                 {matches.slice(0, 2).map(m => (
-                  <div key={m.id} className="bg-[#1c1a18] p-3.5 rounded border border-white/[0.02] flex items-center justify-between">
-                    <span className="text-[9px] text-[#8e8984] font-semibold uppercase tracking-widest">{m.league}</span>
+                  <div key={m.id} className="bg-secondary p-3.5 rounded border border-border flex items-center justify-between">
+                    <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest">{m.league}</span>
                     <div className="flex items-center space-x-3 text-xs font-bold">
-                      <span className="font-classic text-white tracking-wide">{m.home}</span>
-                      <span className="text-[#c5a880] px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreH}</span>
-                      <span className="text-white/20 font-light">x</span>
-                      <span className="text-white/40 px-2 py-0.5 rounded border border-white/5 bg-[#121110]">{m.scoreA}</span>
-                      <span className="font-classic text-white tracking-wide">{m.away}</span>
+                      <span className="font-classic text-foreground tracking-wide">{m.home}</span>
+                      <span className="text-gold px-2 py-0.5 rounded border border-border bg-background">{m.scoreH}</span>
+                      <span className="text-foreground/20 font-light">x</span>
+                      <span className="text-foreground/40 px-2 py-0.5 rounded border border-border bg-background">{m.scoreA}</span>
+                      <span className="font-classic text-foreground tracking-wide">{m.away}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <button onClick={() => setTab("agenda")} className="w-full bg-[#c5a880] hover:bg-[#b0936e] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-[#c5a880]/10 flex items-center justify-center gap-2">
+            <button onClick={() => setTab("agenda")} className="w-full bg-gold hover:bg-gold/80 text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded transition-all shadow-lg shadow-gold/10 flex items-center justify-center gap-2">
               <Calendar size={14} /> Novo Agendamento
             </button>
           </div>
@@ -121,19 +137,19 @@ function UnifiedArenaApp() {
 
         {tab === "agenda" && (
           <div className="space-y-6">
-            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Agendar Atendimento</h2>
+            <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Agendar Atendimento</h2>
             <div className="space-y-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04] space-y-4">
-                <label className="block text-[9px] font-semibold text-[#8e8984] uppercase tracking-widest">1. Seleção de Tratamento</label>
+              <div className="bg-card p-5 rounded border border-border space-y-4">
+                <label className="block text-[9px] font-semibold text-muted-foreground uppercase tracking-widest">1. Seleção de Tratamento</label>
                 <div className="grid grid-cols-1 gap-3">
                   {["Corte Tradicional (R$ 45)", "Barboterapia (R$ 35)", "Combo VIP (R$ 75)"].map((s, i) => (
-                    <button key={i} className={`p-4 rounded border text-left text-xs transition-all ${i === 0 ? "bg-[#1c1a18] border-[#c5a880]/30 text-white" : "border-white/5 text-[#8e8984]"}`}>
+                    <button key={i} className={`p-4 rounded border text-left text-xs transition-all ${i === 0 ? "bg-secondary border-gold/30 text-foreground" : "border-white/5 text-muted-foreground"}`}>
                       {s}
                     </button>
                   ))}
                 </div>
               </div>
-              <button className="w-full bg-[#c5a880] text-[#121110] font-bold text-[10px] uppercase tracking-widest py-4 rounded shadow-lg shadow-[#c5a880]/10">
+              <button className="w-full bg-gold text-primary-foreground font-bold text-[10px] uppercase tracking-widest py-4 rounded shadow-lg shadow-gold/10">
                 Confirmar Reserva
               </button>
             </div>
@@ -143,22 +159,22 @@ function UnifiedArenaApp() {
         {tab === "barberchat" && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Resenha de Cadeira</h2>
-              <span className="text-[8px] font-classic tracking-widest text-[#c5a880] uppercase">IA GEMINI</span>
+              <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Resenha de Cadeira</h2>
+              <span className="text-[8px] font-classic tracking-widest text-gold uppercase">IA GEMINI</span>
             </div>
-            <div className="bg-[#161513] border border-white/[0.04] rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
+            <div className="bg-card border border-border rounded-2xl p-6 min-h-[350px] flex flex-col justify-between overflow-hidden">
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-[#8e8984]">
-                  <div className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse" />
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white">Lounge Editorial Pronto</p>
+                <div className="flex items-center space-x-3 text-muted-foreground">
+                  <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-foreground">Lounge Editorial Pronto</p>
                 </div>
-                <div className="bg-[#1c1a18] p-4 rounded-xl text-xs italic text-[#8e8984] leading-relaxed border border-white/5">
+                <div className="bg-secondary p-4 rounded-xl text-xs italic text-muted-foreground leading-relaxed border border-border">
                   "Fala craque! Já vi aqui que o Mengão tá no 2x1 contra o Palmeiras. Quer saber as estatísticas ou prefere falar sobre o corte pro fim de semana?"
                 </div>
               </div>
               <div className="mt-6 flex gap-2">
-                <input placeholder="Digite sua resenha..." className="flex-1 bg-[#121110] border border-white/5 rounded-xl px-4 py-3 text-xs outline-none focus:border-[#c5a880]/30 transition-all" />
-                <button className="bg-[#c5a880] text-black p-3 rounded-xl"><MessageSquare size={16} /></button>
+                <input placeholder="Digite sua resenha..." className="flex-1 bg-background border border-border rounded-xl px-4 py-3 text-xs outline-none focus:border-gold/30 transition-all text-foreground" />
+                <button className="bg-gold text-primary-foreground p-3 rounded-xl"><MessageSquare size={16} /></button>
               </div>
             </div>
           </div>
@@ -166,25 +182,25 @@ function UnifiedArenaApp() {
 
         {tab === "esportes" && (
           <div className="space-y-6">
-            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Noticiário & Resultados</h2>
-            <div className="flex space-x-2 overflow-x-auto pb-2 border-b border-white/5">
+            <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Noticiário & Resultados</h2>
+            <div className="flex space-x-2 overflow-x-auto pb-2 border-b border-border">
               {["Todos", "Futebol", "NBA"].map((f, i) => (
-                <button key={i} className={`text-[10px] uppercase font-bold px-3 py-1.5 rounded-full border transition-all whitespace-nowrap ${i === 0 ? "border-[#c5a880] text-[#c5a880]" : "border-white/5 text-[#8e8984]"}`}>{f}</button>
+                <button key={i} className={`text-[10px] uppercase font-bold px-3 py-1.5 rounded-full border transition-all whitespace-nowrap ${i === 0 ? "border-gold text-gold" : "border-border text-muted-foreground"}`}>{f}</button>
               ))}
             </div>
             <div className="grid grid-cols-1 gap-4">
               {matches.map(m => (
-                <div key={m.id} className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                <div key={m.id} className="bg-card p-5 rounded border border-border">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-[9px] text-[#8e8984] font-semibold uppercase">{m.league} · {m.status}</span>
+                    <span className="text-[9px] text-muted-foreground font-semibold uppercase">{m.league} · {m.status}</span>
                   </div>
                   <div className="flex items-center justify-between font-classic text-sm">
-                    <span className="text-white">{m.home}</span>
-                    <span className="text-[#c5a880] font-sans font-bold">{m.scoreH}</span>
+                    <span className="text-foreground">{m.home}</span>
+                    <span className="text-gold font-sans font-bold">{m.scoreH}</span>
                   </div>
                   <div className="flex items-center justify-between font-classic text-sm mt-2">
-                    <span className="text-[#8e8984]">{m.away}</span>
-                    <span className="text-white/40 font-sans font-bold">{m.scoreA}</span>
+                    <span className="text-muted-foreground">{m.away}</span>
+                    <span className="text-foreground/40 font-sans font-bold">{m.scoreA}</span>
                   </div>
                 </div>
               ))}
@@ -195,15 +211,15 @@ function UnifiedArenaApp() {
 
         {tab === "notifications" && (
           <div className="space-y-6">
-             <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide">Alertas do Clube</h2>
+             <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide">Alertas do Clube</h2>
              <div className="space-y-3">
                {notifications.map(n => (
-                 <div key={n.id} className="bg-[#161513] p-5 rounded border border-white/[0.04]">
+                 <div key={n.id} className="bg-card p-5 rounded border border-border">
                    <div className="flex justify-between items-start mb-1">
-                     <h4 className="text-xs font-classic font-bold text-white uppercase tracking-wider">{n.title}</h4>
-                     <span className="text-[8px] text-[#8e8984] font-semibold">{n.time}</span>
+                     <h4 className="text-xs font-classic font-bold text-foreground uppercase tracking-wider">{n.title}</h4>
+                     <span className="text-[8px] text-muted-foreground font-semibold">{n.time}</span>
                    </div>
-                   <p className="text-[11px] text-[#8e8984] leading-relaxed">{n.text}</p>
+                   <p className="text-[11px] text-muted-foreground leading-relaxed">{n.text}</p>
                  </div>
                ))}
              </div>
@@ -212,26 +228,26 @@ function UnifiedArenaApp() {
 
         {tab === "admin" && (
           <div className="space-y-6">
-            <h2 className="text-xl font-classic font-bold text-white uppercase tracking-wide italic">Modo Barbeiro</h2>
+            <h2 className="text-xl font-classic font-bold text-foreground uppercase tracking-wide italic">Modo Barbeiro</h2>
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
+              <div className="bg-card p-5 rounded border border-border">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Simulador de Eventos</p>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Flamengo</button>
-                  <button onClick={() => alert("Simulando Gol...")} className="bg-[#1c1a18] text-[10px] py-2 rounded border border-white/5 font-bold">⚽ Gol Real Madrid</button>
-                  <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-[#c5a880]/10 text-[#c5a880] text-[10px] py-3 rounded border border-[#c5a880]/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-secondary text-[10px] py-2 rounded border border-border font-bold text-foreground">⚽ Gol Flamengo</button>
+                  <button onClick={() => alert("Simulando Gol...")} className="bg-secondary text-[10px] py-2 rounded border border-border font-bold text-foreground">⚽ Gol Real Madrid</button>
+                  <button onClick={() => alert("Notificação enviada")} className="col-span-2 bg-gold/10 text-gold text-[10px] py-3 rounded border border-gold/20 font-bold uppercase tracking-widest mt-2">Lembrar Horário</button>
                 </div>
               </div>
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
+              <div className="bg-card p-5 rounded border border-border">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-4">Agenda do Dia</p>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-white font-medium">Gabriel Rodrigues</span>
-                    <span className="text-[#c5a880]">18:30</span>
+                    <span className="text-foreground font-medium">Gabriel Rodrigues</span>
+                    <span className="text-gold">18:30</span>
                   </div>
                   <div className="flex justify-between items-center text-xs opacity-50">
-                    <span className="text-white font-medium">Mateus Silva</span>
-                    <span className="text-[#8e8984]">15:00 (Concluído)</span>
+                    <span className="text-foreground font-medium">Mateus Silva</span>
+                    <span className="text-muted-foreground">15:00 (Concluído)</span>
                   </div>
                 </div>
               </div>
@@ -241,7 +257,7 @@ function UnifiedArenaApp() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-[#121110]/95 backdrop-blur-md border-t border-white/[0.05] p-2 flex justify-around z-40 overflow-x-auto">
+      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-white/[0.05] p-2 flex justify-around z-40 overflow-x-auto">
         <NavItem id="dashboard" icon={Compass} label="Início" />
         <NavItem id="agenda" icon={Calendar} label="Agenda" />
         <NavItem id="esportes" icon={Feather} label="Esportes" />
