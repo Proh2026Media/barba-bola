@@ -173,7 +173,7 @@ function UnifiedArenaApp() {
                 </div>
               </div>
               <div className="mt-6 flex gap-2">
-                <input placeholder="Digite sua resenha..." className="flex-1 bg-background border border-white/5 rounded-xl px-4 py-3 text-xs outline-none focus:border-gold/30 transition-all text-foreground" />
+                <input placeholder="Digite sua resenha..." className="flex-1 bg-background border border-border rounded-xl px-4 py-3 text-xs outline-none focus:border-gold/30 transition-all text-foreground" />
                 <button className="bg-gold text-primary-foreground p-3 rounded-xl"><MessageSquare size={16} /></button>
               </div>
             </div>
