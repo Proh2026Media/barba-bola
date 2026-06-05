@@ -34,6 +34,43 @@ function UnifiedArenaApp() {
     }
   }, [isDarkMode]);
 
+  const getTierData = (pts: number) => {
+    if (pts >= 500) return { 
+      name: "Exclusive", 
+      color: "text-[#D4AF37]", 
+      bg: "bg-[#D4AF37]/10", 
+      border: "border-[#D4AF37]/30",
+      badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black",
+      greeting: "Bem-vindo ao topo, Membro Exclusive."
+    };
+    if (pts >= 300) return { 
+      name: "Privilege", 
+      color: "text-cyan-400", 
+      bg: "bg-cyan-400/10", 
+      border: "border-cyan-400/30",
+      badge: "bg-cyan-500 text-white",
+      greeting: "Bom dia, Membro Privilege."
+    };
+    if (pts >= 100) return { 
+      name: "Select", 
+      color: "text-slate-300", 
+      bg: "bg-slate-300/10", 
+      border: "border-slate-300/30",
+      badge: "bg-slate-400 text-white",
+      greeting: "Olá, Membro Select."
+    };
+    return { 
+      name: "Classic", 
+      color: "text-orange-400", 
+      bg: "bg-orange-400/10", 
+      border: "border-orange-400/30",
+      badge: "bg-orange-500 text-white",
+      greeting: "Bem-vindo, Membro Classic."
+    };
+  };
+
+  const tier = getTierData(points);
+
   const NavItem = ({ id, icon: Icon, label }: any) => (
     <button 
       onClick={() => setTab(id)}
@@ -92,30 +129,32 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className="bg-gradient-to-b from-primary/10 to-transparent p-6 rounded-3xl border border-primary/20 text-center relative overflow-hidden">
+            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 ${tier.name === 'Exclusive' ? 'bg-gradient-to-b from-[#D4AF37]/20 via-background to-transparent shadow-[0_0_20px_rgba(212,175,55,0.1)]' : 'bg-gradient-to-b from-primary/10 to-transparent'}`}>
               <div className="absolute top-0 right-0 p-3">
-                <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary border border-primary/30">
+                <div className={`h-8 w-8 rounded-full flex items-center justify-center border transition-colors ${tier.bg} ${tier.color} ${tier.border}`}>
                   <Star size={16} fill="currentColor" />
                 </div>
               </div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold block mb-2 px-3 py-1 bg-primary/10 rounded-full inline-block">Sócio Arena (MVP)</span>
+              <span className={`text-[10px] uppercase font-black px-3 py-1 rounded-full inline-block mb-2 tracking-[0.2em] shadow-sm ${tier.badge}`}>
+                {tier.name}
+              </span>
               <h2 className="text-3xl font-black text-foreground tracking-tight uppercase">Gabriel Rodrigues</h2>
-              <p className="text-muted-foreground text-sm mt-2 font-medium italic">O campo é seu, craque.</p>
+              <p className="text-muted-foreground text-sm mt-2 font-medium italic">{tier.greeting}</p>
               <div className="flex gap-4 justify-center mt-6">
                 <div className="text-center px-4">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Pontos</p>
-                  <p className="text-2xl font-black text-primary">{points}</p>
+                  <p className={`text-2xl font-black ${tier.color}`}>{points}</p>
                 </div>
                 <div className="w-px bg-border"></div>
                 <div className="text-center px-4 relative">
                   <button 
                     onClick={() => setShowVipInfo(true)}
-                    className="absolute -top-1 -right-1 text-primary hover:scale-110 transition-transform"
+                    className={`absolute -top-1 -right-1 hover:scale-110 transition-transform ${tier.color}`}
                   >
                     <Info size={12} />
                   </button>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Patente</p>
-                  <p className="text-2xl font-black text-foreground">MVP</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">Status</p>
+                  <p className="text-2xl font-black text-foreground">{tier.name}</p>
                 </div>
               </div>
             </section>
@@ -325,50 +364,61 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
           </section>
 
           <section>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Patentes & Benefícios</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">A Escala do Clube</h4>
             <div className="space-y-4">
-              {/* Bronze */}
+              {/* Classic */}
               <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-600 flex items-center gap-1.5">
-                    <Trophy size={12} /> Bronze (Iniciante)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-1.5">
+                    <Trophy size={12} /> Classic (O Alicerce)
                   </span>
-                  <span className="text-[9px] font-bold text-muted-foreground">0 - 100 pts</span>
+                  <span className="text-[9px] font-bold text-muted-foreground">0 - 99 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground">Acesso básico ao sistema e agendamento.</p>
+                <p className="text-[10px] text-muted-foreground">Visual alinhado e manutenção do dia a dia com qualidade.</p>
               </div>
               
-              {/* Prata */}
+              {/* Select */}
               <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-1.5">
-                    <Trophy size={12} /> Prata (Titular)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                    <Trophy size={12} /> Select (Exclusividade)
                   </span>
-                  <span className="text-[9px] font-bold text-muted-foreground">101 - 500 pts</span>
+                  <span className="text-[9px] font-bold text-muted-foreground">100 - 299 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground">Desconto de 5% em produtos do Lounge.</p>
+                <p className="text-[10px] text-muted-foreground">Maior flexibilidade na marcação e conveniência extra.</p>
               </div>
 
-              {/* VIP / MVP */}
-              <div className="bg-primary/5 p-4 rounded-2xl border border-primary/20 relative overflow-hidden">
+              {/* Privilege */}
+              <div className="bg-muted/30 p-4 rounded-2xl border border-border/50">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-1.5">
+                    <Trophy size={12} /> Privilege (Experiência)
+                  </span>
+                  <span className="text-[9px] font-bold text-muted-foreground">300 - 499 pts</span>
+                </div>
+                <p className="text-[10px] text-muted-foreground">Atendimento diferenciado e descontos em produtos de cuidado pessoal.</p>
+              </div>
+
+              {/* Exclusive */}
+              <div className="bg-primary/5 p-4 rounded-2xl border-[#D4AF37]/30 relative overflow-hidden bg-gradient-to-br from-[#D4AF37]/5 to-transparent">
                 <div className="absolute -right-2 -top-2 opacity-10">
-                  <Star size={48} fill="currentColor" className="text-primary" />
+                  <Star size={48} fill="currentColor" className="text-[#D4AF37]" />
                 </div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-1.5">
-                    <Star size={12} fill="currentColor" /> MVP (Sócio Arena)
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-1.5">
+                    <Star size={12} fill="currentColor" /> Exclusive (O Topo)
                   </span>
-                  <span className="text-[9px] font-bold text-primary">500+ pts ou Assinatura</span>
+                  <span className="text-[9px] font-bold text-[#D4AF37]">500+ pts ou Assinatura</span>
                 </div>
                 <ul className="space-y-1.5">
                   <li className="text-[10px] font-bold flex items-center gap-2">
-                    <CheckCircle size={10} className="text-primary" /> Prioridade na fila de espera
+                    <CheckCircle size={10} className="text-[#D4AF37]" /> Prioridade máxima nos horários disputados
                   </li>
-                  <li className="text-[10px] font-bold flex items-center gap-2">
-                    <CheckCircle size={10} className="text-primary" /> 1 Drink cortesia por visita
+                  <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
+                    <CheckCircle size={10} className="text-[#D4AF37]" /> Acesso irrestrito ao Lounge VIP
                   </li>
-                  <li className="text-[10px] font-bold flex items-center gap-2">
-                    <CheckCircle size={10} className="text-primary" /> IA "Resenha Premium" ilimitada
+                  <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
+                    <CheckCircle size={10} className="text-[#D4AF37]" /> Plano de Cortes Ilimitados (Exclusivo)
                   </li>
                 </ul>
               </div>
