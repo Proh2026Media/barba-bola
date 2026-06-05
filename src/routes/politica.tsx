@@ -40,7 +40,7 @@ function PoliticaSistemas() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-2.5 bg-orange-400/10 rounded-2xl text-orange-400 border border-orange-400/20 shadow-inner group-hover:scale-110 transition-transform">
-                  <Scissors size={20} />
+                  <Armchair size={20} />
                 </div>
                 <div>
                   <h3 className="font-black uppercase tracking-widest text-sm text-orange-400">Nível Classic</h3>
