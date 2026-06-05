@@ -38,7 +38,9 @@ function UnifiedArenaApp() {
   const getTierData = (pts: number) => {
     if (pts >= 500) return { 
       name: "Exclusive", 
-      colorClass: "text-gradient-hologram", 
+      colorClass: "text-exclusive-piano", 
+      iconColorClass: "text-gradient-hologram", 
+
       bg: "bg-black dark:bg-white/5", 
       border: "border-black/20 dark:border-white/40 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]",
       badge: "bg-hologram-metallic text-black font-black",
@@ -141,7 +143,7 @@ function UnifiedArenaApp() {
                   onClick={() => setShowVipInfo(true)}
                   className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-gradient-hologram' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? (tier.iconColorClass || tier.colorClass) : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </button>
               </div>
               
@@ -430,7 +432,7 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
                     <div className="p-1.5 bg-black dark:bg-hologram-metallic rounded-lg border border-white/30 shadow-inner">
                       <Gem size={14} className="text-gradient-hologram" />
                     </div>
-                    <span className="text-gradient-hologram">Exclusive</span>
+                    <span className="text-exclusive-piano">Exclusive</span>
                   </span>
                   <span className="text-[9px] font-black text-black bg-hologram-metallic px-3 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
                 </div>
