@@ -40,7 +40,6 @@ function UnifiedArenaApp() {
       name: "Exclusive", 
       colorClass: "text-exclusive-piano", 
       iconColorClass: "text-gradient-hologram", 
-
       bg: "bg-black dark:bg-white/5", 
       border: "border-black/20 dark:border-white/40 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]",
       badge: "bg-hologram-metallic text-black font-black",
