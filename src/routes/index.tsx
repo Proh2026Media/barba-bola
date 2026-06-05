@@ -61,20 +61,26 @@ function UnifiedArenaApp() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-7 z-30 bg-[#121110]/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
+      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full border border-[#c5a880]/30 flex items-center justify-center text-[#c5a880] italic font-classic font-bold text-lg">A</div>
+          <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center text-gold italic font-classic font-bold text-lg">A</div>
           <div>
-            <h1 className="text-sm font-classic font-bold uppercase tracking-wider text-white">Arena Barber</h1>
-            <p className="text-[9px] uppercase tracking-[0.1em] text-[#8e8984] font-sans">Club & Lounge</p>
+            <h1 className="text-sm font-classic font-bold uppercase tracking-wider text-foreground">Arena Barber</h1>
+            <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground font-sans">Club & Lounge</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <button onClick={() => setTab("notifications")} className="relative text-[#8e8984] hover:text-white transition-colors">
-            <Bell size={18} />
-            {notifications.length > 0 && <span className="absolute top-0 right-0 h-1.5 w-1.5 bg-[#c5a880] rounded-full" />}
+        <div className="flex items-center gap-3">
+          <button 
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-full border border-white/10 text-muted-foreground hover:text-foreground transition-all"
+          >
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-[#8e8984]">
+          <button onClick={() => setTab("notifications")} className="relative text-muted-foreground hover:text-foreground transition-colors p-2">
+            <Bell size={18} />
+            {notifications.length > 0 && <span className="absolute top-2 right-2 h-1.5 w-1.5 bg-gold rounded-full" />}
+          </button>
+          <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground">
             <User size={16} />
           </div>
         </div>
