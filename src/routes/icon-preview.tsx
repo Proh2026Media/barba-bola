@@ -29,8 +29,8 @@ function IconPreviewPage() {
       bg: "bg-orange-400/10",
       border: "border-orange-400/20",
       options: [
+        { icon: Armchair, label: "Cadeira de Barbeiro", desc: "Símbolo oficial do nível Classic.", official: true },
         { icon: Scissors, label: "Navalha/Tesoura", desc: "Símbolo universal do corte e fino trato." },
-        { icon: Search, label: "Pente/Lupa", desc: "Simples, utilitário e elegante." },
         { icon: Star, label: "Estrela Tradicional", desc: "O básico bem feito." }
       ]
     },
@@ -40,9 +40,9 @@ function IconPreviewPage() {
       bg: "bg-slate-300/10",
       border: "border-slate-300/20",
       options: [
+        { icon: BadgeCheck, label: "Selo (Badge)", desc: "Símbolo oficial do nível Select.", official: true },
         { icon: CreditCard, label: "Cartão de Acesso", desc: "Estilo cartão black minimalista." },
-        { icon: BadgeCheck, label: "Selo (Badge)", desc: "Certificado de qualidade/garantia." },
-        { icon: Armchair, label: "Cadeira de Barbeiro", desc: "Lugar cativo reservado." }
+        { icon: CheckCircle, label: "Check Circle", desc: "Garantia de atendimento." }
       ]
     },
     {
@@ -51,7 +51,7 @@ function IconPreviewPage() {
       bg: "bg-cyan-400/10",
       border: "border-cyan-400/20",
       options: [
-        { icon: Key, label: "Chave Clássica", desc: "Acesso a privilégios e portas abertas." },
+        { icon: Sparkle, label: "Estrela de 4 Pontas", desc: "Símbolo oficial do nível Privilege.", official: true },
         { icon: Wine, label: "Taça / Brinde", desc: "Conforto e atendimento diferenciado." },
         { icon: Shield, label: "Escudo (Shield)", desc: "Proteção e pertencimento ao clube." }
       ]
@@ -62,9 +62,9 @@ function IconPreviewPage() {
       bg: "bg-[#D4AF37]/10",
       border: "border-[#D4AF37]/30",
       options: [
+        { icon: Gem, label: "Diamante Line Art", desc: "Símbolo oficial do nível Exclusive.", official: true },
         { icon: Crown, label: "Coroa Geométrica", desc: "Três pontas, moderno e imponente." },
-        { icon: Compass, label: "Bússola (Compass Star)", desc: "Estrela guia de alto luxo." },
-        { icon: Gem, label: "Diamante Line Art", desc: "Representação universal do nível máximo." }
+        { icon: Compass, label: "Bússola (Compass Star)", desc: "Estrela guia de alto luxo." }
       ]
     }
   ];
