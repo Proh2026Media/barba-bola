@@ -97,13 +97,13 @@ function UnifiedArenaApp() {
             </section>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Afiliação</p>
-                <p className="text-lg font-classic font-bold text-[#c5a880]">{points} <span className="text-[10px] font-sans font-light italic text-[#8e8984]">PTS</span></p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Afiliação</p>
+                <p className="text-lg font-classic font-bold text-gold">{points} <span className="text-[10px] font-sans font-light italic text-muted-foreground">PTS</span></p>
               </div>
-              <div className="bg-[#161513] p-5 rounded border border-white/[0.04]">
-                <p className="text-[9px] text-[#8e8984] uppercase tracking-widest font-semibold mb-2">Preferência</p>
-                <p className="text-lg font-classic font-bold text-white">Degradê Razor</p>
+              <div className="bg-card p-5 rounded border border-white/[0.04]">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mb-2">Preferência</p>
+                <p className="text-lg font-classic font-bold text-foreground">Degradê Razor</p>
               </div>
             </div>
 
