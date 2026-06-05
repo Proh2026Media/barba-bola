@@ -168,7 +168,7 @@ function UnifiedArenaApp() {
                   <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
                   <p className="text-[10px] uppercase font-bold tracking-widest text-foreground">Lounge Editorial Pronto</p>
                 </div>
-                <div className="bg-secondary p-4 rounded-xl text-xs italic text-muted-foreground leading-relaxed border border-white/5">
+                <div className="bg-secondary p-4 rounded-xl text-xs italic text-muted-foreground leading-relaxed border border-border">
                   "Fala craque! Já vi aqui que o Mengão tá no 2x1 contra o Palmeiras. Quer saber as estatísticas ou prefere falar sobre o corte pro fim de semana?"
                 </div>
               </div>
