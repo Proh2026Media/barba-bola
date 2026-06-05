@@ -81,6 +81,8 @@
 }
 
 @layer utilities {
+  .font-classic { font-family: var(--font-classic); }
+
   .text-gold { color: var(--gold); }
   .bg-gold { background-color: var(--gold); }
   .border-gold { border-color: var(--gold); }
