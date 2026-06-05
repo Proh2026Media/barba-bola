@@ -38,37 +38,37 @@ function UnifiedArenaApp() {
   const getTierData = (pts: number) => {
     if (pts >= 500) return { 
       name: "Exclusive", 
-      color: "text-[#D4AF37]", 
-      bg: "bg-[#D4AF37]/10", 
-      border: "border-[#D4AF37]/30",
-      badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black",
+      color: "text-[#FF00E5]", 
+      bg: "bg-[#FF00E5]/10", 
+      border: "border-[#FF00E5]/30",
+      badge: "bg-gradient-to-br from-[#00D1FF] via-[#FF00E5] to-[#FFD600] text-white shadow-[0_0_15px_rgba(255,0,229,0.5)] animate-shimmer bg-[length:200%_auto]",
       icon: Gem,
       greeting: "Bem-vindo ao topo, Membro Exclusive."
     };
     if (pts >= 300) return { 
       name: "Privilege", 
-      color: "text-cyan-400", 
-      bg: "bg-cyan-400/10", 
-      border: "border-cyan-400/30",
-      badge: "bg-cyan-500 text-white",
+      color: "text-[#D4AF37]", 
+      bg: "bg-[#D4AF37]/10", 
+      border: "border-[#D4AF37]/30",
+      badge: "bg-gradient-to-r from-[#D4AF37] to-[#F9E272] text-black shadow-[0_0_10px_rgba(212,175,55,0.3)]",
       icon: Sparkle,
       greeting: "Bom dia, Membro Privilege."
     };
     if (pts >= 100) return { 
       name: "Select", 
-      color: "text-slate-300", 
-      bg: "bg-slate-300/10", 
-      border: "border-slate-300/30",
-      badge: "bg-slate-400 text-white",
+      color: "text-[#CD7F32]", 
+      bg: "bg-[#CD7F32]/10", 
+      border: "border-[#CD7F32]/30",
+      badge: "bg-gradient-to-r from-[#CD7F32] to-[#A0522D] text-white shadow-[0_0_10px_rgba(205,127,50,0.3)]",
       icon: BadgeCheck,
       greeting: "Olá, Membro Select."
     };
     return { 
       name: "Classic", 
-      color: "text-orange-400", 
-      bg: "bg-orange-400/10", 
-      border: "border-orange-400/30",
-      badge: "bg-orange-500 text-white",
+      color: "text-[#C0C0C0]", 
+      bg: "bg-[#C0C0C0]/10", 
+      border: "border-[#C0C0C0]/30",
+      badge: "bg-gradient-to-r from-[#C0C0C0] to-[#808080] text-white shadow-[0_0_10px_rgba(192,192,192,0.3)]",
       icon: Armchair,
       greeting: "Bem-vindo, Membro Classic."
     };
@@ -141,7 +141,7 @@ function UnifiedArenaApp() {
       <main className="p-4 max-w-xl mx-auto">
         {tab === "dashboard" && (
           <div className="space-y-6">
-            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#D4AF37]/50 shadow-[0_0_40px_rgba(212,175,55,0.15)] ring-1 ring-[#D4AF37]/20' : 'border-white/10'}`}>
+            <section className={`p-6 rounded-3xl border ${tier.border} text-center relative overflow-hidden transition-all duration-500 group shadow-2xl backdrop-blur-md bg-white/5 dark:bg-black/20 ${tier.name === 'Exclusive' ? 'border-[#FF00E5]/50 shadow-[0_0_40px_rgba(255,0,229,0.15)] ring-1 ring-[#FF00E5]/20' : 'border-white/10'}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
               <div className="absolute top-0 right-0 p-3">
                 <div className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.color} ${tier.border} group-hover:scale-110`}>
@@ -382,68 +382,68 @@ const VipInfoModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               {/* Classic */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-orange-400 flex items-center gap-2">
-                    <div className="p-1.5 bg-orange-400/10 rounded-lg border border-orange-400/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#C0C0C0] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#C0C0C0]/10 rounded-lg border border-[#C0C0C0]/20">
                       <Armchair size={14} />
                     </div>
                     Classic
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">0 - 99 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">O alicerce: Tradição e manutenção impecável do seu visual.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">O alicerce: Tradição e manutenção impecável do seu visual (Prata).</p>
               </div>
               
               {/* Select */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-2">
-                    <div className="p-1.5 bg-slate-300/10 rounded-lg border border-slate-300/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#CD7F32] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#CD7F32]/10 rounded-lg border border-[#CD7F32]/20">
                       <BadgeCheck size={14} />
                     </div>
                     Select
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">100 - 299 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Conveniência: Prioridade na agenda e lugar cativo na Arena.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Conveniência: Prioridade na agenda e lugar cativo na Arena (Bronze).</p>
               </div>
 
               {/* Privilege */}
               <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 shadow-lg group hover:bg-white/10 transition-all">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-2">
-                    <div className="p-1.5 bg-cyan-400/10 rounded-lg border border-cyan-400/20">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#D4AF37]/10 rounded-lg border border-[#D4AF37]/20">
                       <Sparkle size={14} />
                     </div>
                     Privilege
                   </span>
                   <span className="text-[9px] font-bold text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-full border border-border/50">300 - 499 pts</span>
                 </div>
-                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Experiência: Descontos em produtos e atendimento regado a benefícios.</p>
+                <p className="text-[10px] text-muted-foreground leading-relaxed pl-9">Experiência: Descontos em produtos e atendimento premium (Ouro).</p>
               </div>
 
               {/* Exclusive */}
-              <div className="bg-[#D4AF37]/5 backdrop-blur-md p-4 rounded-2xl border border-[#D4AF37]/30 shadow-xl relative overflow-hidden group hover:bg-[#D4AF37]/10 transition-all ring-1 ring-[#D4AF37]/10">
+              <div className="bg-[#FF00E5]/5 backdrop-blur-md p-4 rounded-2xl border border-[#FF00E5]/30 shadow-xl relative overflow-hidden group hover:bg-[#FF00E5]/10 transition-all ring-1 ring-[#FF00E5]/10">
                 <div className="absolute -right-2 -top-2 opacity-5 transition-transform group-hover:scale-110">
-                  <Gem size={64} fill="currentColor" className="text-[#D4AF37]" />
+                  <Gem size={64} fill="currentColor" className="text-[#FF00E5]" />
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-2">
-                    <div className="p-1.5 bg-[#D4AF37]/20 rounded-lg border border-[#D4AF37]/30 shadow-inner">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#FF00E5] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#FF00E5]/20 rounded-lg border border-[#FF00E5]/30 shadow-inner">
                       <Gem size={14} fill="currentColor" />
                     </div>
                     Exclusive
                   </span>
-                  <span className="text-[9px] font-black text-black bg-gradient-to-r from-[#D4AF37] to-[#F9E272] px-2 py-0.5 rounded-full shadow-md">500+ pts ou Assinatura</span>
+                  <span className="text-[9px] font-black text-white bg-gradient-to-br from-[#00D1FF] via-[#FF00E5] to-[#FFD600] px-3 py-0.5 rounded-full shadow-md animate-shimmer bg-[length:200%_auto]">500+ pts ou Assinatura (Holograma)</span>
                 </div>
                 <ul className="space-y-1.5">
                   <li className="text-[10px] font-bold flex items-center gap-2">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Prioridade máxima nos horários disputados
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Prioridade máxima nos horários disputados
                   </li>
                   <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Acesso irrestrito ao Lounge VIP
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Acesso irrestrito ao Lounge VIP
                   </li>
                   <li className="text-[10px] font-bold flex items-center gap-2 text-foreground/80">
-                    <CheckCircle size={10} className="text-[#D4AF37]" /> Plano de Cortes Ilimitados (Exclusivo)
+                    <CheckCircle size={10} className="text-[#FF00E5]" /> Plano de Cortes Ilimitados (Exclusivo)
                   </li>
                 </ul>
               </div>
