@@ -287,7 +287,7 @@
       #F0F9FF 100%
     );
     background-size: 400% 400%;
-    animation: gooey-gradient 22s ease-in-out infinite alternate;
+    animation: gooey-gradient 15s ease-in-out infinite;
     box-shadow: 
       0 0 35px rgba(255, 255, 255, 0.25), 
       inset 0 1px 6px rgba(255, 255, 255, 0.9),
