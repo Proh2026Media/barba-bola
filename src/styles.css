@@ -135,7 +135,7 @@
   }
 
   .text-gradient-silver {
-    background: radial-gradient(circle at center, #FFFFFF 0%, #E0E0E0 30%, #A0A0A0 60%, #E0E0E0 100%);
+    background: radial-gradient(circle at center, #000000 0%, #404040 30%, #808080 60%, #404040 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -143,7 +143,7 @@
   }
 
   .text-gradient-bronze {
-    background: radial-gradient(circle at 30% 30%, #FFCBA4 0%, #CD7F32 40%, #8B4513 70%, #FFCBA4 100%);
+    background: radial-gradient(circle at 30% 30%, #000000 0%, #8B4513 40%, #CD7F32 70%, #8B4513 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -151,7 +151,7 @@
   }
 
   .text-gradient-gold {
-    background: radial-gradient(circle at 70% 20%, #FFE29F 0%, #D4AF37 35%, #8A6623 75%, #FFE29F 100%);
+    background: radial-gradient(circle at 70% 20%, #000000 0%, #8A6623 35%, #D4AF37 75%, #8A6623 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -161,20 +161,20 @@
   .text-gradient-hologram {
     background: radial-gradient(
       circle at 50% 50%,
-      #FFFFFF 0%,
-      rgba(0, 0, 0, 0.15) 15%,
+      #000000 0%,
+      rgba(0, 0, 0, 0.8) 15%,
       #70D6FF 30%,
-      #FFFFFF 45%,
+      #000000 45%,
       #FF70A6 60%,
-      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.7) 75%,
       #FFD670 90%,
-      #FFFFFF 100%
+      #000000 100%
     );
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: organic-float 18s linear infinite;
-    filter: drop-shadow(0 0 15px rgba(186, 230, 253, 0.6)) drop-shadow(0 0 5px rgba(251, 207, 232, 0.4));
+    filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.4));
   }
 
   .dark .text-gradient-hologram {
