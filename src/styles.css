@@ -157,6 +157,12 @@
 
   .dark .text-gradient-silver {
     background: radial-gradient(circle at center, #FFFFFF 0%, #E0E0E0 30%, #A0A0A0 60%, #E0E0E0 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
   }
 
   .text-gradient-bronze {
