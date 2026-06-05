@@ -161,9 +161,9 @@ function UnifiedArenaApp() {
               
               <button 
                 onClick={() => setShowVipInfo(true)}
-                className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:brightness-110 active:scale-95 border border-white/20 ${tier.name === 'Exclusive' && !isDarkMode ? 'bg-[#050505] text-white' : tier.badge}`}
+                className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:brightness-110 active:scale-95 border border-white/20 ${tier.name === 'Exclusive' && !isDarkMode ? 'bg-[#050505]' : tier.badge}`}
               >
-                <h2 className="text-3xl font-black tracking-tight uppercase drop-shadow-md">Gabriel Rodrigues</h2>
+                <h2 className={`text-3xl font-black tracking-tight uppercase drop-shadow-md ${tier.name === 'Exclusive' && !isDarkMode ? 'text-gradient-hologram' : ''}`}>Gabriel Rodrigues</h2>
               </button>
 
               <div className="flex gap-4 justify-center mt-4">
