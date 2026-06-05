@@ -161,7 +161,7 @@
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gooey-gradient 18s ease-in-out infinite;
+    animation: gooey-gradient 14s ease-in-out infinite alternate-reverse;
   }
 
   .text-gradient-gold {
