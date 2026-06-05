@@ -139,7 +139,7 @@ function UnifiedArenaApp() {
               <div className="absolute top-0 right-0 p-3">
                 <button 
                   onClick={() => setShowVipInfo(true)}
-                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:scale-110 active:scale-95`}
+                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.bg} ${tier.border} hover:brightness-110 active:scale-95`}
                 >
                   <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-white' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} />
                 </button>
@@ -147,7 +147,7 @@ function UnifiedArenaApp() {
               
               <button 
                 onClick={() => setShowVipInfo(true)}
-                className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:scale-105 active:scale-95 border border-white/20 ${tier.badge}`}
+                className={`inline-block px-8 py-3 rounded-2xl mb-6 shadow-2xl transform transition-all duration-500 hover:brightness-110 active:scale-95 border border-white/20 ${tier.badge}`}
               >
                 <h2 className="text-3xl font-black tracking-tight uppercase drop-shadow-md">Gabriel Rodrigues</h2>
               </button>
@@ -155,7 +155,7 @@ function UnifiedArenaApp() {
               <div className="flex gap-4 justify-center mt-4">
                 <button 
                   onClick={() => setShowVipInfo(true)}
-                  className="text-center px-6 relative group hover:scale-105 transition-transform"
+                  className="text-center px-6 relative group transition-all"
                 >
                   <div className="flex items-center justify-center gap-1 mb-1">
                     <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold opacity-70">Membro</p>
