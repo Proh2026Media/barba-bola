@@ -153,9 +153,9 @@ function UnifiedArenaApp() {
               <div className="absolute top-0 right-0 p-3">
                 <button 
                   onClick={() => setShowVipInfo(true)}
-                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? 'bg-hologram-metallic border-transparent shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]' : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
+                  className={`h-10 w-10 rounded-2xl flex items-center justify-center border transition-all duration-500 shadow-lg backdrop-blur-lg ${tier.name === 'Exclusive' ? (isDarkMode ? 'bg-hologram-metallic border-transparent' : 'bg-[#050505] border-white/20') : tier.bg + ' ' + tier.border} hover:brightness-110 active:scale-95`}
                 >
-                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? 'text-[#050505]' : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: '#050505', stroke: 'none' } : {}} />
+                  <tier.icon size={20} className={`${tier.name === 'Exclusive' ? (isDarkMode ? 'text-[#050505]' : 'text-white') : tier.colorClass.replace('text-gradient-', 'text-')} drop-shadow-[0_0_8px_currentColor]`} style={tier.name === 'Exclusive' ? { fill: isDarkMode ? '#050505' : 'url(#hologram-gradient)', stroke: 'none' } : {}} />
                 </button>
               </div>
               
