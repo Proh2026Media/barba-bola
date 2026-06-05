@@ -61,7 +61,7 @@ function UnifiedArenaApp() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-white/[0.05] p-4 flex items-center justify-between">
+      <header className="sticky top-7 z-30 bg-background/95 backdrop-blur-md border-b border-border p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center text-gold italic font-classic font-bold text-lg">A</div>
           <div>
