@@ -98,8 +98,13 @@ function IconPreviewPage() {
               {set.options.map((opt, optIdx) => (
                 <div 
                   key={optIdx} 
-                  className="bg-card/50 backdrop-blur-lg border border-white/10 p-6 rounded-[32px] shadow-xl hover:bg-white/5 transition-all group flex flex-col items-center text-center"
+                  className={`bg-card/50 backdrop-blur-lg border ${opt.official ? 'border-primary/50 ring-1 ring-primary/20' : 'border-white/10'} p-6 rounded-[32px] shadow-xl hover:bg-white/5 transition-all group flex flex-col items-center text-center relative overflow-hidden`}
                 >
+                  {opt.official && (
+                    <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[8px] font-black uppercase px-3 py-1 rounded-bl-xl tracking-widest">
+                      Oficial
+                    </div>
+                  )}
                   <div className={`p-4 rounded-2xl border ${set.bg} ${set.color} ${set.border} mb-4 group-hover:scale-110 transition-transform shadow-inner`}>
                     <opt.icon size={32} className="drop-shadow-[0_0_8px_currentColor]" />
                   </div>
