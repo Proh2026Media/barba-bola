@@ -61,25 +61,17 @@ function AuthPage() {
     setBusy(true);
     setError(null);
     try {
-      const { lovable } = await import("@/integrations/lovable/index").catch(() => ({ lovable: null as any }));
-      if (lovable?.auth?.signInWithOAuth) {
-        const result = await lovable.auth.signInWithOAuth("google", {
-          redirect_uri: window.location.origin + "/auth?next=" + encodeURIComponent(safeNext),
-        });
-        if (result.error) throw new Error(result.error.message ?? "Google sign-in failed");
-        if (!result.redirected) window.location.href = safeNext;
-      } else {
-        const { error } = await supabase.auth.signInWithOAuth({
-          provider: "google",
-          options: { redirectTo: window.location.origin + "/auth?next=" + encodeURIComponent(safeNext) },
-        });
-        if (error) throw error;
-      }
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: window.location.origin + "/auth?next=" + encodeURIComponent(safeNext) },
+      });
+      if (error) throw error;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Google sign-in failed");
       setBusy(false);
     }
   }
+
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4 text-foreground">
